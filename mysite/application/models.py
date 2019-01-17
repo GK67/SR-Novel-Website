@@ -14,7 +14,7 @@ class Genre(models.Model):
 class Author(models.Model):
     """Model representing an author."""
     authorName = models.OneToOneField(User, on_delete=models.CASCADE)
-    authorId = models.CharField(max_length=200)
+    authorId = models.CharField(max_length=200,blank=True, null=True)
     """bookId = models.OneToManyField()" "book of author ownered"""
 
    
@@ -28,9 +28,9 @@ class Author(models.Model):
         return self.authorId
 class Marker(models.Model):
     """Model representing an author."""
-    markerId = models.CharField(max_length=200)
-    bookId = models.CharField(max_length=200)
-    chapterId = models.CharField(max_length=200)
+    markerId = models.CharField(max_length=200,blank=True, null=True)
+    bookId = models.CharField(max_length=200,blank=True, null=True)
+    chapterId = models.CharField(max_length=200,blank=True, null=True)
     
     
 
@@ -46,14 +46,9 @@ class Marker(models.Model):
 
 class Favorite(models.Model):
   
-    FavoriteId = models.CharField(max_length=200)
-    bookId = models.CharField(max_length=200)
-    
-    
-    
+    FavoriteId = models.CharField(max_length=200,blank=True, null=True)
+    bookId = models.CharField(max_length=200,blank=True, null=True)
 
-   
-    
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
         return reverse('Favorite-detail', args=[str(self.id)])
@@ -64,8 +59,8 @@ class Favorite(models.Model):
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
-    title = models.CharField(max_length=200)
-    bookId = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,blank=True, null=True)
+    bookId = models.CharField(max_length=200,blank=True, null=True)
 
     # Foreign Key used because book can only have one author, but authors can have multiple books
     # Author as a string rather than object because it hasn't been declared yet in the file
@@ -90,9 +85,9 @@ class Book(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) 
 
-    markerId = models.ForeignKey('Marker', blank=True, on_delete=models.SET_NULL, null=True)
+    markerId = models.ManyToManyField('Marker', blank=True)
 
-    favoriteId = models.ForeignKey('Favorite', blank=True, on_delete=models.SET_NULL, null=True)
+    favoriteId = models.ManyToManyField('Favorite', blank=True)
     
     profile_image = models.FileField(blank=True, null=True)   
 
