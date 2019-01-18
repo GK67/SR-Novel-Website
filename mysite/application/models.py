@@ -14,7 +14,7 @@ class Genre(models.Model):
 class Author(models.Model):
     """Model representing an author."""
     authorName = models.OneToOneField(User, on_delete=models.CASCADE)
-    authorId = models.CharField(max_length=200,blank=True, null=True)
+    authorId = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular author')
     """bookId = models.OneToManyField()" "book of author ownered"""
 
    
@@ -60,7 +60,7 @@ class Favorite(models.Model):
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     title = models.CharField(max_length=200,blank=True, null=True)
-    bookId = models.CharField(max_length=200,blank=True, null=True)
+    bookId = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
 
     # Foreign Key used because book can only have one author, but authors can have multiple books
     # Author as a string rather than object because it hasn't been declared yet in the file
