@@ -26,9 +26,9 @@ from django.urls import include
 from django.urls import path
 
 urlpatterns += [
-    path('application/', include('application.urls')),
     
-    path('index', index, name = 'index'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('index/', index, name = 'index'),
 ]
 
 #Add URL maps to redirect the base URL to our application
