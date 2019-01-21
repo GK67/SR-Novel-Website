@@ -35,12 +35,12 @@
 
 				<form method="get" class="login100-form validate-form">
 					 {% csrf_token %}
-    				 {{ form }}
+    				 {{ form.as_p }}
 					<span class="login100-form-title">
 						New User
 					</span>
 					<div class="wrap-input100 validate-input" data-validate = "user name">
-						<input class="input100" type="text" name="text" placeholder="username">
+						<input class="input100" type="text" name="username" placeholder="username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -55,14 +55,14 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="password1" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Password is same">
-						<input class="input100" type="password" name="re-enterpass" placeholder="ReEnter-Password">
+						<input class="input100" type="password" name="password2" placeholder="ReEnter-Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Sign Up
 						</button>
 					</div>
