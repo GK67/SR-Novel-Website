@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from application.models import Profile, Book, Favorite, Marker, Author, Genre
+from application.models import Profile, Book, Marker, Author, Genre
 from django.views import generic
 # Create your views here.
 def index(request):
