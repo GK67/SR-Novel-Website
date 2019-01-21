@@ -77,6 +77,10 @@ class Book(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.bookId
+    def display_genre(self):
+
+    	return ', '.join(genre.name for genre in self.genre.all()[:3])
+    
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
@@ -102,6 +106,11 @@ class Profile(models.Model):
         return self.user.get_full_name()
     def __str__(self):
         return self.user.email()
+    def display_markerId(self):
 
+    	return ', '.join(Marker.markerId for Marker in self.Marker.all()[:3])
+    def display_favoritedId(self):
+
+    	return ', '.join(Favorite.FavoriteId for Favorite in self.Favorite.all()[:3])
     def get_absolute_url(self):
         return reverse('profile', args=[str(self.id)])

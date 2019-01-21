@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from application.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +26,9 @@ from django.urls import include
 from django.urls import path
 
 urlpatterns += [
-    path('application/', include('application.urls')),
+    
+    path('login/', LoginView.as_view(), name='login'),
+    path('index/', index, name = 'index'),
 ]
 
 #Add URL maps to redirect the base URL to our application
