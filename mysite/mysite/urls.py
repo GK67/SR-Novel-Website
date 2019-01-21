@@ -29,6 +29,7 @@ urlpatterns += [
     
     path('login/', LoginView.as_view(), name='login'),
     path('index/', index, name = 'index'),
+    path('signup/',SignUpView.as_view(),name='signup'),
 ]
 
 #Add URL maps to redirect the base URL to our application
