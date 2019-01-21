@@ -1,3 +1,4 @@
+
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -29,6 +30,7 @@ urlpatterns += [
     
     path('login/', LoginView.as_view(), name='login'),
     path('index/', index, name = 'index'),
+    path('signup/',SignUpView.as_view(),name='signup'),
 ]
 
 #Add URL maps to redirect the base URL to our application
@@ -40,5 +42,6 @@ urlpatterns += [
 # Use static() to add url mapping to serve static files during development (only)
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
