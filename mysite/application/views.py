@@ -47,14 +47,18 @@ class SignUpView(generic.TemplateView):
 
     def register(request):
         if request.method == 'GET':
-            f = CustomUserCreationForm(request.GET)
+            f = RegistrationForm(request.GET)
             if f.is_valid():
                 f.save()
-                messages.success(request, 'Account created successfully')
-            
-                return redirect('/index')
- 
+                username=f.cleaned_data.get('username')
+                raw_password=f.cleaned_data.get('password2')
+	            
+	            
+                user = authenticate(username=username,password=raw_password)
+                login(request,user)        
+                return redirect('/')
+
         else:
-            f = CustomUserCreationForm()
- 
-        return render(request, 'index.html', {'form': f})
+            f = RegistrationForm()
+
+            return render(request, 'SignUp.html', {'form': f}) 
