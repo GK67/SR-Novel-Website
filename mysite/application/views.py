@@ -1,12 +1,16 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
 
-from application.models import Profile, Book, Favorite, Marker, Author, Genre
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, render_to_response
+
+from application.models import Profile, Book, Marker, Author, Genre
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import RegistrationForm
+from .forms import RegistrationForm, SignUpForm
+from django.contrib.auth import login as auth_login
+
 def register(request):
     if request.method == 'GET':
         f = RegistrationForm(request.GET)
@@ -34,9 +38,28 @@ def index(request):
 	}
 	return render(request, 'index.html', context=context)
 
+def login(request):
+	context = {
 
-class LoginView(generic.TemplateView):
-    template_name='login.html'
+	}
+	return render(request, 'login.html', context=context)
+
+def signup(request):
+    if request.method =='GET':
+        form = SignUpForm(request.GET)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            auth_login(request, user)
+            return redirect('login')
+    else:
+	    form = SignUpForm() 
+	
+    return render_to_response('SignUp.html',{'form': form})
+
+
 
 class SignUpView(generic.TemplateView):
     template_name='SignUp.html'

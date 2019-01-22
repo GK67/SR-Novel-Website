@@ -33,21 +33,21 @@
 					</a>
 				</div>
 
-				<form method="get" class="login100-form validate-form">
+				<form action="." method="GET" class="login100-form validate-form">
 					 {% csrf_token %}
     				 {{ form.as_p }}
 					<span class="login100-form-title">
 						New User
 					</span>
 					<div class="wrap-input100 validate-input" data-validate = "user name">
-						<input class="input100" type="text" name="username" placeholder="username">
+						<input id="username" class="input100" type="text" name="username" placeholder="username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input id="email" class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -55,14 +55,14 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password1" placeholder="Password">
+						<input id="password1" class="input100" type="password" name="password1" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Password is same">
-						<input class="input100" type="password" name="password2" placeholder="ReEnter-Password">
+						<input id="password2" class="input100" type="password" name="password2" placeholder="ReEnter-Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
