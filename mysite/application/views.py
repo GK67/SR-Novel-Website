@@ -8,26 +8,27 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import RegistrationForm, SignUpForm
+# from .forms import RegistrationForm
+from .forms import SignUpForm
 from django.contrib.auth import login as auth_login
 
-def register(request):
-    if request.method == 'GET':
-        f = RegistrationForm(request.GET)
-        if f.is_valid():
-            f.save()
-            username=f.cleaned_data.get('username')
-            raw_password=f.cleaned_data.get('password2')
+# def register(request):
+#     if request.method == 'GET':
+#         f = RegistrationForm(request.GET)
+#         if f.is_valid():
+#             f.save()
+#             username=f.cleaned_data.get('username')
+#             raw_password=f.cleaned_data.get('password2')
             
             
-            user = authenticate(username=username,password=raw_password)
-            login(request,user)        
-            return redirect('/')
+#             user = authenticate(username=username,password=raw_password)
+#             login(request,user)        
+#             return redirect('/')
 
-    else:
-        f = RegistrationForm()
+#     else:
+#         f = RegistrationForm()
 
-        return render(request, 'SignUp.html', {'form': f}) 
+#         return render(request, 'SignUp.html', {'form': f}) 
 
 
     
@@ -53,7 +54,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('login')
+            return redirect('')
     else:
 	    form = SignUpForm() 
 	
@@ -68,20 +69,20 @@ class SignUpView(generic.TemplateView):
         context = super(SignUpView, self).get_context_data(**kwargs)
         return context
 
-    def register(request):
-        if request.method == 'GET':
-            f = RegistrationForm(request.GET)
-            if f.is_valid():
-                f.save()
-                username=f.cleaned_data.get('username')
-                raw_password=f.cleaned_data.get('password2')
+    # def register(request):
+    #     if request.method == 'GET':
+    #         f = RegistrationForm(request.GET)
+    #         if f.is_valid():
+    #             f.save()
+    #             username=f.cleaned_data.get('username')
+    #             raw_password=f.cleaned_data.get('password2')
 	            
 	            
-                user = authenticate(username=username,password=raw_password)
-                login(request,user)        
-                return redirect('/')
+    #             user = authenticate(username=username,password=raw_password)
+    #             login(request,user)        
+    #             return redirect('/')
 
-        else:
-            f = RegistrationForm()
+    #     else:
+    #         f = RegistrationForm()
 
-            return render(request, 'SignUp.html', {'form': f}) 
+    #         return render(request, 'SignUp.html', {'form': f}) 
