@@ -33,7 +33,7 @@
 					</a>
 				</div>
 
-				<form method="get" class="login100-form validate-form">
+				<form action="/application/login/" method="POST" class="login100-form validate-form">
 					 {% csrf_token %}
     				 {{ form.as_p }}
 					<span class="login100-form-title">

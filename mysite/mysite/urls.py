@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from application.views import *
 
 urlpatterns = [
@@ -25,13 +26,19 @@ urlpatterns = [
 # Use include() to add paths from the catalog application 
 from django.urls import include
 from django.urls import path
-
+'''
 urlpatterns += [
     
     path('login/', LoginView.as_view(), name='login'),
     path('index/', index, name = 'index'),
     path('signup/',SignUpView.as_view(),name='signup'),
+]'''
+from django.conf.urls import include
+
+urlpatterns += [
+    url(r'^application/', include('application.urls')),
 ]
+
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
