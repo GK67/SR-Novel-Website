@@ -1,4 +1,4 @@
-
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
 
@@ -11,7 +11,7 @@ from django.contrib.auth import login, authenticate
 # from .forms import RegistrationForm
 from .forms import SignUpForm
 from django.contrib.auth import login as auth_login
-
+from django.contrib import messages
 # def register(request):
 #     if request.method == 'GET':
 #         f = RegistrationForm(request.GET)
@@ -38,12 +38,26 @@ def index(request):
 
 	}
 	return render(request, 'index.html', context=context)
-
 def login(request):
-	context = {
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        print(username,password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect('/application')
+            
+        else:
+            return HttpResponse("Invalid login details given")
 
-	}
-	return render(request, 'login.html', context=context)
+    return render(request, 'login.html',{})
+        
+# def login(request):
+# 	context = {
+
+# 	}
+# 	return render(request, 'login.html', context=context)
 
 def signup(request):
     if request.method =='GET':
