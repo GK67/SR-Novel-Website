@@ -15,7 +15,7 @@ from django.core.exceptions import ValidationError
 #         fields = ('username', 'first_name','last_name','email','password1','password2')
 
 
-# from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate
 
 
 
