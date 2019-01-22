@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from django.contrib.auth import login, authenticate
 from .forms import RegistrationForm, SignUpForm
-
+from django.contrib.auth import login as auth_login
 
 def register(request):
     if request.method == 'GET':
@@ -45,26 +45,20 @@ def login(request):
 	return render(request, 'login.html', context=context)
 
 def signup(request):
-	context = {
+    if request.method =='GET':
+        form = SignUpForm(request.GET)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            auth_login(request, user)
+            return redirect('login')
+    else:
+	    form = SignUpForm() 
+	
+    return render_to_response('SignUp.html',{'form': form})
 
-	}
-	return render(request, 'SignUp.html', context=context)
-
-from django.contrib.auth import login as auth_login
-def signup_success(request):
-	if request.method == 'POST':
-		form= SignUpForm(request.POST)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data.get('username')
-			raw_password = form.cleaned_data.get('password1')
-			user = authenticate(username=username, password=raw_password)
-			auth_login(request, user)
-			return redirect('index')
-	else:
-		form = SignUpForm()
-
-	return render_to_response('SignUp.html',{'form': form})
 
 
 class SignUpView(generic.TemplateView):
