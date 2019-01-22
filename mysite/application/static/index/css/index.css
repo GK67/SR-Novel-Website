@@ -1,0 +1,98 @@
+.authentication .afc,.authentication .amz,.authentication .atc,.luckBox .awardinfo li,.luckBox .awardinfo li.blue,.luckBuy .wfIco,.luckBuy .zstIco,.product .absorbed h3,.product .absorbed i,.product .safety h3,.product .safety i,.product .sincerity h3,.product .sincerity i,.weixin .desc .st{background:url(../images/index.png) no-repeat}
+#banner{position:relative;margin:0 auto;min-width:990px;overflow:hidden;width:1200px;height:295px;z-index:100;padding-top:10px}
+
+
+#flexslid{position:relative;height:295px;overflow:hidden;margin-left:255px}
+#flexslid .slider{position:relative;z-index:1}
+.picScroll-top{ margin:0 auto;  width:944px;  overflow:hidden; position:relative;  border:1px solid #ccc;   }
+.picScroll-top .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+.picScroll-top .hd .prev,.picScroll-top .hd .next{ display:block;  width:9px; height:5px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+	 cursor:pointer; background:url("../images/arrow.png") 0 -100px no-repeat;}
+.picScroll-top .hd .next{ background-position:0 -140px;  }
+.picScroll-top .hd .prevStop{ background-position:-60px -100px;  }
+.picScroll-top .hd .nextStop{ background-position:-60px -140px;  }
+.picScroll-top .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px; zoom:1; }
+.picScroll-top .hd ul li{ float:left;  width:9px; height:9px; overflow:hidden; margin-right:5px; text-indent:-999px; cursor:pointer; background:url("../images/icoCircle.gif") 0 -9px no-repeat; }
+.picScroll-top .hd ul li.on{ background-position:0 0; }
+.picScroll-top .bd{}
+.picScroll-top .bd ul{ overflow:hidden; zoom:1; }
+.picScroll-top .bd ul li{ text-align:center; zoom:1; }
+.picScroll-top .bd ul li .pic{ text-align:center; }
+.picScroll-top .bd ul li .pic img{ width:944px; height:295px; display:block;}
+.picScroll-top .bd ul li .pic a:hover img{ border-color:#999;  }
+
+
+.loginBox{width:288px;height:295px;background:rgba(0,0,0,.6);overflow:hidden;position:absolute;right:0;top:0;z-index:102;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#66000000', EndColorStr='#66000000')}
+.loginBox .title{width:200px;margin:35px auto 0;text-align:center;line-height:16px}
+.loginBox .title h2{font-size:18px;font-family:'楷体';color:#fff;font-weight:400}
+.loginBox .title h2 span{letter-spacing:3px}
+.loginBox .buyInfo{width:263px;margin:20px auto 0;font-size:14px;text-align:left;color:#fff}
+.loginBox .buyInfo strong{color:#fe7c31;font-size:24px;font-weight:400}
+.loginBox .loginInfo{width:240px;margin:30px auto 0;text-align:center;color:#fff}
+.loginBox .loginOther{width:207px;margin:20px auto 0;text-align:center;color:#fff;font-size:14px}
+.maincontent{width:898px;float:left;margin:13px 13px 0 0}
+.product{height:130px}
+.product .safety{background:#54d197;margin-right:11px}
+.product .absorbed{background:#fe9a42;margin-right:11px}
+.product .sincerity{background:#8ad357}
+.product .safety i{width:76px;height:84px;display:inline-block;position:absolute;top:15px;left:21px}
+.product .absorbed i{background-position:-82px 0;width:80px;height:80px;display:inline-block;position:absolute;top:15px;left:21px}
+.product .sincerity i{background-position:-168px 0;width:73px;height:72px;display:inline-block;position:absolute;top:15px;left:21px}
+.product .safety h3{background-position:-145px -88px;width:59px;height:30px}
+.product .absorbed h3{background-position:-211px -88px;width:60px;height:30px}
+.product .sincerity h3{background-position:-280px -88px;width:60px;height:30px}
+.product li{height:128px;width:290px;border:1px solid #ecebeb;position:relative;float:left}
+.product .title{margin-left:118px;height:31px;text-indent:-9999em;margin-bottom:10px;margin-top:16px}
+.product li p{font-size:14px;color:#fff;margin-left:118px;width:159px;line-height:20px}
+.hotLottery{margin-top:10px;border:1px solid #eae9e9;background:#fff}
+.hotLottery .title{height:40px;line-height:40px;padding-left:25px;font-size:16px;display:block;color:#676767}
+.hotLottery .ulList{border-top:1px solid #eae9e9;height:147px}
+.hotLottery .ulList li{width:297px;height:147px;float:left;border-right:1px solid #eae9e9;overflow:hidden;position:relative}
+.hotLottery .ulList li.noBor{border-right:none}
+.hotLottery .ulList .desc{position:relative;overflow:hidden}
+.hotLottery .ulList i{position:absolute;top:20px;left:19px}
+.hotLottery .ulList .desc p{display:inline-block;color:#666;height:57px;line-height:20px;margin:31px 0 0 100px;overflow:hidden}
+.hotLottery .ulList .lotbuy{margin-left:23px}
+.hotLottery .ulList .lotbuy h2{display:inline-block;color:#666;width:120px;font-size:18px}
+.luckBet{border-top:1px solid #eae9e9}
+.luckBet .luckNav{display:inline-block;margin-left:21px}
+.luckBet .luckNav li{height:50px;line-height:50px;color:#676767;width:69px;text-align:left;font-weight:700;cursor:pointer;float:left;font-size:16px}
+.luckBet .luckNav li.on,.luckBet .luckNav li:hover{color:#fe7c31}
+.luckBet .luckcon{padding:0 28px 20px 19px;display:inline-block}
+.luckBet .luckBox i{position:absolute;left:0;top:0}
+.luckBet .luckBox .desc{margin:10px 0 0 93px;color:#676767;line-height:25px}
+.luckBet .luckBox .desc strong{font-size:14px}
+.luckBox .awardinfo{width:478px;margin-top:11px;display:inline-block}
+.luckBox .awardinfo li{background-position:0 -404px;font-size:20px;width:48px;height:48px;line-height:38px;display:inline-block;text-align:center;float:left;margin-right:17px;font-family:'Microsoft Yahei'}
+.luckBox .awardinfo li.blue{background-position:-50px -404px}
+.luckBox .awardinfo li input{width:30px;height:30px;border:0;font-weight:700;text-align:center;font-size:20px;background:0;color:#fff;margin-top:4px}
+.luckBox .awardinfo li input:focus{background:#fff;color:#333}
+.luckBuy{margin-left:60px;margin-top:20px}
+.luckBuy .zstIco{background-position:0 -382px;width:17px;height:17px;display:inline-block;vertical-align:top;margin-right:12px}
+.luckBuy .wfIco{background-position:-22px -382px;width:17px;height:17px;display:inline-block;vertical-align:top;margin-right:12px;margin-left:16px}
+.luckBuy .buying{margin:20px 0 19px}
+.luckBuy .buying a:hover{color:#fff;text-decoration:none}
+.siderBox{width:288px;float:left;margin-top:13px}
+.notice{border:1px solid #eae9e9;padding:10px 18px 18px;background:#fff}
+.notice h2{color:#676767;font-size:16px;height:27px;line-height:27px;display:inline-block}
+.notice li{height:26px;line-height:26px;font-size:12px;color:#676767;overflow:hidden;width:240px}
+.notice li i{background-position:0 0;width:3px;height:3px;border:2px solid #fe8138;border-radius:5px;vertical-align:middle;display:inline-block;margin-right:8px;float:left;margin-top:9px}
+.notice li a{width:180px;text-align:left;overflow:hidden;float:left}
+.notice li a:hover{color:#fe7c31}
+.weixin{border:1px solid #eae9e9;padding:0 18px 11px 0;margin-top:12px;position:relative;background:#fff}
+.weixin i{background:url(../images/weixinLogo.png) no-repeat;width:104px;height:104px;position:absolute;top:8px;left:7px}
+.weixin .desc{margin:16px 0 0 120px}
+.weixin .desc .st{background-position:0 -91px;width:138px;height:47px;display:inline-block}
+.weixin .desc p{font-size:14px;line-height:19px;color:#969595;margin-top:5px}
+.authentication{margin-top:11px}
+.authentication .afc{background-position:0 -144px;width:288px;height:51px;display:inline-block}
+.authentication .atc{background-position:0 -203px;width:288px;height:51px;display:inline-block;margin-top:6px}
+.authentication .amz{background-position:0 -265px;width:288px;height:51px;display:inline-block;margin-top:6px}
+#loginInfo_index{color:#fff;font-size:14px;width:246px;margin:20px 0 0 28px}
+#loginInfo_index p{line-height:25px}
+#loginInfo_index .accLink{color:#fff}
+#loginInfo_index .accLink:hover{text-decoration:none;color:#fff}
+#loginInfo_index .btn{margin-top:16px;margin-right:5px;background:#fe7c31;width:65px;height:28px;font-size:12px;line-height:28px;border-top:1px solid #b6663b;text-align:center;color:#fff;text-decoration:none;display:inline-block}
+#loginInfo_index .btn:hover{text-decoration:none;color:#fff}
+#loginInfo_index .btn1{background:#57d198;border-top:1px solid #479e80}
+#loginInfo_index .btn1:hover{text-decoration:none;color:#fff}
