@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
 
@@ -8,27 +8,26 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.views import generic
 from django.contrib.auth import login, authenticate
-# from .forms import RegistrationForm
-from .forms import SignUpForm
+from .forms import RegistrationForm, SignUpForm
 from django.contrib.auth import login as auth_login
-from django.contrib import messages
-# def register(request):
-#     if request.method == 'GET':
-#         f = RegistrationForm(request.GET)
-#         if f.is_valid():
-#             f.save()
-#             username=f.cleaned_data.get('username')
-#             raw_password=f.cleaned_data.get('password2')
+
+def register(request):
+    if request.method == 'GET':
+        f = RegistrationForm(request.GET)
+        if f.is_valid():
+            f.save()
+            username=f.cleaned_data.get('username')
+            raw_password=f.cleaned_data.get('password2')
             
             
-#             user = authenticate(username=username,password=raw_password)
-#             login(request,user)        
-#             return redirect('/')
+            user = authenticate(username=username,password=raw_password)
+            login(request,user)        
+            return redirect('/')
 
-#     else:
-#         f = RegistrationForm()
+    else:
+        f = RegistrationForm()
 
-#         return render(request, 'SignUp.html', {'form': f}) 
+        return render(request, 'SignUp.html', {'form': f}) 
 
 
     
@@ -38,26 +37,12 @@ def index(request):
 
 	}
 	return render(request, 'index.html', context=context)
+
 def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        print(username,password)
-        if user is not None:
-            auth_login(request, user)
-            return redirect('/application')
-            
-        else:
-            return HttpResponse("Invalid login details given")
+	context = {
 
-    return render(request, 'login.html',{})
-        
-# def login(request):
-# 	context = {
-
-# 	}
-# 	return render(request, 'login.html', context=context)
+	}
+	return render(request, 'login.html', context=context)
 
 def signup(request):
     if request.method =='GET':
@@ -68,7 +53,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('/application')
+            return redirect('login')
     else:
 	    form = SignUpForm() 
 	
@@ -83,20 +68,20 @@ class SignUpView(generic.TemplateView):
         context = super(SignUpView, self).get_context_data(**kwargs)
         return context
 
-    # def register(request):
-    #     if request.method == 'GET':
-    #         f = RegistrationForm(request.GET)
-    #         if f.is_valid():
-    #             f.save()
-    #             username=f.cleaned_data.get('username')
-    #             raw_password=f.cleaned_data.get('password2')
+    def register(request):
+        if request.method == 'GET':
+            f = RegistrationForm(request.GET)
+            if f.is_valid():
+                f.save()
+                username=f.cleaned_data.get('username')
+                raw_password=f.cleaned_data.get('password2')
 	            
 	            
-    #             user = authenticate(username=username,password=raw_password)
-    #             login(request,user)        
-    #             return redirect('/')
+                user = authenticate(username=username,password=raw_password)
+                login(request,user)        
+                return redirect('/')
 
-    #     else:
-    #         f = RegistrationForm()
+        else:
+            f = RegistrationForm()
 
-    #         return render(request, 'SignUp.html', {'form': f}) 
+            return render(request, 'SignUp.html', {'form': f}) 
