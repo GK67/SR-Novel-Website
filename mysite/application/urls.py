@@ -10,6 +10,7 @@ urlpatterns = [
 	path('', views.index, name='index'),
 	url(r'^login/$', views.login, name = 'login'),
 	url(r'^signup/$', views.signup, name = 'signup'),
+	url(r'^forget/$', views.forget_v, name = 'forget_u'),
 	#path('login/', views.LoginView.as_view(), name='login'),
     #path('index/', index, name = 'index'),
     #path('signup/',SignUpView.as_view(),name='signup'),
