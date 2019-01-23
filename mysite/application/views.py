@@ -8,9 +8,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm
+
+from .forms import RegistrationForm, SignUpForm
+
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
+
+
 
 
 
