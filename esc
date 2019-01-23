@@ -1,0 +1,293 @@
+[33mcommit f6f33824bbedbc6fbbc0b03f39b9f61d2a288e54[m[33m ([m[1;36mHEAD -> [m[1;32mshipeng2[m[33m, [m[1;31morigin/shipeng2[m[33m)[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 19:52:07 2019 -0500
+
+    login page finished
+
+[33mcommit cf97318ae94c7afa91c7d0b2e4a3908c243d6eaf[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 19:49:32 2019 -0500
+
+    stupid github, finally login view
+
+[33mcommit 26551ff1d6c0ca43f3fea762ec56518f8c3800e0[m[33m ([m[1;31morigin/Ruifeng-Zhang[m[33m)[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 19:40:04 2019 -0500
+
+    recover
+
+[33mcommit 54265a751b54aa0ff03e350cbecbf61c8ff9c4bf[m
+Merge: 64f6617 1f05e47
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 19:31:30 2019 -0500
+
+    Merge branch 'master' of https://github.com/GK67/SR-Novel-Website
+
+[33mcommit 1f05e4752765d92cff836f8c73ffc6e1195c84a3[m
+Merge: 5dcf4a5 71e2146
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 19:30:40 2019 -0500
+
+    Merge pull request #16 from GK67/Shipeng-Yu
+    
+    stupid github
+
+[33mcommit 71e21464133648acfa92142931ca61738a842179[m[33m ([m[1;31morigin/Shipeng-Yu[m[33m)[m
+Merge: c848083 5dcf4a5
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 19:30:34 2019 -0500
+
+    Merge branch 'master' into Shipeng-Yu
+
+[33mcommit c848083c839b913a6ca0b09c77dd6cf3b13168b7[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 19:27:37 2019 -0500
+
+    stupid github
+
+[33mcommit 64f6617a0a87ee40e4aec769c716a31580ea64ff[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 19:19:46 2019 -0500
+
+    merge
+
+[33mcommit 5dcf4a59d0384b25c63baef3f82a7ca868e99442[m[33m ([m[1;31morigin/shipeng[m[33m)[m
+Merge: 4c13dce 6ac0834
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 19:07:43 2019 -0500
+
+    Merge pull request #15 from GK67/shipeng
+    
+    login page
+
+[33mcommit 6ac08348e6904df62e7f30a17f93a239c1ccbbea[m
+Merge: e9a1999 4c13dce
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 19:06:09 2019 -0500
+
+    worked login page
+
+[33mcommit e9a1999d5d659fecb6b20f581e08e2dcb06db0c5[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 19:03:21 2019 -0500
+
+    login page working
+
+[33mcommit 5c5d25be1a18c15430d03847d698ee8bdadf25d4[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 18:59:44 2019 -0500
+
+     login page backend
+
+[33mcommit 4c13dce5010bd202a81e2d248ef5db689b9e02db[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:52:39 2019 -0500
+
+    recover
+
+[33mcommit 1773841c5c7dacef3ff47cfc330483fa31e4bba4[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:41:28 2019 -0500
+
+    delete all
+
+[33mcommit c060ffc2382dc788dbece37f3617a68854dacef3[m
+Merge: 6a41658 744b142
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:33:25 2019 -0500
+
+    fix
+
+[33mcommit 6a416587ea98c65f5e0779759ea1727a3117c9c4[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:31:37 2019 -0500
+
+    fix
+
+[33mcommit 744b1421a15c69cda2d89658ca878e21b3ef20c9[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:28:34 2019 -0500
+
+    fix
+
+[33mcommit 166b30297076d4ee16a347e42408995e9a566109[m
+Merge: 34982b7 4c039d7
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:25:42 2019 -0500
+
+    fix
+
+[33mcommit 34982b73b51f8fd3296109f89aa3dc0082689eb1[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 18:23:31 2019 -0500
+
+    go back
+
+[33mcommit 4c039d7388ba9794723bc61c2e4a75f7754defaa[m
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 17:04:03 2019 -0500
+
+    Add files via upload
+
+[33mcommit f29f3581caf1867a39af599ae5f38e9666b71e67[m
+Merge: 4f3ca9a 486bd2c
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 16:46:21 2019 -0500
+
+    Merge pull request #14 from GK67/shipeng
+    
+    redirect to home page
+
+[33mcommit 486bd2cfd58a1d38c8543ca2a4ec33c02932042c[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 16:44:44 2019 -0500
+
+    redirect to home page
+
+[33mcommit 4f3ca9ad42bd591441c5530f8464ada095c470e3[m
+Merge: 68ec206 1cbb164
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 16:34:51 2019 -0500
+
+    Merge pull request #13 from GK67/shipeng
+    
+    work sign up page
+
+[33mcommit 1cbb164912d974c5cd70319eef880163d7bb8224[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 16:33:27 2019 -0500
+
+    work sign up page
+
+[33mcommit 68ec206ec4952431938715d54d2ceba47f68ef57[m
+Merge: 53e9422 2e3b7a0
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 16:26:27 2019 -0500
+
+    fix
+
+[33mcommit 2e3b7a0081a80cdbe52026b032d04d69f0ddfe42[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 16:25:28 2019 -0500
+
+    fix
+
+[33mcommit 1862daa10772652c06fef83919cc1007e2e15035[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 16:12:25 2019 -0500
+
+    fix sign up
+
+[33mcommit 53e94220329c0c3028d625155cc0a604f722dcf4[m
+Merge: fff21ed aa8b5c0
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Tue Jan 22 15:56:24 2019 -0500
+
+    Merge pull request #11 from GK67/shipeng
+    
+    Shipeng
+
+[33mcommit aa8b5c0dd2c7e96562560b0fed41343d5f48b51a[m
+Merge: d8ee4dc fff21ed
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 15:55:24 2019 -0500
+
+    sql confilt
+
+[33mcommit d8ee4dcd5f3fa63cab60a3361b08d550559e7eb9[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Tue Jan 22 15:50:48 2019 -0500
+
+    changes
+
+[33mcommit fff21edd87ede1f17efeb29fbd9f528690305375[m
+Merge: b35d292 eb42a33
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 15:48:45 2019 -0500
+
+    merge
+
+[33mcommit b35d29243b05a2282d6de27bca3de61456fb49a3[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 15:47:57 2019 -0500
+
+    merge
+
+[33mcommit eb42a331bde41417c132b89e4bf54be0ca4f23a1[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Tue Jan 22 15:46:27 2019 -0500
+
+    modify sign up
+
+[33mcommit e319d3bcd7dd9fa24eb1de6f1e2550a933aa4957[m
+Merge: ff4a543 8c30991
+Author: RUI123 <ruifeng.zhang1993@gmail.com>
+Date:   Mon Jan 21 23:23:39 2019 -0500
+
+    Merge pull request #10 from GK67/Ruifeng-Zhang
+    
+    Ruifeng zhang
+
+[33mcommit 8c309918f2cf90fd1f94f320a337c83a05a7a78f[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Mon Jan 21 23:20:27 2019 -0500
+
+    fixing and working on sign up
+
+[33mcommit 6bcc78aa7c6fc6579b3b1e15d70456a62231de95[m
+Merge: 6504378 bcd3df1
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Mon Jan 21 17:50:45 2019 -0500
+
+    merge conflict
+
+[33mcommit bcd3df1f79384f15c9b5874ace0d7aa75eaa90c0[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Mon Jan 21 17:42:49 2019 -0500
+
+    add something
+
+[33mcommit 6504378978fb5fd56f124d36ee91c3fc9303c33e[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Mon Jan 21 17:37:34 2019 -0500
+
+    fix models
+
+[33mcommit ff4a543a4f86f1a2cb60aa9b81d3713a0de4516b[m
+Merge: f08f3ea e70565d
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Mon Jan 21 17:27:37 2019 -0500
+
+    Merge pull request #9 from GK67/shipeng
+    
+    work on sign up page, unable to register
+
+[33mcommit e70565d824ceae0e3f6e26e18f1943e33a82b154[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Mon Jan 21 17:27:15 2019 -0500
+
+    work on sign up page, unable to register
+
+[33mcommit f08f3ea9b53a00f95a2c8bd930f760c61a3cec5e[m
+Merge: d9b762c 0cd9413
+Author: GK67 <32550836+GK67@users.noreply.github.com>
+Date:   Mon Jan 21 15:54:04 2019 -0500
+
+    Merge pull request #8 from GK67/shipeng
+    
+    ssignup page update
+
+[33mcommit 0cd94132ac85af97db6a704edaba1536623d01cc[m
+Author: GK67 <shipeng123@gmail.com>
+Date:   Mon Jan 21 15:53:29 2019 -0500
+
+    signup page update
+
+[33mcommit c24425dc363d53c685dde2089cb5896b821b2b6a[m
+Author: Ruifeng Zhang <ruifeng.zhang1993@gmail.com>
+Date:   Mon Jan 21 15:11:01 2019 -0500
+
+    recover
+
+[33mcommit 6247e150951c50376977c76decb67f8b7c198ede[m
+Author: Ruif
