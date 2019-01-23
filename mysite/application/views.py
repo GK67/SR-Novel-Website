@@ -60,3 +60,5 @@ class SignUpView(generic.TemplateView):
         context = super(SignUpView, self).get_context_data(**kwargs)
         return context
 
+class ProfileView(generic.TemplateView):
+    template_name ='Profile.html'

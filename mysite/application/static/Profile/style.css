@@ -1,0 +1,624 @@
+/*
+Theme Name: Responsive CV Website
+Description: Responsive CV Website
+Author: Samuel Dalusung
+*/
+
+
+/*= GENERAL STYLES
+--------------------------------------------------------*/
+	body {
+		font-size: 12px;
+		font-family:'Open Sans', Tahoma, Arial;
+		background: url('../images/light_grey.png');
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	 h1 {font-size: 34px;}
+	
+	#container {
+	    width:866px;
+		margin:90px auto;
+	}
+	
+	#content {
+	    background:#f6f6f6;
+		-moz-border-radius-bottomright: 10px;
+		-webkit-border-bottom-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		-moz-border-radius-bottomleft: 10px;
+		-webkit-border-bottom-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+       -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	}
+	
+
+
+	
+/*= MENU/NAVIGATION
+--------------------------------------------------------*/		
+	
+	.menu {
+	    background:#dadada;
+		height:60px;
+		position:relative;	
+	}
+	
+	.tabs li {
+	    height:72px;
+		float:right;
+	}
+	
+	.tabs {
+		height:116px;
+		z-index:100;
+		position: absolute;
+		margin:-14px 0 0 0;
+		
+	}
+	
+	.tabs li {
+	    height:72px;
+		float:left;
+	}
+	
+	.tabs li > a {
+	    width:80px;
+		font-size:13px;
+		padding:50px 0 0 0;
+		display:block;
+		height:35px;
+		background-repeat:no-repeat;
+		text-align:center;
+		color:#b9b9b9;
+	}
+	
+	.tabs li.active {
+		background:#01bdf3;
+	}
+	
+	.tabs li.active a {
+	   font-size: 13px;
+		font-weight: bold;
+		text-decoration: none;
+		color:#ffef6a;
+	}
+	
+	.tabs li .profile-tab {
+		background-image:url(../images/profile-icon.png);
+		background-position:center 22px;
+	}
+	.tabs li .resume-tab {
+		background-image:url(../images/resume-icon.png);
+		background-position:center 20px;
+	}
+	.tabs li .portfolio-tab {
+		background-image:url(../images/portfolio-icon.png);
+		background-position:center 26px;
+	}
+	.tabs li .connect-tab {
+		background-image:url(../images/contact-icon.png);
+		background-position:center 24px;
+	}
+
+	
+	.tabs .active .profile-tab {
+		background-image:url(../images/profile-icon-active.png);
+	}
+	
+	.tabs .active .resume-tab {
+		background-image:url(../images/resume-icon-active.png);
+	}
+	.tabs .active .portfolio-tab {
+		background-image:url(../images/portfolio-icon-active.png);
+	}
+	.tabs .active .connect-tab {
+		background-image:url(../images/contact-icon-active.png);
+	}
+	
+
+/*= PROFILE TAB
+--------------------------------------------------------*/	
+
+    #profile {
+		background:#01bdf3;	
+		-webkit-border-bottom-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		-moz-border-radius-bottomleft: 10px;
+		-webkit-border-bottom-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		overflow:hidden;
+	}
+	
+	.about {
+	    width:490px;
+		float:left;
+		margin:30px 0 0 20px;
+	}
+	
+	.about .profile-photo {
+		float:left;
+		padding:24px 15px 0 20px;
+	}
+
+	.about h1 {
+	    margin:31px 0 0 0;
+	    color:#ffef6a;
+		font-weight: bold;
+		line-height:36px;
+	}
+	
+	.about h3 {
+		font-size:16px;
+		color:#fff;
+		margin-top:11px;
+		font-style:italic;
+		line-height:18px;
+	}
+	
+	.about p {
+		font-size:13px;
+		color:#fff;
+		margin:15px 0 0 0;
+		line-height:20px;
+	}
+	
+	
+	.basic-info {
+	    width:310px;
+		float:left;
+		margin:10px 0 0 0;
+		padding:20px 0 0 20px;
+		min-height:240px;
+		margin-left:10px;
+	}
+	
+	.basic-info li {
+		font-size:14px;
+		margin: 0 0 10px 0;
+		overflow: hidden;
+	}
+	
+	.basic-info li label {
+		color:#ffef6a;
+		float:left;
+		padding:4px 7px;
+		font-weight: bold;
+	
+	}
+	
+	.basic-info li h3 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #ffef6a;
+	margin: 0;
+	padding: 0;
+	}
+	
+	.basic-info li span {
+	    width:170px;
+		color:#fff;
+		float:right;
+		font-weight: bold;
+	}
+	
+	
+/*= RESUME TAB
+--------------------------------------------------------*/	
+	
+    #resume {
+		padding:20px;
+		overflow:hidden;
+	}
+	.skills-section, .resume-section {
+		float:left;
+	}
+
+	.resume-section {
+		width:460px;
+		padding:0 60px 0 0;
+	}
+	 h3.main-heading{
+		font-size:21px;
+		color: #999;
+		margin:0 0 10px 0;
+		text-align: center;
+		font-weight: bold;
+	}
+	
+	.date {
+		padding:10px 0 0 0;
+	}
+	.date li {
+		margin:0 0 20px 0;
+	}
+	
+   .date li .date-box .date-range {
+		font-size:14px;
+		color: #444;
+		float:right;
+		font-weight: normal;
+		line-height:17px;
+		margin: 0 0 0 10px;
+		padding:2px 6px;
+	}
+	
+	
+	.date li .date-box {
+		line-height:17px;
+		margin-left:11px;
+		color: #444;
+		font-size:13px;
+		padding-left:15px;
+	}
+
+	.date li .date-box h4 {
+	   font-size:15px;
+	   color: #444;
+		line-height:24px;	
+	}
+	.date li .date-box h5 {
+		line-height:18px;
+		font-size:13px;
+		color: #999;
+	}
+	.date li .date-box p {
+		color: #666;
+		font-size:12px;
+		margin-top:5px;
+	}
+	
+	.skills {
+		margin:25px 0 0 0;
+		overflow:hidden;
+	}
+	
+	.skills-section {
+		width:305px;
+	}
+	
+	.skills li {
+		margin:0 0 15px 0;
+		float:left;
+		padding:0 0 0 30px;
+	}
+	
+	.skills li h4 {
+	    font-size:15px;
+		color: #444;
+		width:140px;
+		float:left;
+	}
+	
+/*= PORTFOLIO TAB
+--------------------------------------------------------*/	
+
+    #portfolio {
+		padding:0 20px 20px 20px;
+		overflow:hidden;
+	}
+	#portfolio .heading {
+		font-size:21px;
+		color: #999;
+		text-align: center;
+		margin:0 0 10px 0;
+		padding:24px 0;
+		font-weight: bold;
+	}
+
+	#portfolios li {
+		width:180px;
+		height:185px;
+		float:left;
+		margin:0 12px 20px 13px;
+		text-align:center;
+	}
+	
+	#portfolios li:hover {
+		height:185px;
+	}
+	
+	#portfolios img {
+	    width:180px;
+		height:120px; 
+		border: 3px solid #dadada;
+	}
+	
+	#portfolios img:hover {
+		height:120px; 
+		width:180px;
+		border: 3px solid #ffef6a;
+		transform:rotate(7deg);
+		-ms-transform:rotate(7deg); /* IE 9 */
+		-webkit-transform:rotate(7deg); /* Opera, Chrome, and Safari */
+	}
+	
+	#portfolios li a {
+		text-decoration: none;
+	}
+	
+	#portfolios li .portfolio-title {
+		font-size:16px;
+		color: #999999;
+		margin:11px 0 0 0;
+	}
+	
+	#portfolios li .desc {
+		font-size:12px;
+		color:#999;
+		font-style: italic;
+		line-height:25px;
+	}
+	
+/*= CONNECT TAB
+--------------------------------------------------------*/		
+	
+    #connect {
+		padding:30px 0;
+		overflow:hidden;
+	}
+	
+	.contact-form .main-heading {
+        font-size:21px;
+		color: #999;
+		font-weight: bold;
+		text-align: center;
+		margin:0 0 10px 0;
+		padding:0;
+	}
+	
+	.contact-form {
+		float:left;
+		width: 810px;
+		padding:0 auto;
+	}
+
+	#connectform {
+		padding:0 0 0 30px;
+	}
+	#connectform p {
+		margin:0 0 15px 0;
+	}
+	#connectform p label {
+		display:block;
+		color:#999;
+		margin-bottom:8px;
+		font-size:14px;
+	}
+	#connectform .input {
+		width:60%;
+	    height: 20px;
+		line-height: 20px;
+	}
+	
+	#connectform .textarea {
+		width:95%;
+	}
+	#connectform .submit {
+		color:#fff;
+		background: #b8b8b8;
+		padding:10px 8px;
+		border:none;
+		cursor:pointer;
+		font-size:15px;
+	}
+	#connectform .submit:hover {
+	    color: #ffef6a;
+		background: #01bdf3;
+	}
+	
+	#connectform .input, .textarea {
+	    font-size: 15px;
+		color:#999;
+		background:#f5f5f5;
+		padding:7px;
+		border: 1px solid #ccc;
+	}
+	
+	
+	
+	
+
+/*-------------------------------------------------------*/
+	/* RESPONSIVE */
+/*-------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#container {
+		width:750px;
+	}
+	
+	.about {
+		width:410px;
+	}
+	.about h1 {
+		line-height:38px;
+		font-size:30px
+	}
+	.about h3 {
+		font-size:14px;
+		line-height:14px;
+		
+	}
+	.basic-info {
+		width:280px;
+		margin-right:10px;
+	}
+
+	.resume-section {
+		width:420px;
+		padding-right:30px;
+	}
+	
+	.skills-section {
+		width:300px;
+	}
+
+	#portfolios {
+		width:750px;
+	}
+	#portfolios li {
+		margin-right:60px;
+	}
+
+	.contact-form {
+		width:720px;
+
+	}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#container {
+		width:470px;
+	}
+	
+	.about {
+		width:420px;
+		display:block;
+	}
+	.about h1 {
+		line-height:38px;
+		font-size:30px
+	}
+	.about h3 {
+		font-size:14px;
+		line-height:14px;
+	}
+
+	.basic-info {
+		margin-top:0;
+		display:block;
+		width:420px;
+		background:none;
+		border-top:1px solid #fdc62a;
+	}
+
+	.tabs {
+		padding-left:5px;
+	}
+	.resume-section {
+		width:420px;
+		padding-right:60px;
+	}
+
+	.skills-section {
+	
+		width:420px;
+	}
+	
+	.skills li h4 {
+		width:260px;
+		list-style-type: circle;
+	}
+	
+	#portfolios {
+		width:450px;
+	}
+	#portfolios li {
+		margin:0 40px 0 0;
+	}
+
+	.contact-info {
+		width:420px;
+	}
+	.contact-form {
+		margin-top:20px;
+		width:420px;
+	}
+}
+
+
+@media only screen and (max-width: 479px) {
+	
+	#container {
+		width:300px;
+		margin:20px auto;
+	}
+	
+	.about {
+		width:280px;
+		margin:10px 0 15px 10px;
+		display:block;
+		
+	}
+	.about .profile-photo {
+		margin: 0 20px 0 40px;
+	}
+	
+	.about h1 {
+		font-size:30px;
+		line-height:38px;
+		text-align:center;
+	}
+	
+	.about p {
+		text-align:center;
+	}
+	
+	.about h3 {
+	   line-height:14px;
+		font-size:14px;
+		text-align:center;
+	}
+
+
+	.basic-info {
+		width:280px;
+		background:none;
+		margin:0 0 0 10px;
+		padding-left:0;
+		display:block;
+		border-top:1px dashed #ffef6a;
+		min-height:220px;
+	}
+	
+	.basic-info li {
+		font-size:13px;
+
+	}
+	
+	.tabs {
+		padding-left:0px;
+	}
+
+	.tabs li.active {
+		background: none;
+	}
+	
+	.tabs li > a {
+	    font-size:14px;
+		width:75px;
+	}
+	
+	#resume {
+		padding:10px;
+	}
+	.resume-section {
+		width:280px;
+		padding: 0 60px 0 0;
+	}
+	.skills-section {
+		width:280px;
+	}
+	.skills li h4 {
+		width:120px;
+	}
+	
+
+	#portfolios {
+		width:280px;
+	}
+	
+	#portfolios li {
+		margin: 0 0 0 40px;
+	}
+
+	.contact-form {
+		margin:20px 0 0 0;
+		width:280px;
+		padding: 0;
+	}
+}
