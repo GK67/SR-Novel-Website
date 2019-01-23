@@ -1,153 +1,82 @@
-<!DOCTYPE html>
-<!-- saved from url=(0055)https://1stwebdesigner.com/demos/responsive-cv/#connect -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Responsive CV Website</title>
-<meta name="robots" content="noindex,follow">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" type="text/css" href="./Responsive CV Website_files/reset.css">
-<link rel="stylesheet" type="text/css" href="./Responsive CV Website_files/style.css">
-<link rel="stylesheet" type="text/css" href="./Responsive CV Website_files/css">
-<script type="text/javascript" src="./Responsive CV Website_files/jquery.min.js.download"></script>
-<script type="text/javascript" src="./Responsive CV Website_files/jquery.easytabs.min.js.download"></script>
+{% load static %}
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'profile/profile.css' %}">
+<!------ Include the above in your HEAD tag ---------->
 </head>
+<!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
 <body>
-<div id="container">
-<div id="content" data-easytabs="true">
-<div class="menu">
-<ul class="tabs">
-<li class=""><a href="https://1stwebdesigner.com/demos/responsive-cv/#profile" class="profile-tab">Profile</a></li>
-<li class=""><a href="https://1stwebdesigner.com/demos/responsive-cv/#resume" class="resume-tab">Resume</a></li>
-<li class=""><a href="https://1stwebdesigner.com/demos/responsive-cv/#portfolio" class="portfolio-tab">Portfolio</a></li>
-<li class="active"><a href="https://1stwebdesigner.com/demos/responsive-cv/#connect" class="connect-tab active">Connect</a></li>
-</ul>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="{% static 'login/images/img-01.png' %}" class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						Marcus Doe
+					</div>
+					<div class="profile-usertitle-job">
+						Developer
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+					<button type="button" class="btn btn-success btn-sm">Follow</button>
+					<button type="button" class="btn btn-danger btn-sm">Message</button>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">
+							<i class="glyphicon glyphicon-home"></i>
+							Overview </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-user"></i>
+							Account Settings </a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+							<i class="glyphicon glyphicon-ok"></i>
+							Tasks </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-flag"></i>
+							Help </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+			   Some user related content goes here...
+            </div>
+		</div>
+	</div>
 </div>
-<div id="profile" class="" style="display: none;">
-<div class="about">
-<div class="profile-photo"><img src="./Responsive CV Website_files/profile-picture.png" width="127" height="154"></div>
-<h1>JOHN DOE</h1>
-<h3><i>Web Designer/Video Editor</i></h3>
-<p>is a web, graphic and video enthusiast based in Kansas City, Missouri, USA. Have a passion for designing detailed, creative and modern websites &amp; graphics. </p>
-</div>
-<ul class="basic-info">
-<li><h3>BASIC INFO </h3></li>
-<li><label>Name</label><span>John Doe</span></li>
-<li><label>Birthdate</label><span>December 5, 1990</span></li>
-<li><label>Address</label><span>Kansas City, Missouri</span></li>
-<li><label>Phone</label><span>+000 000 000 000</span></li>
-<li><label>Email</label><span>email@email.com</span></li>
-<li><label>Website</label><span>www.website.com</span></li>
-</ul>
-</div>
-<div id="resume" style="position: static; visibility: visible; display: none;" class="">
-<div class="resume-section">
-<h3 class="main-heading">Educational Background</h3>
-<ul class="date">
-<li>
-<div class="date-box">
-<h4>Crest High School<span class="date-range">2003 - 2007</span></h4>
-<h5>Effingham, Kansas City, Missouri</h5>
-</div>
-</li>
-<li>
-<div class="date-box">
-<h4>Emporia State University<span class="date-range">2007 - 2011</span></h4>
-<h5>Emporia, Missouri</h5>
-</div>
-</li>
-<div class="clear"></div>
-</ul>
-<h3 class="main-heading">Employment History</h3>
-<ul class="date">
-<li>
-<div class="date-box">
-<h4>EGG Graphic Design<span class="date-range">2011 - 2012</span></h4>
-<h5>Kansas City, Missouri</h5>
-</div>
-</li>
-<li>
-<div class="date-box">
-<h4>Creative Design Mind<span class="date-range">2012 - 2013</span></h4>
-<h5>New York City, USA</h5>
-</div>
-</li>
-</ul>
-</div>
-<div class="skills-section">
-<h3 class="main-heading"><span>Technical Skills</span></h3>
-<ul class="skills">
-<li> <h4>* Graphic Design</h4></li>
-<li> <h4>* Wordpress </h4></li>
-<li> <h4>* Creative Writing</h4></li>
-<li> <h4>* Flash Dev.</h4> </li>
-</ul>
-</div>
-</div>
-<div id="portfolio" style="position: static; visibility: visible; display: none;" class="">
-<div class="heading">My Latest Projects</div>
-<ul id="portfolios">
-<li>
-<a href="https://1stwebdesigner.com/demos/responsive-cv/#">
-<img src="./Responsive CV Website_files/portfolio-image-thumb.png">
-<h2 class="portfolio-title">Website 1</h2>
-<span class="desc">E-commerce Site</span>
-</a>
-</li>
-<li>
-<a href="https://1stwebdesigner.com/demos/responsive-cv/#">
-<img src="./Responsive CV Website_files/portfolio-image-thumb.png">
-<h2 class="portfolio-title">Website 2</h2>
-<span class="desc">Dating Site</span>
-</a>
-</li>
-<li>
-<a href="https://1stwebdesigner.com/demos/responsive-cv/#">
-<img src="./Responsive CV Website_files/portfolio-image-thumb.png">
-<h2 class="portfolio-title">Website 3</h2>
-<span class="desc">Social Site</span>
-</a>
-</li>
-<li>
-<a href="https://1stwebdesigner.com/demos/responsive-cv/#">
-<img src="./Responsive CV Website_files/portfolio-image-thumb.png">
-<h2 class="portfolio-title">Movie FX</h2>
-<span class="desc">Short Film Intro</span>
-</a>
-</li>
-</ul>
-</div>
-<div id="connect" style="position: static; visibility: visible; display: block;" class="active">
-<div class="contact-form">
-<h3 class="main-heading"><span>Connect With Us</span></h3>
-<form action="https://1stwebdesigner.com/demos/responsive-cv/" id="connectform">
-<p>
-<label for="name">Name</label> <input type="text" name="name" class="input">
-</p>
-<p>
-<label for="email">Email</label> <input type="text" name="email" class="input">
-</p>
-<p>
-<label for="message">Message</label> <textarea name="message" cols="50" rows="6" class="textarea"></textarea>
-</p>
-<input type="submit" name="submit" value="Send Now" class="submit">
-</form>
-</div>
-</div>
-</div>
-</div>
-
-<script>
-		jQuery(document).ready(function(){ 
-			var $content 		= $("#content");
-			$content.easytabs({
-			  animate			: true,
-			  transitionIn		:'slideDown',
-			  transitionOut		:'slideUp',
-			  animationSpeed	:500,
-			  tabs				:"> .menu > ul > li",
-			  tabActiveClass	:'active',
-			});
-		});	
-</script>
-
-</body></html>
+<center>
+<strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a></strong>
+</center>
+<br>
+<br>
+</body>
+</html>
