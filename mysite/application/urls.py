@@ -12,6 +12,7 @@ urlpatterns = [
 	url(r'^signup/$', views.signup, name = 'signup'),
 	# url(r'^profile/$',views.profile,name = 'profile'),
 	path('profile/', views.ProfileView.as_view(), name='profile'),
+	path('editProfile/',views.editProfileView.as_view(),name='editProfile'),
     #path('index/', index, name = 'index'),
     #path('signup/',SignUpView.as_view(),name='signup'),
 
