@@ -8,12 +8,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
+<<<<<<< HEAD
+from .forms import SignUpForm, UploadFileForm, UserForm
+=======
 from .forms import SignUpForm, ForgetForm, UploadFileForm
+>>>>>>> master
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from django.core.mail import send_mail
 
-
+from django.contrib.auth.models import User
 
     
 # Create your views here.
@@ -68,23 +72,30 @@ def forget_v(request):
     
     return render_to_response('change_password.html',{'form': form})
 
-def update_profile(request):
+
+def editProfile(self,request):
+    print("get request?")
     args = {}
 
     if request.method == 'POST':
-        form = UpdateProfile(request.POST, instance=request.user)
-        form.actual_user = request.user
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('update_profile_success'))
+        print('this is get')
+        # form = UploadFileForm(request.POST, instance = request.user.profile)
+        user_form = UserForm(request.POST, instance = request.user)
+        
+        if user_form.is_valid():
+            # form.save()
+            user_form.save()
+            return redirect('/profile')
+        else:
+            return HttpResponse("Invalid profile editting")
     else:
-        form = UpdateProfile()
-
-    args['form'] = form
-    return render(request, 'profile/', args)
-
-
-
+        print("form is not right")
+        # form = UploadFileForm(instance = request.user.profile)
+        user_form= UserForm(instance = request.user)
+        # args['form'] = form
+        print("return render")
+        # return render(request, 'profile/',{'user_form': user_form,'profile_form': profile_form})
+        return render(request, 'editProfile.html',{'user_form': user_form})
 
 
 
@@ -100,3 +111,26 @@ class ProfileView(generic.TemplateView):
 
 class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'
+    print("fku")
+    # def post(self,request):
+    #     print("get request?")
+    #     args = {}
+
+    #     if request.method == 'POST':
+    #         print('this is get')
+    #         form = UploadFileForm(request.POST, instance = request.user.profile)
+    #         user_form = UserForm(request.POST, instance = request.user)
+            
+    #         if user_form.is_valid() and form.is_valid():
+    #             form.save()
+    #             user_form.save()
+    #             return redirect('profile')
+    #         else:
+    #             return HttpResponse("Invalid profile editting")
+    #     else:
+    #         print("form is not right")
+    #         form = UploadFileForm(instance = request.user.profile)
+    #         user_form= UserForm(instance = request.user)
+    #         args['form'] = form
+    #         print("return render")
+    #         return render(request, 'profile/',{'user_form': user_form,'profile_form': profile_form})

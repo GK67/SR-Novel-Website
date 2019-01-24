@@ -28,12 +28,20 @@ class SignUpForm(UserCreationForm):
 #         fields = ('username','password')
 
 class UploadFileForm(forms.ModelForm):
-    username = forms.CharField(max_length=50,required=False)
-    ProfileImage = forms.FileField(required=False)
-    aboutMe = forms.CharField(max_length=250,required=False)
-    email = forms.EmailField(max_length=254,required=False, help_text='Required. Inform a valid email address.')
-
+    about_me = forms.CharField(max_length=3000, required=False)
+    
     class Meta:
+<<<<<<< HEAD
+        model = Profile
+        fields = ('about_me',)
+
+class UserForm(forms.ModelForm):
+	username = forms.CharField(max_length=30, required=True)
+	email = forms.EmailField(max_length=254,required=True)
+	class Meta:
+		model = User
+		fields = ( 'email', 'username',)
+=======
         model = User
 
         fields = ('username', 'ProfileImage', 'aboutMe','email')
@@ -65,3 +73,4 @@ class ForgetForm(forms.Form):
         model = User
         fields = ('email',)
 
+>>>>>>> master
