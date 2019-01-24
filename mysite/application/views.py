@@ -59,23 +59,23 @@ def editProfile(self,request):
 
     if request.method == 'POST':
         print('this is get')
-        form = UploadFileForm(request.POST, instance = request.user.profile)
+        # form = UploadFileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance = request.user)
         
-        if user_form.is_valid() and form.is_valid():
-            form.save()
+        if user_form.is_valid():
+            # form.save()
             user_form.save()
-            return redirect('profile')
+            return redirect('/profile')
         else:
             return HttpResponse("Invalid profile editting")
     else:
         print("form is not right")
-        form = UploadFileForm(instance = request.user.profile)
+        # form = UploadFileForm(instance = request.user.profile)
         user_form= UserForm(instance = request.user)
-        args['form'] = form
+        # args['form'] = form
         print("return render")
-        return render(request, 'profile/',{'user_form': user_form,'profile_form': profile_form})
-
+        # return render(request, 'profile/',{'user_form': user_form,'profile_form': profile_form})
+        return render(request, 'editProfile.html',{'user_form': user_form})
 
 
 
