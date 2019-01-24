@@ -58,10 +58,10 @@ def forget_v(request):
         if form.is_valid():
 
             email = form.cleaned_data.get('email')
-            send_mail("Subject here",
-                "Here is the message.",
-                "from@example.com",
-                ['secondaryrui@gmail.com'])
+            send_mail("Forget Password",
+                "Here is your pass.",
+                "codingrui@gmail.com",
+                [email])
             return redirect('login')
     else:
         form = ForgetForm() 
