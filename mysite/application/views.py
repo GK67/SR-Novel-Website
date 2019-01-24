@@ -52,20 +52,26 @@ def signup(request):
     return render_to_response('SignUp.html',{'form': form})
 
 
-def update_profile(request):
-    args = {}
+# def update_profile(request):
+#     print("get request?")
+#     args = {}
 
-    if request.method == 'POST':
-        form = UpdateProfile(request.POST, instance=request.user)
-        form.actual_user = request.user
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('update_profile_success'))
-    else:
-        form = UpdateProfile()
+#     if request.method == 'POST':
+#         print('this is get')
+#         form = UpdateProfile(request.POST, instance=request.user.profile)
+#         user_form = UserForm(request.POST, instance=request.user)
+        
+#         if form.is_valid() and user_form.is_valid():
+#             form.save()
+#             user_form.save()
+#             return HttpResponseRedirect(reverse('update_profile_success'))
+#     else:
+#         print("form is not right")
+#         form = UpdateProfile()
 
-    args['form'] = form
-    return render(request, 'profile/', args)
+#         args['form'] = form
+#         print("return render")
+#         return render(request, 'profile/', args)
 
 
 
@@ -84,3 +90,24 @@ class ProfileView(generic.TemplateView):
 
 class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'
+    print("fku")
+    def update_profile(self, request, *args, **kwargs):
+        print("get request?")
+        args = {}
+
+        if request.method == 'POST':
+            print('this is get')
+            form = UploadFileForm(request.POST, instance=request.user.profile)
+            user_form = UserForm(request.POST, instance=request.user)
+            
+            if form.is_valid():
+                form.save()
+                user_form.save()
+                return redirect('profile')
+        else:
+            print("form is not right")
+            form = UploadFileForm()
+
+            args['form'] = form
+            print("return render")
+            render_to_response(request, 'profile/',{'user_form': user_form,'profile_form': profile_form})
