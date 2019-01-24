@@ -1,0 +1,31 @@
+{% extends "NavBar.html" %}
+
+<!-- title -->
+{% block title%}<title>Edit Profile</title>{% endblock %}
+
+{% load static %}
+
+<!-- css -->
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'application/editProfile/edit_profile.css' %}" />{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 col-centered">
+      <h1 align="center">Edit Profile</h1>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-lg-7 col-centered">
+        <form method="post">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+              <div class="text-center">
+            <button type="submit">Save Changes</button>
+              </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}
