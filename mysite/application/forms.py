@@ -27,8 +27,6 @@ class SignUpForm(UserCreationForm):
 #         model = User
 #         fields = ('username','password')
 
-
-
 class UploadFileForm(forms.ModelForm):
     username = forms.CharField(max_length=50,required=False)
     ProfileImage = forms.FileField(required=False)
@@ -37,6 +35,7 @@ class UploadFileForm(forms.ModelForm):
 
     class Meta:
         model = User
+
         fields = ('username', 'ProfileImage', 'aboutMe','email')
 
     def clean_email(self):
@@ -58,3 +57,11 @@ class UploadFileForm(forms.ModelForm):
             user.save()
 
         return user
+
+class ForgetForm(forms.Form):
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ('email',)
+
