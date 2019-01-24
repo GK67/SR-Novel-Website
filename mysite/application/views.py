@@ -8,9 +8,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
+<<<<<<< HEAD
 from .forms import SignUpForm, UploadFileForm, UserForm
+=======
+from .forms import SignUpForm, ForgetForm, UploadFileForm
+>>>>>>> master
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
+from django.core.mail import send_mail
 
 from django.contrib.auth.models import User
 
@@ -51,6 +56,21 @@ def signup(request):
     
     return render_to_response('SignUp.html',{'form': form})
 
+def forget_v(request):
+    if request.method =='GET':
+        form = ForgetForm(request.GET)
+        if form.is_valid():
+
+            email = form.cleaned_data.get('email')
+            send_mail("Forget Password",
+                "Here is your pass.",
+                "codingrui@gmail.com",
+                [email])
+            return redirect('login')
+    else:
+        form = ForgetForm() 
+    
+    return render_to_response('change_password.html',{'form': form})
 
 
 def editProfile(self,request):

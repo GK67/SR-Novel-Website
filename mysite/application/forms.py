@@ -27,12 +27,11 @@ class SignUpForm(UserCreationForm):
 #         model = User
 #         fields = ('username','password')
 
-
-
 class UploadFileForm(forms.ModelForm):
     about_me = forms.CharField(max_length=3000, required=False)
     
     class Meta:
+<<<<<<< HEAD
         model = Profile
         fields = ('about_me',)
 
@@ -42,3 +41,36 @@ class UserForm(forms.ModelForm):
 	class Meta:
 		model = User
 		fields = ( 'email', 'username',)
+=======
+        model = User
+
+        fields = ('username', 'ProfileImage', 'aboutMe','email')
+
+    def clean_email(self):
+        username = self.cleaned_data.get('username')
+        email = self.cleaned_data.get('email')
+
+        if email and User.objects.filter(email=email).exclude(username=username).count():
+            raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
+        return email
+
+    def save(self, commit=True):
+        user = super(RegistrationForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        user.username = self.cleaned_data['username']
+        user.Profile.about_me = self.cleaned_data['aboutMe']
+        user.Profile.profile_image = self. cleaned_data['ProfileImage']
+        
+        if commit:
+            user.save()
+
+        return user
+
+class ForgetForm(forms.Form):
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ('email',)
+
+>>>>>>> master
