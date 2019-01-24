@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm
+from .forms import SignUpForm, ForgetForm, UploadFileForm
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -68,6 +68,25 @@ def forget_v(request):
     
     return render_to_response('change_password.html',{'form': form})
 
+def update_profile(request):
+    args = {}
+
+    if request.method == 'POST':
+        form = UpdateProfile(request.POST, instance=request.user)
+        form.actual_user = request.user
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('update_profile_success'))
+    else:
+        form = UpdateProfile()
+
+    args['form'] = form
+    return render(request, 'profile/', args)
+
+
+
+
+
 
 class SignUpView(generic.TemplateView):
     template_name='SignUp.html'
@@ -75,6 +94,9 @@ class SignUpView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(SignUpView, self).get_context_data(**kwargs)
         return context
-
+    
 class ProfileView(generic.TemplateView):
     template_name ='Profile.html'
+
+class editProfileView(generic.TemplateView):
+    template_name ='editProfile.html'
