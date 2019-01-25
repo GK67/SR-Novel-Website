@@ -104,6 +104,7 @@ class Profile(models.Model):
     	return ', '.join(favorite.title for favorite in self.favorite.all()[:3])
     def get_absolute_url(self):
         return reverse('profile', args=[str(self.id)])
+        
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
