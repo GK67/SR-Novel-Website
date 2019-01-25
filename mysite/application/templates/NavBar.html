@@ -50,8 +50,17 @@
   <a class="nav-link" href="{% url 'profile' %}">
   <span class="navbar-text">
     		{{ user.get_username }}
-  		  </span>
-  		  </a>
+
+  </span>
+  
+  </a>
+  <a class="nav-link" href="{% url 'logout' %}">
+  <span class="navbar-text">
+        Log Out
+
+  </span>
+  
+  </a>
   {% endif %}
 </nav>
           

@@ -14,7 +14,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from django.core.mail import send_mail
 
-
+from django.contrib.auth import logout
 
     
 # Create your views here.
@@ -47,7 +47,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('login')
+            return redirect('index')
     else:
         form = SignUpForm() 
     
@@ -84,7 +84,9 @@ def edit_profile(request):
         user_form=UserForm(instance = request.user)
         return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form})
 
-
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 
 
