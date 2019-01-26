@@ -94,8 +94,6 @@ class Profile(models.Model):
         return self.user.get_username()
     def __str__(self):
         return self.user.get_full_name()
-    def __str__(self):
-        return self.user.email()
     def display_markerId(self):
 
     	return ', '.join(marker.chapterId for marker in self.marker.all()[:3])
