@@ -33,9 +33,10 @@ urlpatterns = [
 		name='password_reset_complete'),
 	#path('login/', views.LoginView.as_view(), name='login'),
 	# url(r'^profile/$',views.profile,name = 'profile'),
-	path('profile/', views.ProfileView.as_view(), name='profile'),
-
-	path('editProfile/',views.editProfileView.as_view(),name='editProfile'),
+	url('profile/<int:pk>', views.ProfileView.as_view(), name='profile'),
+	url('editprofile', views.edit_profile, name = 'edit-profile'),
+	url('logout', views.logout_view, name = 'logout'),
+	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),
     #path('signup/',SignUpView.as_view(),name='signup'),

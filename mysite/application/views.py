@@ -8,12 +8,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm, UploadFileForm
+from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm
+
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from django.core.mail import send_mail
 
-
+from django.contrib.auth import logout
 
     
 # Create your views here.
@@ -46,7 +47,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('login')
+            return redirect('index')
     else:
         form = SignUpForm() 
     
@@ -68,22 +69,24 @@ def forget_v(request):
     
     return render_to_response('change_password.html',{'form': form})
 
-def update_profile(request):
-    args = {}
-
+def edit_profile(request):
     if request.method == 'POST':
-        form = UpdateProfile(request.POST, instance=request.user)
-        form.actual_user = request.user
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('update_profile_success'))
+        profile_form = EditProfileForm(request.POST, instance = request.user.profile)
+        user_form = UserForm(request.POST, instance=request.user)
+        if profile_form.is_valid() and user_form.is_valid():
+            profile_form.save()
+            user_form.save() 
+            # pk = request.user.pk
+            # pk = str(pk)
+            return redirect('index')
     else:
-        form = UpdateProfile()
+        profile_form = EditProfileForm(instance = request.user.profile)
+        user_form=UserForm(instance = request.user)
+        return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form})
 
-    args['form'] = form
-    return render(request, 'profile/', args)
-
-
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 
 
@@ -96,7 +99,11 @@ class SignUpView(generic.TemplateView):
         return context
     
 class ProfileView(generic.TemplateView):
+    model = Profile
     template_name ='Profile.html'
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+        return context
 
 class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'

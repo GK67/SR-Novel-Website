@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
 
 class Genre(models.Model):
@@ -99,3 +101,12 @@ class Profile(models.Model):
     	return ', '.join(favorite.title for favorite in self.favorite.all()[:3])
     def get_absolute_url(self):
         return reverse('profile', args=[str(self.id)])
+        
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+#code to auto update profiles for user changes
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
