@@ -1,0 +1,16 @@
+{% extends "application/NavBar.html" %}
+{% block content %}
+	{% for book in booklist %}
+		<article class="media content-section">
+		 	<img class="rounded-circle article-img" src="{{ book.book_image }}">
+		 	<div class="media-body">
+		 		<div class="article-metadata">
+		 			<a class="mr-2" href="#"> {{ book.author }}</a>
+		 			<small class="test-muted"> {{ book.date_updated|date:"F d, Y" }}  </small>
+		 		</div>
+		 		<h2><a class = "article-title" href=" {% url 'book-detail' book.id %} "> {{ book.title }} </a></h2>
+		 		<p class="article-content"> {{ book.summary }} in list html</p>
+		 	</div>
+		 </article>
+	{% endfor %}
+{% endblock %}

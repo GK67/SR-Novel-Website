@@ -1,12 +1,10 @@
 from django.contrib import admin
-from application.models import Profile, Book, Marker, Author, Genre
+from application.models import Book, Marker, Author, Genre
 
 # Register your models here
 
 #admin.site.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
-	list_display = ('user', 'display_markerId','display_favoritedId', 'profile_image','about_me')
-admin.site.register(Profile,ProfileAdmin)
+
 
 #admin.site.register(Book)
 class BookAdmin(admin.ModelAdmin):

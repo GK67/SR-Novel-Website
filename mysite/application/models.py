@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 
 class Genre(models.Model):
@@ -52,7 +53,7 @@ class Book(models.Model):
     # Foreign Key used because book can only have one author, but authors can have multiple books
     # Author as a string rather than object because it hasn't been declared yet in the file
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
-    
+    book_image = models.FileField(blank=True, null=True)
     summary = models.TextField(max_length=1000, help_text='Enter a brief description of the book')
     isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
     
@@ -61,6 +62,7 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
     wordCount = models.IntegerField(default=0)
     charpterCount = models.IntegerField(default=0)
+    date_uploaded = models.DateTimeField(default = timezone.now)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -73,32 +75,3 @@ class Book(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
         return reverse('book-detail', args=[str(self.id)])
-
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) 
-
-    favorite = models.ManyToManyField('Book')
-
-    marker = models.ManyToManyField('Marker', blank=True)
-    
-    profile_image = models.FileField(blank=True, null=True)   
-
-    about_me = models.TextField(blank=True, null=True)
-
-    """favorites = models.ManyToManyField('Book', blank=True)
-
-    markers = models.ManyToManyField('Marker',blank=True)"""
-    def __str__(self):
-        return self.user.get_username()
-    def __str__(self):
-        return self.user.get_full_name()
-    def __str__(self):
-        return self.user.email()
-    def display_markerId(self):
-
-    	return ', '.join(marker.chapterId for marker in self.marker.all()[:3])
-    def display_favoritedId(self):
-
-    	return ', '.join(favorite.title for favorite in self.favorite.all()[:3])
-    def get_absolute_url(self):
-        return reverse('profile', args=[str(self.id)])

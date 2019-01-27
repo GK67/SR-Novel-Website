@@ -1,4 +1,4 @@
-{% extends "NavBar.html" %}
+{% extends "application/NavBar.html" %}
 
 {% load static %}
 {% block content %} 
@@ -6,6 +6,13 @@
 <html>
  <head lang="en"> 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  {% if title %}
+    <title>Django Book - {{ title }}</title> 
+  {% else %}
+    <title>Django Book</title>
+  {% endif %}
+
   <title>SR-Novel-Website</title> 
   <meta name="keywords" content="" /> 
   <meta name="description" content="" />
@@ -16,6 +23,11 @@
   <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
  </head> 
  <body> 
+      {% for book in books %}
+        <h1>{{ book.title }} </h1>
+        <p>By {{ book.author }} on {{ book.date_uploaded|date:"F d, Y" }}</p>
+        <p> content </p>
+      {% endfor %}
   <div class="header w1200 clearfix"> 
    <div class="fl"> 
     <a class="logo" title="SR-Novel-Website"> <img src="{% static 'index/images/siteLogo.png' %}"  /> </a> 
@@ -36,6 +48,7 @@
            <div class="box">
             <a href="#"><span class="gameLogo-list-s"><i class="gameLogo SSQ"></i></span><span class="text fs16">marker list<i style="top:0" class="zs"></i></span><em class="info fee fs12 fl">Book 1 else</em></a>
            </div>
+
            <div class="box">
             <a href="#"><span class="gameLogo-list-s"><i class="gameLogo DLT"></i></span><span class="text fs16">Book 2<i style="top:0" class="zs"></i></span><em class="info blue fs12 fl">book 2 ekse</em></a>
            </div>

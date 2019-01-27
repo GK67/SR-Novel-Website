@@ -4,13 +4,11 @@ from django.conf.urls import include
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-
+from .views import BookListView, BookDetailView, BookCreateView, BookUpdateView
 
 urlpatterns = [
 
 	path('', views.index, name='index'),
-	url(r'^login/$', views.login, name = 'login'),
-	url(r'^signup/$', views.signup, name = 'signup'),
 	url(r'^forget/$', views.forget_v, name = 'forget_u'),
 
 	url(r'^password-reset/$', 
@@ -33,10 +31,11 @@ urlpatterns = [
 		name='password_reset_complete'),
 	#path('login/', views.LoginView.as_view(), name='login'),
 	# url(r'^profile/$',views.profile,name = 'profile'),
-	path('profile/', views.ProfileView.as_view(), name='profile'),
 
-	path('editProfile/',views.editProfileView.as_view(),name='editProfile'),
-
+	path('books/', BookListView.as_view(),name='booklist'),
+	path('book/<int:pk>/', BookDetailView.as_view(),name='book-detail'),
+	path('book/<int:pk>/update', BookUpdateView.as_view(),name='book-update'),
+	path('book/create_book/', BookCreateView.as_view(),name='book-create'),
     #path('index/', index, name = 'index'),
     #path('signup/',SignUpView.as_view(),name='signup'),
 

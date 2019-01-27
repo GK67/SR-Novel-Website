@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'application.apps.ApplicationConfig',
+    'user_account.apps.UserAccountConfig', 
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,11 @@ EMAIL_HOST_PASSWORD = 'coding123'
 
 STATIC_URL = '/static/'
 
+CRISPY_TEMPLATE_PACK ='bootstrap4'
+
+LOGIN_REDIRECT_URL ='index'
+
+LOGIN_URL = 'login'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL='/media/'

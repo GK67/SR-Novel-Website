@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from application.models import Profile, Book, Marker, Author, Genre
+from application.models import Book, Marker, Author, Genre
 from django.core.exceptions import ValidationError
 
 from django.contrib.auth import authenticate
