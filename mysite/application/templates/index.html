@@ -1,17 +1,32 @@
 {% extends "NavBar.html" %}
-
 {% load static %}
-{% block content %} 
-<!DOCTYPE html>
-<html>
- <head lang="en"> 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>SR-Novel-Website</title> 
-  <meta name="keywords" content="" /> 
-  <meta name="description" content="" />
-  <link href="{% static 'index/css/lib.min.css' %}" type="text/css" rel="stylesheet" />
-  
-  <link href="{% static 'index/css/index.css' %}" type="text/css" rel="stylesheet" />
+{% block content %}
+  <!DOCTYPE html>
+  <html>
+    <head lang="en">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>SR-Novel-Website</title>
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <link href="{% static 'index/css/lib.min.css' %}" type="text/css" rel="stylesheet" />
+      
+      <link href="{% static 'index/css/index.css' %}" type="text/css" rel="stylesheet" />
+      <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
+    </head>
+    <body>
+      <div class="header w1200 clearfix">
+        <div class="fl">
+          <a class="logo" title="SR-Novel-Website"> <img src="{% static 'index/images/siteLogo.png' %}"  /> </a>
+        </div>
+        <div class="fl" style="margin-left:20px;">
+        </div>
+        <div class="fr service">
+          <span class="siteTel"></span>
+        </div>
+      </div>
+     
+    <div class="pageBady custom clearfix">
+
 
   <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
  </head> 
@@ -222,4 +237,5 @@
     </script> 
  </body>
 </html>
+
 {% endblock %}
