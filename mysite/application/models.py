@@ -92,8 +92,12 @@ class Profile(models.Model):
     markers = models.ManyToManyField('Marker',blank=True)"""
     def __str__(self):
         return self.user.get_username()
+<<<<<<< HEAD
     def __str__(self):
         return self.user.get_full_name()
+=======
+
+>>>>>>> master
     def display_markerId(self):
 
     	return ', '.join(marker.chapterId for marker in self.marker.all()[:3])
