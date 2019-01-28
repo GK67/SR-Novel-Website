@@ -16,128 +16,82 @@
   <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
  </head> 
  <body> 
-  <div class="header w1200 clearfix"> 
-   <div class="fl"> 
-    <a class="logo" title="SR-Novel-Website"> <img src="{% static 'index/images/siteLogo.png' %}"  /> </a> 
-   </div> 
-   <div class="fl" style="margin-left:20px;"> 
-   </div> 
-   <div class="fr service"> 
-    <span class="siteTel"></span>  
-   </div> 
-  </div> 
+
   <div class="topNav clearfix"> 
    <div class="w1200"> 
     <ul class="fl funcTab"> 
-     <li id="lotteryListEntry" class="pr"> <h1 class="all">SR-Novel-Website</h1><span class="wi">SR-Novel-Website</span> 
-      <!---<div id="lotteryList" style="display: none;"> 
-      </div>--->
+     <li  class="pr">  
         <div style="" id="lotteryList">
            <div class="box">
-            <a href="#"><span class="gameLogo-list-s"><i class="gameLogo SSQ"></i></span><span class="text fs16">marker list<i style="top:0" class="zs"></i></span><em class="info fee fs12 fl">Book 1 else</em></a>
+            <a href="#"><span class="text fs16"><h2>marker list</h2></span></a>
            </div>
+
            <div class="box">
-            <a href="#"><span class="gameLogo-list-s"><i class="gameLogo DLT"></i></span><span class="text fs16">Book 2<i style="top:0" class="zs"></i></span><em class="info blue fs12 fl">book 2 ekse</em></a>
+            <a href="#"><span class="text fs16">Book 1</span></a>
            </div>
-           <div class="box box-own" style="height:50px;">
-            <span class="gameLogo-list-s"><i class="gameLogo CQSSC"></i></span>
-            <ul>
-             <li class="fs16"><a href="#">book3</a>&nbsp;&nbsp;<a href="#">book4</a></li>
-             <li class="fs16"><a href="#">book5</a></li>
-            </ul>
+
+           <div class="box">
+            <a href="#"><span class="text fs16">Book 2</span></a>
            </div>
-           <div class="box box-own" style="height:50px;">
-            <span class="gameLogo-list-s"><i class="gameLogo JX11X5"></i></span>
-            <ul>
-             <li class="fs16" style="line-height:46px;"><a href="#">book6</a>&nbsp;&nbsp;<a href="#">book7</a></li>
-            </ul>
+
+           <div class="box">
+            <a href="#"><span class="text fs16">Book 3</span></a>
            </div>
-           <div class="box box-w" style="height:50px;">
-            <span class="gameLogo-list-s"><i class="gameLogo AHKS"></i></span>
-            <ul>
-             <li class="fs16" style="line-height:46px;"><a href="#">book8</a>&nbsp;&nbsp;<a href="#">book9</a></li>
-            </ul>
+
+           <div class="box">
+            <a href="#"><span class="text fs16">Book 4</span></a>
            </div>
-           <div class="box nob box-pl morebox box-none">
-            <div class="show-tophalf"></div>
-            <div style="width:322px" class="showbg">
-             <a href="#"><span class="gameLogo-list-s"><i class="gameLogo FC3D"></i></span><span class="text fs16">book10<i class="zs"></i></span></a>
-             <a href="#"><span class="gameLogo-list-s"><i class="gameLogo PLS"></i></span><span class="text fs16 c8c">book11</span></a>
-            </div>
+
+           <div class="box">
+            <a href="#"><span class="text fs16">Book 5</span></a>
            </div>
-          </div>
-      
+
+           <div class="box">
+            <a href="#"><span class="text fs16">Book 6</span></a>
+           </div>
+
+          </div> 
      </li> 
-     <li class="own"><a href="{% url 'index' %}">Home Page</a></li> 
-     <li><a href="{% url 'login' %}">Login</a></li> 
-     <li><a href="#">Book Type</a></li> 
-     <li><a href="#">Full</a></li>
-     <li><a href="#">Extra</a></li> 
-     <li><a href="">Connect Us</a></li> 
+      
     </ul> 
    </div> 
-  </div> 
+  </div>
+
   <div class="pageBady custom clearfix"> 
    <div id="banner" class="clearfix"> 
     <div class="w1200 pr" style="z-index: 101;width:1199px;">
          <div id="flexslid">
          <!--图片滚动 start-->
               <div class="picScroll-top">
-                <div class="bd">
-                    <ul class="picList">
-                        <li>
-                        <div class="pic"><a target="_blank" href="###"><img src="{% static 'index/images/01.jpg' %}"></a></div>
-                        </li>
-                        <li>
-                        <div class="pic"><a target="_blank" href="###"><img src="{% static 'index/images/01.jpg' %}"></a></div>
-                        </li>
-                        <li>
-                        <div class="pic"><a target="_blank" href="###"><img src="{% static 'index/images/01.jpg' %}"></a></div>
-                        </li>
-                    </ul>
-                </div>
+                Midlle pieces
             </div>
+
+            <div class="loginBox"> 
+      <div class="title"> 
+       <h2><span>Favorite List </span><br /> <em class="fs12">DREAM CHANCE LIFE</em></h2> 
+      </div> 
+
+      <div class="title"> 
+       <h2><span>Book1 </span></h2> 
+       <h2><span>Book1 </span></h2> 
+       <h2><span>Book1 </span></h2> 
+       <h2><span>Book1 </span></h2> 
+       <h2><span>Book1 </span></h2> 
+       <h2><span>Book1 </span></h2> 
+       <h2><span>Book1 </span></h2> 
+      </div> 
+
+     </div> 
             <script src="{% static './js/jquery.SuperSlide.2.1.1.js' %}"></script>
             <script>
             jQuery(".picScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,pnLoop:false,trigger:"click"});
 			</script>
     	<!--图片滚动 end-->
         </div> 
-     <div class="loginBox"> 
-      <div class="title"> 
-       <h2><span>this will be a favorite list </span><br /> <em class="fs12">DREAM CHANCE LIFE</em></h2> 
-      </div> 
-      <div class="buyInfo"> 
-       <p><strong>1088230</strong>人在8791彩票网购买彩票</p> 
-       <p>共中得奖金<strong>390,819,001</strong>元</p> 
-      </div>
-      <!--登陆前 start--> 
-          <div class="nologin" style="display: block;"> 
-           <div class="loginInfo"> 
-            <a href="#" class="btn-org-112x40">Login</a>&nbsp; 
-            <a href="#" class="btn-green-112x40">注册</a> 
-           </div> 
-           	其他Login方式
-               <div class="loginOther"> 
-                <span class="fl">快捷Login</span> 
-                <div class="ui-input-sel" style="width: 138px;"> 
-                 <p> <span>使用其他账号Login</span><i class="arrow"></i> </p> 
-                 <em id="queryTime" val="" style="width: 136px;"> <a href="#" val="day1">QQLogin</a> <a href="#" val="day1">支付宝Login</a> </em> 
-                </div> 
-           </div> 
-          </div>
-      <!--登陆前 end--> 
-      <!--登陆后 start--> 
-          <div id="loginInfo_index" style="display: none;"> 
-           <p><span class="sayHello"></span>，<a href="#" class="accLink"><strong id="headAccName"></strong></a> <em class="b0b">|</em> <a href="javascript:void(0)" id="loginOut" class="blue">退出</a></p> 
-           <p>账户现金：<strong id="headAccMoney" class="fee"></strong> <em class="b0b">|</em> <a href="#" class="blue">充值</a></p> 
-           <p>可提现金额：<strong id="headFetchMoney" class="green"></strong> <em class="b0b">|</em> <a href="#" class="blue">提现</a></p> 
-           <p class="links"> <a href="#" class="btn">购彩记录</a> <a href="#" class="btn btn1">追号记录</a> <a href="#" class="btn btn1">账户明细</a> </p> 
-          </div>
-      <!--登陆后 end-->
-     </div> 
+     
     </div> 
    </div> 
+
    <div class="w1200 clearfix"> 
     <div class="maincontent"> 
      <div class="product clearfix"> 
@@ -176,12 +130,7 @@
         </div> </li> 
       </ul> 
       <div class="luckBet clearfix"> 
-       <ul class="luckNav"> 
-        <li game="SSQ">book type 1 rank</li> 
-        <li game="DLT">book type 2 rank</li> 
-        <li game="FC3D">book type 3 rank</li> 
-        <li game="PLS">book type 4 rank</li> 
-       </ul> 
+       
        <div class="luckcon"> 
         <div class="fl luckBox pr"> 
          <span class="gameLogo-list"><i class="gameLogo SSQ"></i></span> 
@@ -189,24 +138,10 @@
           <p> rank book2</p> 
            
           <p> rank book </p> 
-          <div class="awardinfo"> 
-           <ul class="awardnumber" id="awardlist"> 
-            <li title=" "> <input type="text" maxlength="2" value="05" /></li> 
-            <li title=" "> <input type="text" maxlength="2" value="16" /></li> 
-            <li title=" "> <input type="text" maxlength="2" value="17" /></li> 
-            <li title=" "> <input type="text" maxlength="2" value="18" /></li> 
-            <li title=" "> <input type="text" maxlength="2" value="33" /></li> 
-            <li title=" "> <input type="text" maxlength="2" value="03" /></li> 
-            <li title=" " class="blue" style="margin-left: 25px; margin-right: 0"> <input type="text" maxlength="2" value="09" /></li> 
-           </ul> 
-          </div> 
+          
          </div> 
         </div> 
-        <div class="fl luckBuy"> 
-         <p> <span class="zstIco"></span><a href="#">双色球走势图</a> <span class="wfIco"></span><a href="#">玩法介绍</a> </p> 
-         <p class="buying"> <a href="javascript:void(0)" id="betBuy" class="btn-org-195x36">立即投注</a> </p> 
-         <p id="lotUrl"> <a href="javascript:void(0)" id="randBtn">换一注</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">多投几注</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">参与合买</a> </p> 
-        </div> 
+        
        </div> 
       </div> 
      </div> 
@@ -222,68 +157,16 @@
        <li val="7"> <i></i> <a href="javascript:void(0)" style="color:#1F0803;">Notice5</a> <span class="fr">02-06</span> </li> 
       </ul> 
      </div> 
-     <div class="weixin"> 
-      <i></i> 
-      <div class="desc"> 
-       <span class="st">&nbsp;</span> 
-       <p> ad<br /> ad </p> 
-      </div> 
-     </div> 
-     <div class="authentication"> 
-      <em class="afc"></em> 
-      <em class="atc"></em> 
-      <em class="amz"></em> 
-      <em class = "amz"></em> 
-     </div> 
+     
+ 
     </div> 
     <div class="clear"></div> 
    </div> 
   </div> 
-  <div id="footer" class="clearfix"> 
-   <div class="w1200" style="background:#ededed"> 
-    <div class="partner clearfix"> 
-     <div class="bor"> 
-      <div class="partner-item"> 
-       <h2>other side：</h2> 
-       <div class="partner-bank"> 
-        <a href="#" class="b1"></a> 
-        <a href="#" class="b2"></a> 
-        <a href="#" class="b3"></a> 
-        <a href="#" class="b4"></a> 
-        <a href="#" class="b5"></a> 
-        <a href="#" class="b6"></a> 
-       </div> 
-      </div> 
-      <div class="partner-item partner-item-center"> 
-       <h2>other side：</h2> 
-       <div class="partner-security"> 
-        <a href="#" class="s1"></a> 
-        <a href="#" class="s2"></a> 
-        <a href="#" class="s3"></a> 
-        <a href="#" class="s4"></a> 
-        <a href="#" class="s5"></a> 
-        <a href="#" class="s6"></a> 
-        <a href="#" class="s7"></a> 
-        <a href="#" class="s8"></a> 
-       </div> 
-      </div> 
-      <div class="partner-item partner-item-last"> 
-       <h2>contact us：</h2> 
-       <div class="partner-weixin">
-        <span class="rx"></span> 
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-    <div class="aboutNest clearfix"> 
-     <p>some information about us</p> 
-    </div> 
-  </div> 
+
   <div class="side-nav-bar"> 
    <div id="sideMenu" class="pr"> 
     <ul> 
-     <li class="side-nav-server"> <a href="###" target="_blank"></a> </li> 
-     <li class="side-nav-mobile"> <a href="javascript:void(0)"><span class="wx-ico"></span></a> </li> 
      <li class="side-nav-top" style="display: none;"> <a href="javascript:void(0)"></a> </li> 
     </ul> 
    </div> 
