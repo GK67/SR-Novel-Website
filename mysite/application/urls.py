@@ -36,6 +36,7 @@ urlpatterns = [
 	url('profile/<int:pk>', views.ProfileView.as_view(), name='profile'),
 	url('editprofile', views.edit_profile, name = 'edit-profile'),
 	url('logout', views.logout_view, name = 'logout'),
+	url('uploadbook',views.upload_book,name = 'upload-book'),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),

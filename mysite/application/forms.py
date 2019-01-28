@@ -35,7 +35,7 @@ class EditProfileForm(ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'username')
+        fields = ( 'email', 'username')
 
 class ForgetForm(forms.Form):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
@@ -44,3 +44,7 @@ class ForgetForm(forms.Form):
         model = User
         fields = ('email',)
 
+class UploadBookForm(ModelForm):
+    class Meta:
+        model = Book
+        fields = ('title','author','summary','isbn','genre','wordCount','charpterCount','bookFile',)

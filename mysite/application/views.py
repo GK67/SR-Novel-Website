@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm
+from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm
 
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
@@ -88,7 +88,19 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
-
+def upload_book(request):
+    if request.method == 'POST':
+        book_form = UploadBookForm(request.POST, instance = request.user)
+        
+        if book_form.is_valid():
+            book_form.save()
+            
+           
+            return redirect('profile')
+    else:
+        book_form = UploadBookForm(request.POST, instance = request.user)
+        
+        return render(request,'upload_book.html', {'book_form': book_form})
 
 
 class SignUpView(generic.TemplateView):

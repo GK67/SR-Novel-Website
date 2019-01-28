@@ -63,6 +63,7 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
     wordCount = models.IntegerField(default=0)
     charpterCount = models.IntegerField(default=0)
+    bookFile = models.FileField(blank=True, null=True)
 
     def __str__(self):
         """String for representing the Model object."""
