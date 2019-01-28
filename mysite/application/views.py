@@ -30,6 +30,7 @@ class BookListView(ListView):
     template_name= 'application/book_list.html'
     context_object_name='booklist'
     ordering = ['-date_uploaded']
+    paginate_by = 2
 
 class BookDetailView(DetailView):
     model = Book
