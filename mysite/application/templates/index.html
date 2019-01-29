@@ -1,5 +1,6 @@
-{% extends "NavBar.html" %}
+{% extends "home_base.html" %}
 {% load static %}
+
 {% block content %}
   <!DOCTYPE html>
   <html>
@@ -14,17 +15,7 @@
       <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
     </head>
     <body>
-      <div class="header w1200 clearfix">
-        <div class="fl">
-          <a class="logo" title="SR-Novel-Website"> <img src="{% static 'index/images/siteLogo.png' %}"  /> </a>
-        </div>
-        <div class="fl" style="margin-left:20px;">
-        </div>
-        <div class="fr service">
-          <span class="siteTel"></span>
-        </div>
-      </div>
-     
+
     <div class="pageBady custom clearfix">
 
 
@@ -32,71 +23,78 @@
  </head> 
  <body> 
 
-  <div class="topNav clearfix"> 
+  <div > 
    <div class="w1200"> 
     <ul class="fl funcTab"> 
      <li  class="pr">  
-        <div style="" id="lotteryList">
-           <div class="box">
-            <a href="#"><span class="text fs16"><h2>marker list</h2></span></a>
-           </div>
-
-           <div class="box">
-            <a href="#"><span class="text fs16">Book 1</span></a>
-           </div>
-
-           <div class="box">
-            <a href="#"><span class="text fs16">Book 2</span></a>
-           </div>
-
-           <div class="box">
-            <a href="#"><span class="text fs16">Book 3</span></a>
-           </div>
-
-           <div class="box">
-            <a href="#"><span class="text fs16">Book 4</span></a>
-           </div>
-
-           <div class="box">
-            <a href="#"><span class="text fs16">Book 5</span></a>
-           </div>
-
-           <div class="box">
-            <a href="#"><span class="text fs16">Book 6</span></a>
-           </div>
-
-          </div> 
-     </li> 
-      
+        
+     </li>  
     </ul> 
    </div> 
   </div>
 
-  <div class="pageBady custom clearfix"> 
+  <div class="pageBady custom clearfix" style="background: linear-gradient( to bottom right, lightgreen,lightblue);"> 
    <div id="banner" class="clearfix"> 
-    <div class="w1200 pr" style="z-index: 101;width:1199px;">
+    <div class="w1200 pr" style="z-index: 101;width:1199px;background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);">
+        <div class="siderBox" > 
+          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffff99, #ccffff);"> 
+            <h2>Top 1</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Title </span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Author</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Summary</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">number charpter</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">number words</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+        <div class="siderBox" > 
+          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff);"> 
+            <h2>Top 2</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+        <div class="siderBox" > 
+          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff);"> 
+            <h2>Top 3</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+        <div class="siderBox" > 
+          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff);"> 
+            <h2>Top 4</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+
+
+          
+         
+
          <div id="flexslid">
-         <!--图片滚动 start-->
-              <div class="picScroll-top">
-                Midlle pieces
-            </div>
 
-            <div class="loginBox"> 
-      <div class="title"> 
-       <h2><span>Favorite List </span><br /> <em class="fs12">DREAM CHANCE LIFE</em></h2> 
-      </div> 
-
-      <div class="title"> 
-       <h2><span>Book1 </span></h2> 
-       <h2><span>Book1 </span></h2> 
-       <h2><span>Book1 </span></h2> 
-       <h2><span>Book1 </span></h2> 
-       <h2><span>Book1 </span></h2> 
-       <h2><span>Book1 </span></h2> 
-       <h2><span>Book1 </span></h2> 
-      </div> 
-
-     </div> 
             <script src="{% static './js/jquery.SuperSlide.2.1.1.js' %}"></script>
             <script>
             jQuery(".picScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,pnLoop:false,trigger:"click"});
@@ -109,74 +107,137 @@
 
    <div class="w1200 clearfix"> 
     <div class="maincontent"> 
-     <div class="product clearfix"> 
+     <div > 
       <ul> 
-       <li class="safety"> <i></i> <h3 class="title">New book rank</h3> <p>.....，<br />......<br /></p> </li> 
-       <li class="absorbed"> <i></i> <h3 class="title">finish book rank</h3> <p> ......<br /> ....<br /> .. </p> </li> 
-       <li class="sincerity"> <i></i> <h3 class="title">hot book rank</h3> <p> .......<br /> ........<br /> ........ </p> </li> 
-      </ul> 
-     </div> 
-     <div class="hotLottery"> 
-      <h2 class="title">hotest 3 book summary </h2> 
-      <ul class="ulList"> 
-       <li> <span class="gameLogo-list"><i class="gameLogo ZJ11X5"></i></span> 
-        <div class="desc"> 
-         <p> summary</p> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 1</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
         </div> 
-        <div class="lotbuy"> 
-         <h2>rank 1</h2> 
-         <a class="btn-org-112x36" href="#">quick look</a> 
-        </div> </li> 
-       <li> <span class="gameLogo-list"><i class="gameLogo CQSSC"></i></span> 
-        <div class="desc"> 
-         <p> summary 2 </p> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 2</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
         </div> 
-        <div class="lotbuy"> 
-         <h2>rank book2 </h2> 
-         <a class="btn-org-112x36" href="#">quick look</a> 
-        </div> </li> 
-       <li class="noBor"> <span class="gameLogo-list"><i class="gameLogo JSKS"></i></span> 
-        <div class="desc"> 
-         <p> summary</p> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 3</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
         </div> 
-        <div class="lotbuy"> 
-         <h2>rank book 3</h2> 
-         <a class="btn-org-112x36" href="#">quick look</a> 
-        </div> </li> 
-      </ul> 
-      <div class="luckBet clearfix"> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 4</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 5</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 6</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div>
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 7</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div> 
+
+        <div class="siderBox"> 
+          <div class="notice" style="background-color: #f6ffff"> 
+            <h2>Genre 8</h2> 
+            <ul> 
+             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+            </ul> 
+          </div> 
+        </div>  
        
-       <div class="luckcon"> 
-        <div class="fl luckBox pr"> 
-         <span class="gameLogo-list"><i class="gameLogo SSQ"></i></span> 
-         <div class="desc"> 
-          <p> rank book2</p> 
-           
-          <p> rank book </p> 
-          
-         </div> 
-        </div> 
-        
-       </div> 
-      </div> 
-     </div> 
-    </div> 
-    <div class="siderBox"> 
-     <div class="notice"> 
-      <h2>Notice</h2> 
-      <ul> 
-       <li val="12"> <i></i> <a href="javascript:void(0)" style="color:#000000;">Notice2</a> <span class="fr">02-28</span> </li> 
-       <li val="11"> <i></i> <a href="javascript:void(0)" style="color:#000000;">Notice1</a> <span class="fr">02-16</span> </li> 
-       <li val="9"> <i></i> <a href="javascript:void(0)" style="color:#ED3507;">Notice3</a> <span class="fr">02-12</span> </li> 
-       <li val="8"> <i></i> <a href="javascript:void(0)" style="color:#ED0F07;">Notice4</a> <span class="fr">02-09</span> </li> 
-       <li val="7"> <i></i> <a href="javascript:void(0)" style="color:#1F0803;">Notice5</a> <span class="fr">02-06</span> </li> 
       </ul> 
-     </div> 
-     
- 
+     </div>  
+    
+      <div class="clear"></div> 
     </div> 
-    <div class="clear"></div> 
-   </div> 
+
+    <div class="siderBox"> 
+      <div class="notice" style ="background: linear-gradient( to bottom,gold, white);"> 
+        <h2>Top 10 Books</h2> 
+        <ul> 
+         <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 6</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 7</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 8</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 9</span></a> </div>
+         <div class="box">  <a href="#"><span class="text fs16">Book 10</span></a> </div>
+        </ul> 
+      </div> 
+    </div> 
+
   </div> 
 
   <div class="side-nav-bar"> 
