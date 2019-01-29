@@ -45,6 +45,21 @@ class ForgetForm(forms.Form):
         fields = ('email',)
 
 class UploadBookForm(ModelForm):
+    title = forms.CharField(required=True)
+
+    # Foreign Key used because book can only have one author, but authors can have multiple books
+    # Author as a string rather than object because it hasn't been declared yet in the file
+    author = forms.ModelMultipleChoiceField(queryset=Author.objects.all(),required=True)
+    
+    summary = forms.CharField(required=True)
+    isbn = forms.CharField(required=True)
+    
+    # ManyToManyField used because genre can contain many books. Books can cover many genres.
+    # Genre class has already been defined so we can specify the object above.
+    genre = forms.ModelMultipleChoiceField(queryset=Genre.objects.all(),required=True)
+    wordCount = forms.IntegerField(required=True)
+    charpterCount = forms.IntegerField(required=True)
+    bookFile = forms.FileField(required=True)
     class Meta:
         model = Book
         fields = ('title','author','summary','isbn','genre','wordCount','charpterCount','bookFile',)
