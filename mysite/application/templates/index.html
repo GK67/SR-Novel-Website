@@ -33,65 +33,29 @@
    </div> 
   </div>
 
-  <div class="pageBady custom clearfix" style="background: linear-gradient( to bottom right, lightgreen,lightblue);"> 
+  <div class="pageBady custom clearfix" style="height:1500px;background: linear-gradient( to bottom right, lightgreen, white ,lightblue, white);"> 
    <div id="banner" class="clearfix"> 
     <div class="w1200 pr" style="z-index: 101;width:1199px;background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);">
-        <div class="siderBox" > 
-          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffff99, #ccffff);"> 
-            <h2>Top 1</h2> 
-            <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Title </span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Author</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Summary</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">number charpter</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">number words</span></a> </div>
-            </ul> 
-          </div> 
-        </div> 
-
-        <div class="siderBox" > 
-          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff);"> 
-            <h2>Top 2</h2> 
-            <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
-            </ul> 
-          </div> 
-        </div> 
-
-        <div class="siderBox" > 
-          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff);"> 
-            <h2>Top 3</h2> 
-            <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
-            </ul> 
-          </div> 
-        </div> 
-
-        <div class="siderBox" > 
-          <div class="notice" style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff);"> 
-            <h2>Top 4</h2> 
-            <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
-            </ul> 
-          </div> 
-        </div> 
-
-
-
-          
          
+        {% for num, book in top4_books %}
+          <div class="siderBox" > 
+            <div class="notice" 
+              {% if num < 2 %}
+                style="height: 240px;width:400px;background: radial-gradient(gold,#ffff99, #ccffff,white,red);"
+              {% else %}
+                style="height: 240px;width:400px;background: radial-gradient( #ffccff, #ccffff,white,lightblue);"
+              {% endif %}> 
+              <h2>Top {{ num }}</h2> 
+              <ul> 
+               <div class="box">  <a href="#"><span class="text fs16">Title: {{book.title}}</span></a> </div>
+               <div class="box">  <a href="#"><span class="text fs16">Author: {{book.author}}</span></a> </div>
+               <div class="box">  <a href="#"><span class="text fs16">Summary: {{book.summary}}</span></a> </div>
+               <div class="box">  <a href="#"><span class="text fs16">Number of Words: {{book.wordCount}}</span></a> </div>
+               <div class="box">  <a href="#"><span class="text fs16">Number of Chapters: {{book.chapterCount}}</span></a> </div>
+              </ul> 
+            </div> 
+          </div> 
+        {%endfor%}
 
          <div id="flexslid">
 
@@ -109,16 +73,14 @@
     <div class="maincontent"> 
      <div > 
       <ul> 
-
+        
         <div class="siderBox"> 
           <div class="notice" style="background-color: #f6ffff"> 
             <h2>Genre 1</h2> 
             <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+              {% for book in genre1%}
+                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+              {% endfor %}
             </ul> 
           </div> 
         </div> 
@@ -127,11 +89,9 @@
           <div class="notice" style="background-color: #f6ffff"> 
             <h2>Genre 2</h2> 
             <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+             {% for book in genre2%}
+                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+              {% endfor %}
             </ul> 
           </div> 
         </div> 
@@ -140,11 +100,9 @@
           <div class="notice" style="background-color: #f6ffff"> 
             <h2>Genre 3</h2> 
             <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+             {% for book in genre3%}
+                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+              {% endfor %}
             </ul> 
           </div> 
         </div> 
@@ -153,11 +111,9 @@
           <div class="notice" style="background-color: #f6ffff"> 
             <h2>Genre 4</h2> 
             <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+             {% for book in genre4%}
+                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+              {% endfor %}
             </ul> 
           </div> 
         </div> 
@@ -166,11 +122,9 @@
           <div class="notice" style="background-color: #f6ffff"> 
             <h2>Genre 5</h2> 
             <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+             {% for book in genre5%}
+                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+              {% endfor %}
             </ul> 
           </div> 
         </div> 
@@ -179,40 +133,12 @@
           <div class="notice" style="background-color: #f6ffff"> 
             <h2>Genre 6</h2> 
             <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
+             {% for book in genre6 %}
+                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+              {% endfor %}
             </ul> 
           </div> 
         </div>
-
-        <div class="siderBox"> 
-          <div class="notice" style="background-color: #f6ffff"> 
-            <h2>Genre 7</h2> 
-            <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
-            </ul> 
-          </div> 
-        </div> 
-
-        <div class="siderBox"> 
-          <div class="notice" style="background-color: #f6ffff"> 
-            <h2>Genre 8</h2> 
-            <ul> 
-             <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-             <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
-            </ul> 
-          </div> 
-        </div>  
        
       </ul> 
      </div>  
@@ -224,16 +150,10 @@
       <div class="notice" style ="background: linear-gradient( to bottom,gold, white);"> 
         <h2>Top 10 Books</h2> 
         <ul> 
-         <div class="box">  <a href="#"><span class="text fs16">Book 1</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 2</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 3</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 4</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 5</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 6</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 7</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 8</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 9</span></a> </div>
-         <div class="box">  <a href="#"><span class="text fs16">Book 10</span></a> </div>
+          {% for num, book in top10_books %}
+         <div class="box">  <a href="#"><span class="text fs16">{{ num }} . {{ book.title }}</span></a> </div>
+
+         {% endfor %}
         </ul> 
       </div> 
     </div> 

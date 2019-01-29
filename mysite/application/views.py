@@ -19,9 +19,40 @@ from django.contrib.auth import logout
     
 # Create your views here.
 def index(request):
-    context = {
+    books= Book.objects.all()
 
+    top4_books=books[:4]
+    num4_list=[1,2,3,4,]
+    zip_top4= zip(num4_list, top4_books)
+
+
+    top10_books=books[:10]
+    num10_list=[1,2,3,4,5,6,7,8,9,10,]
+    zip_top10= zip(num10_list, top10_books)
+
+
+    genres= Genre.objects.all()
+    num6_list=[1,2,3,4,5,6,]
+
+    context = {
+        'genreAll': genres,
+        'top10_books': zip_top10,
+        'top4_books': zip_top4,
     }
+
+    genre1_top6_books=Book.objects.filter(genre = genres[0]).order_by('-wordCount')[:6]
+    genre2_top6_books=Book.objects.filter(genre = genres[1]).order_by('-wordCount')[:6]
+    genre3_top6_books=Book.objects.filter(genre = genres[2]).order_by('-wordCount')[:6]
+    genre4_top6_books=Book.objects.filter(genre = genres[3]).order_by('-wordCount')[:6]
+    genre5_top6_books=Book.objects.filter(genre = genres[4]).order_by('-wordCount')[:6]
+    genre6_top6_books=Book.objects.filter(genre = genres[5]).order_by('-wordCount')[:6]
+    context['genre1']=genre1_top6_books
+    context['genre2']=genre2_top6_books
+    context['genre3']=genre3_top6_books
+    context['genre4']=genre4_top6_books
+    context['genre5']=genre5_top6_books
+    context['genre6']=genre6_top6_books
+
     return render(request, 'index.html', context=context)
 
 def login(request):
