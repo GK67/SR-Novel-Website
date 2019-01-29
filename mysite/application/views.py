@@ -92,7 +92,34 @@ def upload_book(request):
     if request.method == 'POST':
         book_form = UploadBookForm(request.POST, instance = request.user)
         
+        
+
+        
         if book_form.is_valid():
+            title = request.POST.get('title')
+            author = request.POST.get('author')        
+            summary = request.POST.get('summary')
+            isbn = request.POST.get('isbn')
+            genre = request.POST.get('genre')       
+            wordCount = request.POST.get('wordCount')
+            charpterCount = request.POST.get('charpterCount')
+            bookFile = request.POST.get('bookFile')
+            book = Book.objects.create()
+
+            book.author = Author(authorName=author)
+            # book.author.authorName=author
+            # book.author.get(author)
+            book.author.save()
+            book.genre.set(genre)
+            
+            book.title=title
+            book.summary=summary
+            book.isbn=isbn
+            book.wordCount=wordCount
+            book.charpterCount=charpterCount
+            book.bookFile=bookFile
+            book.save()
+            
             book_form.save()
             
            
