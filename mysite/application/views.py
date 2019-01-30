@@ -122,12 +122,9 @@ def logout_view(request):
     return redirect('index')
 
 def upload_book(request):
+    
     if request.method == 'POST':
         book_form = UploadBookForm(request.POST, instance = request.user)
-        
-        
-
-        
         if book_form.is_valid():
             title = request.POST.get('title')
             author = request.POST.get('author')        
@@ -162,14 +159,10 @@ def upload_book(request):
             book.wordCount=wordCount
             book.chapterCount=chapterCount
             book.bookFile=bookFile
-            book.bookImage= bookImage
-            
+            book.bookImage= bookImage            
             book.date_uploaded=date_uploaded
             book.save()
-            
-            book_form.save()
-            
-           
+            book_form.save()  
             return redirect('profile')
     else:
         book_form = UploadBookForm(request.POST, instance = request.user)
