@@ -69,15 +69,7 @@ class Book(models.Model):
     bookFile = models.FileField(blank=True, null=True)
     like = models.IntegerField(default=0)
     date_uploaded = models.DateTimeField(default = timezone.now)
-    bookImage = models.ImageField(default ='default_book.jpg', upload_to='book_images') 
-
-
-    class Meta:
-        ordering = ['-wordCount']
-
-    def __str__(self):
-        """String for representing the Model object."""
-        return '%s' % (self.title)
+    bookImage = models.FileField(default ='default_book.jpg', upload_to='book_images') 
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -87,6 +79,15 @@ class Book(models.Model):
             output_size =(300, 300)
             img.thumbnail(output_size)
             img.save(self.bookImage.path)
+
+    class Meta:
+        ordering = ['-wordCount']
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return '%s' % (self.title)
+
+    
 
     def display_genre(self):
 
