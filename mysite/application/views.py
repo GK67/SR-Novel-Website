@@ -18,7 +18,7 @@ from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-    
+
 # Create your views here.
 def index(request):
     books= Book.objects.all()
@@ -120,6 +120,10 @@ def edit_profile(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+
+
+
 
 def upload_book(request):
     
