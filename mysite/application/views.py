@@ -18,7 +18,7 @@ from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-    
+
 # Create your views here.
 def index(request):
     books= Book.objects.all()
@@ -121,13 +121,14 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
+
+
+
+
 def upload_book(request):
+    
     if request.method == 'POST':
         book_form = UploadBookForm(request.POST, instance = request.user)
-        
-        
-
-        
         if book_form.is_valid():
             title = request.POST.get('title')
             author = request.POST.get('author')        
@@ -135,27 +136,37 @@ def upload_book(request):
             isbn = request.POST.get('isbn')
             genre = request.POST.get('genre')       
             wordCount = request.POST.get('wordCount')
-            charpterCount = request.POST.get('charpterCount')
+            chapterCount = request.POST.get('chapterCount')
             bookFile = request.POST.get('bookFile')
+            bookImage= request.POST.get('bookImage')
+            
+            date_uploaded= request.POST.get('date_uploaded')
             book = Book.objects.create()
-
-            book.author = Author(authorName=author)
+            try:
+                tempAuthor = Author.objects.get(authorName=author)
+            except Author.DoesNotExist:
+                tempAuthor = Author(authorName=author)
+                tempAuthor.save()
+            book.author = tempAuthor
+            # book.author = author
+            # book.author = Author(authorName=author)
             # book.author.authorName=author
             # book.author.get(author)
-            book.author.save()
+            #book.author.authorName=author
+
+            # print(author,authorname)
             book.genre.set(genre)
             
             book.title=title
             book.summary=summary
             book.isbn=isbn
             book.wordCount=wordCount
-            book.charpterCount=charpterCount
+            book.chapterCount=chapterCount
             book.bookFile=bookFile
+            book.bookImage= bookImage            
+            book.date_uploaded=date_uploaded
             book.save()
-            
-            book_form.save()
-            
-           
+            book_form.save()  
             return redirect('profile')
     else:
         book_form = UploadBookForm(request.POST, instance = request.user)
@@ -194,9 +205,9 @@ class BookDetailView(DetailView):
 class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
-            'genre', 'wordCount', 'charpterCount', 'date_uploaded']
+            'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
-            'genre', 'wordCount', 'charpterCount', 'date_uploaded']
+            'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']

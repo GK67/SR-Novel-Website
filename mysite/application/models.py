@@ -68,7 +68,7 @@ class Book(models.Model):
     bookFile = models.FileField(blank=True, null=True)
     like = models.IntegerField(default=0)
     date_uploaded = models.DateTimeField(default = timezone.now)
-
+    bookImage = models.ImageField(blank=True, null=True) 
     class Meta:
         ordering = ['-wordCount']
 

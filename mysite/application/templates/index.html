@@ -112,7 +112,7 @@
             <h2>Genre 4</h2> 
             <ul> 
              {% for book in genre4%}
-                <div class="box">  <a href="#"><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
+                <div class="box">  <a href=" {% url 'book-detail' book.id %} "><span class="text fs16">{{ book.title }} {{ book.wordCount }}</span></a> </div>
               {% endfor %}
             </ul> 
           </div> 
