@@ -135,10 +135,10 @@ def upload_book(request):
             isbn = request.POST.get('isbn')
             genre = request.POST.get('genre')       
             wordCount = request.POST.get('wordCount')
-            charpterCount = request.POST.get('charpterCount')
+            chapterCount = request.POST.get('chapterCount')
             bookFile = request.POST.get('bookFile')
             book = Book.objects.create()
-
+            # book.author = author
             book.author = Author(authorName=author)
             # book.author.authorName=author
             # book.author.get(author)
@@ -149,7 +149,7 @@ def upload_book(request):
             book.summary=summary
             book.isbn=isbn
             book.wordCount=wordCount
-            book.charpterCount=charpterCount
+            book.chapterCount=chapterCount
             book.bookFile=bookFile
             book.save()
             
