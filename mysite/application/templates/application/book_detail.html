@@ -1,14 +1,51 @@
 {% extends "home_base.html" %}
 {% block content %}
-	<article class="media content-section">
-	 	<img class="rounded-circle article-img" src="{{ object.bookImage.url }}">
-	 	<div class="media-body">
-	 		<div class="article-metadata">
-	 			<a class="mr-2" href="#"> {{ object.author }}</a>
-	 			<small class="test-muted"> {{ object.date_updated|date:"F d, Y" }}  </small>
-	 		</div>
-	 		<h2 class = "article-title"> {{ object.title }} </h2>
-	 		<p class="article-content"> {{ object.summary }} in detail html</p>
-	 	</div>
-	</article>
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+
+ {% block title%}<title>Book Index</title>{% endblock %}
+  </head>
+  <body>
+    <h1>Book Detail</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Favorite</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+  	<img class="card-img-top" src="{{ book.bookImage.url }}" alt="Card image cap">
+    <h5 class="card-title">Title: {{ object.title }}      Author: {{object.author}}     Genre: {{object.genre}}      Like:{{object.like}}</h5>
+    <h5 class="card-title">ISBN: {{ object.isbn }}     Word Count: {{object.wordCount}}    Chapter Count: {{object.chapterCount}}    Date upload:{{object.date_uploaded}}</h5>
+    <p class="card-text">Summary: {{ object.summary }}</p>
+    {% if user.is_authenticated %}
+    <a href="#" class="btn btn-primary">Add to Favorite</a>
+    {% endif %}
+  </div>
+</div>
+	
 {% endblock %}
+  </body>
+</html>
+
