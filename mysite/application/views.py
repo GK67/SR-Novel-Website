@@ -137,12 +137,23 @@ def upload_book(request):
             wordCount = request.POST.get('wordCount')
             chapterCount = request.POST.get('chapterCount')
             bookFile = request.POST.get('bookFile')
+            bookImage= request.POST.get('bookImage')
+            like  = request.POST.get('like')
+            date_uploaded= request.POST.get('date_uploaded')
             book = Book.objects.create()
+            try:
+                tempAuthor = Author.objects.get(authorName=author)
+            except Author.DoesNotExist:
+                tempAuthor = Author(authorName=author)
+                tempAuthor.save()
+            book.author = tempAuthor
             # book.author = author
-            book.author = Author(authorName=author)
+            # book.author = Author(authorName=author)
             # book.author.authorName=author
             # book.author.get(author)
-            book.author.save()
+            #book.author.authorName=author
+
+            # print(author,authorname)
             book.genre.set(genre)
             
             book.title=title
@@ -151,6 +162,9 @@ def upload_book(request):
             book.wordCount=wordCount
             book.chapterCount=chapterCount
             book.bookFile=bookFile
+            book.bookImage= bookImage
+            book.like=like
+            book.date_uploaded=date_uploaded
             book.save()
             
             book_form.save()
@@ -194,9 +208,9 @@ class BookDetailView(DetailView):
 class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
-            'genre', 'wordCount', 'charpterCount', 'date_uploaded']
+            'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
-            'genre', 'wordCount', 'charpterCount', 'date_uploaded']
+            'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']

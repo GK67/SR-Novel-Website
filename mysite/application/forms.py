@@ -44,7 +44,11 @@ class ForgetForm(forms.Form):
         model = User
         fields = ('email',)
 
-class UploadBookForm(ModelForm):
+class UploadBookForm(forms.ModelForm):
+    author = forms.CharField(max_length=200)
+    title = forms.CharField(required=True)
     class Meta:
         model = Book
-        fields = ('title','author','summary','isbn','genre','wordCount','chapterCount','bookFile',)
+        fields = ('title','author', 'summary', 'isbn',
+            'genre', 'wordCount', 'chapterCount','bookImage','date_uploaded','like')
+        # fields = ('title','author','summary','isbn','genre','wordCount','chapterCount','bookFile',)
