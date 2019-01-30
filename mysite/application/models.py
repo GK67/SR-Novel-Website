@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils import timezone
 # Create your models here.
 
 class Genre(models.Model):
@@ -66,6 +67,7 @@ class Book(models.Model):
     chapterCount = models.IntegerField(default=0)
     bookFile = models.FileField(blank=True, null=True)
     like = models.IntegerField(default=0)
+    date_uploaded = models.DateTimeField(default = timezone.now)
 
     class Meta:
         ordering = ['-wordCount']

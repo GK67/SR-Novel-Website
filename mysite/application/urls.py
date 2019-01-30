@@ -4,6 +4,7 @@ from django.conf.urls import include
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
+from .views import BookListView, BookDetailView, BookCreateView, BookUpdateView
 
 
 urlpatterns = [
@@ -37,6 +38,11 @@ urlpatterns = [
 	url('editprofile', views.edit_profile, name = 'edit-profile'),
 	url('logout', views.logout_view, name = 'logout'),
 	url('uploadbook',views.upload_book,name = 'upload-book'),
+
+	path('books/', BookListView.as_view(),name='booklist'),
+	path('book/<int:pk>/', BookDetailView.as_view(),name='book-detail'),
+	path('book/<int:pk>/update', BookUpdateView.as_view(),name='book-update'),
+	path('book/create_book/', BookCreateView.as_view(),name='book-create'),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),

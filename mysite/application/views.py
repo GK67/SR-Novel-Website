@@ -15,6 +15,8 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 from django.contrib.auth import logout
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
     
 # Create your views here.
@@ -177,3 +179,24 @@ class ProfileView(generic.TemplateView):
 
 class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'
+
+
+class BookListView(ListView):
+    model = Book
+    template_name= 'application/book_list.html'
+    context_object_name='booklist'
+    ordering = ['-date_uploaded']
+    paginate_by = 2
+
+class BookDetailView(DetailView):
+    model = Book
+
+class BookCreateView(LoginRequiredMixin, CreateView):
+    model = Book
+    fields = ['title','author', 'book_image', 'summary', 'isbn',
+            'genre', 'wordCount', 'charpterCount', 'date_uploaded']
+
+class BookUpdateView(LoginRequiredMixin, UpdateView):
+    model = Book
+    fields = ['title','author', 'book_image', 'summary', 'isbn',
+            'genre', 'wordCount', 'charpterCount', 'date_uploaded']

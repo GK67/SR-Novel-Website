@@ -1,0 +1,14 @@
+{% extends "home_base.html" %}
+{% block content %}
+	<article class="media content-section">
+	 	<img class="rounded-circle article-img" src="{{ object.book_image }}">
+	 	<div class="media-body">
+	 		<div class="article-metadata">
+	 			<a class="mr-2" href="#"> {{ object.author }}</a>
+	 			<small class="test-muted"> {{ object.date_updated|date:"F d, Y" }}  </small>
+	 		</div>
+	 		<h2 class = "article-title"> {{ object.title }} </h2>
+	 		<p class="article-content"> {{ object.summary }} in detail html</p>
+	 	</div>
+	</article>
+{% endblock %}
