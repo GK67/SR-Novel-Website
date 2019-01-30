@@ -149,7 +149,7 @@ class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'
 
 
-class BookListView(generic.ListView):
+class BookListView(ListView):
     model = Book
     template_name= 'book_list.html'
     
@@ -167,7 +167,7 @@ class BookListView(generic.ListView):
     #     context['booklist'] = Book.objects.all()
     #     return context
 
-class BookDetailView(generic.DetailView):
+class BookDetailView(DetailView):
     model = Book
 
     
