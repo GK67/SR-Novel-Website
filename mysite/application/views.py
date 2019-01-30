@@ -37,6 +37,7 @@ def index(request):
     num6_list=[1,2,3,4,5,6,]
 
     context = {
+        'top_book4':top4_books,
         'genreAll': genres,
         'top10_books': zip_top10,
         'top4_books': zip_top4,
