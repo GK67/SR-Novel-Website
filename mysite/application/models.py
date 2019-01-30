@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
+from PIL import Image
 # Create your models here.
 
 class Genre(models.Model):
@@ -68,13 +69,25 @@ class Book(models.Model):
     bookFile = models.FileField(blank=True, null=True)
     like = models.IntegerField(default=0)
     date_uploaded = models.DateTimeField(default = timezone.now)
-    bookImage = models.ImageField(blank=True, null=True) 
+    bookImage = models.ImageField(default ='default_book.jpg', upload_to='book_images') 
+
+
     class Meta:
         ordering = ['-wordCount']
 
     def __str__(self):
         """String for representing the Model object."""
         return '%s' % (self.title)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img= Image.open(self.bookImage.path)
+
+        if img.height >300 or img.width>300:
+            output_size =(300, 300)
+            img.thumbnail(output_size)
+            img.save(self.bookImage.path)
+
     def display_genre(self):
 
     	return ', '.join(genre.name for genre in self.genre.all()[:3])
@@ -95,17 +108,26 @@ class Book(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) 
 
-    favorite = models.ManyToManyField('Book')
+    favorite = models.ManyToManyField('Book',blank=True)
 
     marker = models.ManyToManyField('Marker', blank=True)
     
-    profile_image = models.FileField(blank=True, null=True)   
+    profile_image = models.FileField(default ='default_profile.jpg', upload_to='profile_images')   
 
     about_me = models.TextField(blank=True, null=True)
 
     """favorites = models.ManyToManyField('Book', blank=True)
 
     markers = models.ManyToManyField('Marker',blank=True)"""
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img= Image.open(self.profile_image.path)
+
+        if img.height >300 or img.width>300:
+            output_size =(300, 300)
+            img.thumbnail(output_size)
+            img.save(self.profile_image.path)
+
     def __str__(self):
         return self.user.get_username()
 
