@@ -1,18 +1,20 @@
 {% extends "home_base.html" %}
 {% block content %}
 	{% for book in booklist %}
-		<article class="media content-section">
-		 	<img class="rounded-circle article-img" src="{{ book.bookImage }}">
-		 	<div class="media-body">
+		<article class="media content-section" style="width:1500px; margin:0 auto;">
+		 	<img class="rectangle article-img ml-10 mb-3 mr-3 mt-2" src="{{ book.bookImage.url }}" width="130px" height="160px">
+		 	<div class="media-body ml-10 mb-3 mr-3 mt-2">
+		 		
+		 		<h2><a class = "article-title" href=" {% url 'book-detail' book.id %} "> {{ book.title }} </a></h2>
 		 		<div class="article-metadata">
 		 			<a class="mr-2" href="#"> {{ book.author }}</a>
-		 			<small class="test-muted"> {{ book.date_updated|date:"F d, Y" }}  </small>
+		 			<small class="test-muted"> {{ book.date_uploaded|date:"F d, Y" }}  </small>
 		 		</div>
-		 		<h2><a class = "article-title" href=" {% url 'book-detail' book.id %} "> {{ book.title }} </a></h2>
 		 		<p class="article-content"> {{ book.summary }} in list html</p>
 		 	</div>
 		 </article>
 	{% endfor %}
+	<div style="width:1500px; margin:0 auto;">
 	{% if is_paginated %}
 		{% if page_obj.has_previous %}
 			<a class="btn btn-outline-info mb-4" href="?page=1">First</a>
@@ -32,5 +34,6 @@
 			<a class="btn btn-outline-info mb-4" href="?page= {{ page_obj.paginator.num_pages }}">Last</a>
 		{% endif%} 
 	{% endif %}
+	</div>
 
 {% endblock %}
