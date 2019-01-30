@@ -5,13 +5,13 @@ from application.models import Profile, Book, Marker, Author, Genre
 
 #admin.site.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-	list_display = ('user', 'display_markerId','display_favoritedId', 'profile_image','about_me')
+	list_display = ('user', 'display_markerId','display_favoritedId')
 admin.site.register(Profile,ProfileAdmin)
 
 #admin.site.register(Book)
 class BookAdmin(admin.ModelAdmin):
 
-	list_display = ('title', 'display_author','chapterCount','id', 'display_genre', 'wordCount','summary', 'isbn','bookFile')
+	list_display = ('title', 'display_author','chapterCount', 'display_genre', 'wordCount', 'isbn','like')
 
 admin.site.register(Book,BookAdmin)
 

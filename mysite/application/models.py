@@ -30,8 +30,9 @@ class Author(models.Model):
         return '%s' % (self.authorName)
 class Marker(models.Model):
     """Model representing an author."""
-    book = models.ManyToManyField('Book')
+    book = models.ForeignKey('Book', on_delete= models.CASCADE, blank=True)
     chapterId = models.CharField(max_length=200,blank=True, null=True)
+    content = models.TextField(default = 'Enter content of the chapter')
     
     
     def get_absolute_url(self):
@@ -40,7 +41,7 @@ class Marker(models.Model):
 
     def display_book(self):
 
-        return ', '.join(book.title for book in self.book.all()[:3])
+        return self.book.title
 
     def __str__(self):
         """String for representing the Model object."""
@@ -64,6 +65,7 @@ class Book(models.Model):
     wordCount = models.IntegerField(default=0)
     chapterCount = models.IntegerField(default=0)
     bookFile = models.FileField(blank=True, null=True)
+    like = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['-wordCount']
