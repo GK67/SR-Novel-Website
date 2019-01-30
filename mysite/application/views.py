@@ -199,6 +199,19 @@ class BookListView(ListView):
     ordering = ['-date_uploaded']
     paginate_by = 5
 
+    def get_queryset(self):
+        try:
+            title = self.kwargs['title']
+        except:
+            title = ''
+        if (title != ''):
+            object_list = self.model.objects.filter(title__icontains = title)
+        else:
+            object_list = self.model.objects.all()
+
+        return object_list
+
+
 class BookDetailView(DetailView):
     model = Book
 
