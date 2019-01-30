@@ -138,7 +138,7 @@ def upload_book(request):
             chapterCount = request.POST.get('chapterCount')
             bookFile = request.POST.get('bookFile')
             bookImage= request.POST.get('bookImage')
-            like  = request.POST.get('like')
+            
             date_uploaded= request.POST.get('date_uploaded')
             book = Book.objects.create()
             try:
@@ -163,7 +163,7 @@ def upload_book(request):
             book.chapterCount=chapterCount
             book.bookFile=bookFile
             book.bookImage= bookImage
-            book.like=like
+            
             book.date_uploaded=date_uploaded
             book.save()
             

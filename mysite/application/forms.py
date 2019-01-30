@@ -50,5 +50,5 @@ class UploadBookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ('title','author', 'summary', 'isbn',
-            'genre', 'wordCount', 'chapterCount','bookImage','date_uploaded','like')
+            'genre', 'wordCount', 'chapterCount','bookImage','date_uploaded','bookFile')
         # fields = ('title','author','summary','isbn','genre','wordCount','chapterCount','bookFile',)
