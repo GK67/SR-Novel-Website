@@ -151,7 +151,7 @@ class editProfileView(generic.TemplateView):
 
 class BookListView(ListView):
     model = Book
-    template_name= 'book_list.html'
+    template_name= 'application/book_list.html'
     
    
     context_object_name = 'booklist'

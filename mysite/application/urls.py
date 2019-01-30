@@ -37,8 +37,8 @@ urlpatterns = [
 	url('editprofile', views.edit_profile, name = 'edit-profile'),
 	url('logout', views.logout_view, name = 'logout'),
 	url('uploadbook',views.upload_book,name = 'upload-book'),
-	path('books', views.BookListView.as_view(),name = 'book-list'),
-	path('book/<int:pk>/', views.BookDetailView.as_view(),name = 'books-detail'),
+	url('books', views.BookListView.as_view(),name = 'book-list'),
+	path('book/<int:pk>/', views.BookDetailView.as_view(),name = 'book-detail'),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),
