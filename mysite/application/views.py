@@ -203,12 +203,18 @@ class BookListView(ListView):
     def get_queryset(self):
         query = self.request.GET.get("q", None)
         qs = Book.objects.all()
+        
+        
         if query is not None:
             qset = (
                 Q(title__icontains = query) |
                 Q(summary__icontains = query) 
+
                 )
+            
+
             qs = Book.objects.filter(qset).distinct()
+
         return qs
 
 

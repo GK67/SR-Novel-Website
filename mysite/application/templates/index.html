@@ -32,29 +32,33 @@
           <div class="carousel-inner" style=" height: 350px;">
 
             <div class="carousel-item active" style="height: 260px;">
-              <img class="d-block w-100" src="{{ top_book4.0.bookImage.url }}" alt="First slide">
-              <div class="carousel-caption d-none d-md-block">
-                <h5> Top1 </h5>
-                <h2><a class = "article-title" href=" {% url 'book-detail' top_book4.0.id %} "> {{ top_book4.0.title }} </a></h2>
-
-                <div class="article-metadata">
-                  <a class="mr-2" href="#"> {{ top_book4.0.author }}</a>
-                  <small class="test-muted"> {{ top_book4.0.date_uploaded|date:"F d, Y" }}  </small>
-                </div>
-
-                <p class="article-content"> {{ top_book4.0.summary }} in index html</p>
+             <p><a href=" {% url 'book-detail' top_book4.0.id %} "><img class="d-block w-100" src="{{ top_book4.0.bookImage.url }}" alt="First slide" ></a></p>
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+                <h2 class = "article-title" > {{ top_book4.0.title }}</h2>
+                <p class="article-content"> Summary: {{ top_book4.0.summary }} </p>
               </div>
             </div>
 
-            <div class="carousel-item">
-              <img class="d-block w-100" src="{{ top_book4.1.bookImage.url }}" alt="Second slide">
-              
+            <div class="carousel-item" style="height: 260px;">
+              <p><a href=" {% url 'book-detail' top_book4.1.id %} "><img class="d-block w-100" src="{{ top_book4.1.bookImage.url }}" alt="Second slide" ></a></p>
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+                <h2 class = "article-title" > {{ top_book4.1.title }}</h2>
+                <p class="article-content"> Summary: {{ top_book4.1.summary }} </p>
+              </div>
             </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="{{ top_book4.2.bookImage.url }}" alt="Third slide">
+            <div class="carousel-item" style="height: 260px;">
+              <p><a href=" {% url 'book-detail' top_book4.2.id %} "><img class="d-block w-100" src="{{ top_book4.2.bookImage.url }}" alt="Second slide" ></a></p>
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+                <h2 class = "article-title" > {{ top_book4.2.title }}</h2>
+                <p class="article-content"> Summary: {{ top_book4.2.summary }} </p>
+              </div>
             </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="{{ top_book4.3.bookImage.url }}" alt="fourth slide">
+            <div class="carousel-item" style="height: 260px;">
+              <p><a href=" {% url 'book-detail' top_book4.3.id %} "><img class="d-block w-100" src="{{ top_book4.3.bookImage.url }}" alt="Second slide" ></a></p>
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+                <h2 class = "article-title" > {{ top_book4.3.title }}</h2>
+                <p class="article-content"> Summary: {{ top_book4.3.summary }} </p>
+              </div>
             </div>
           </div>
 
