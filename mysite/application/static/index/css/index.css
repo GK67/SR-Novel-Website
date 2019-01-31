@@ -96,3 +96,7 @@
 #loginInfo_index .btn:hover{text-decoration:none;color:#fff}
 #loginInfo_index .btn1{background:#57d198;border-top:1px solid #479e80}
 #loginInfo_index .btn1:hover{text-decoration:none;color:#fff}
+.col-centered{
+   float: none;
+   margin: 0 auto;
+}
