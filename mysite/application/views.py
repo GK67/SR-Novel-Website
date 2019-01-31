@@ -18,6 +18,7 @@ from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -200,6 +201,12 @@ class BookListView(ListView):
     ordering = ['-date_uploaded']
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super(BookListView, self).get_context_data(**kwargs)
+        q = self.request.GET.get('q')
+        context['searchq'] = q
+        return context
+
     def get_queryset(self):
         query = self.request.GET.get("q", None)
         qs = Book.objects.all()
@@ -208,13 +215,17 @@ class BookListView(ListView):
         if query is not None:
             qset = (
                 Q(title__icontains = query) |
-                Q(summary__icontains = query) 
+                Q(author__authorName__icontains = query) |
+                Q(summary__icontains = query) |
+                Q(genre__name__icontains = query)
 
                 )
             
 
             qs = Book.objects.filter(qset).distinct()
 
+        
+        paginate_by = 5
         return qs
 
 
