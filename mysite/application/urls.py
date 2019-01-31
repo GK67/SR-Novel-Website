@@ -43,6 +43,7 @@ urlpatterns = [
 	path('book/<int:pk>/', BookDetailView.as_view(),name='book-detail'),
 	path('book/<int:pk>/update', BookUpdateView.as_view(),name='book-update'),
 	path('book/create_book/', BookCreateView.as_view(),name='book-create'),
+	path('book/<int:pk>/book-content',views.BookContentView.as_view(),name='book-content'),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),

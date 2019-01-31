@@ -15,7 +15,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 from django.contrib.auth import logout
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView,TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 
@@ -231,3 +231,7 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
+
+class BookContentView(TemplateView):
+    model = Book
+    template_name = "application/book_content.html"
