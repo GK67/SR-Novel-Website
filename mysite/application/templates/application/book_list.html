@@ -25,8 +25,13 @@
 	<div style="width:1500px; margin:0 auto;">
 	{% if is_paginated %}
 		{% if page_obj.has_previous %}
-			<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page=1">First</a>
-			<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&&page= {{ page_obj.previous_page_number }}">Previous</a>
+			{% if searchq %}
+				<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page=1">First</a>
+				<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page= {{ page_obj.previous_page_number }}">Previous</a>
+			{% else %}
+				<a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+				<a class="btn btn-outline-info mb-4" href="?page= {{ page_obj.previous_page_number }}">Previous</a>
+			{% endif %}
 		{% endif %} 
 
 		{% for num in page_obj.paginator.page_range %}
@@ -38,8 +43,13 @@
 		{% endfor %}
 
 		{% if page_obj.has_next %}
-			<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page={{ page_obj.next_page_number }}">Next</a>
-			<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page= {{ page_obj.paginator.num_pages }}">Last</a>
+			{% if searchq %}
+				<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page={{ page_obj.next_page_number }}">Next</a>
+				<a class="btn btn-outline-info mb-4" href="/application/books/?q={{searchq}}&page= {{ page_obj.paginator.num_pages }}">Last</a>
+			{% else %}
+				<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+				<a class="btn btn-outline-info mb-4" href="?page= {{ page_obj.paginator.num_pages }}">Last</a>
+			{% endif %}
 		{% endif%} 
 	{% endif %}
 	</div>
