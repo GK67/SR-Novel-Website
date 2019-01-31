@@ -17,6 +17,7 @@ from django.core.mail import send_mail
 from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 
 # Create your views here.
@@ -139,8 +140,6 @@ def upload_book(request):
             chapterCount = request.POST.get('chapterCount')
             bookFile = request.POST.get('bookFile')
             bookImage= request.POST.get('bookImage')
-            
-            date_uploaded= request.POST.get('date_uploaded')
             book = Book.objects.create()
             try:
                 tempAuthor = Author.objects.get(authorName=author)
@@ -163,8 +162,9 @@ def upload_book(request):
             book.wordCount=wordCount
             book.chapterCount=chapterCount
             book.bookFile=bookFile
-            book.bookImage= bookImage            
-            book.date_uploaded=date_uploaded
+            if bookImage:
+                book.bookImage= bookImage            
+       
             book.save()
             book_form.save()  
             return redirect('profile')
@@ -200,16 +200,15 @@ class BookListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        try:
-            title = self.kwargs['title']
-        except:
-            title = ''
-        if (title != ''):
-            object_list = self.model.objects.filter(title__icontains = title)
-        else:
-            object_list = self.model.objects.all()
-
-        return object_list
+        query = self.request.GET.get("q", None)
+        qs = Book.objects.all()
+        if query is not None:
+            qset = (
+                Q(title__icontains = query) |
+                Q(summary__icontains = query) 
+                )
+            qs = Book.objects.filter(qset).distinct()
+        return qs
 
 
 class BookDetailView(DetailView):
