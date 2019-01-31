@@ -6,6 +6,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 from .views import BookListView, BookDetailView, BookCreateView, BookUpdateView
 
+from .views import addFavorite,removeFavorite
 
 urlpatterns = [
 
@@ -44,6 +45,9 @@ urlpatterns = [
 	path('book/<int:pk>/update', BookUpdateView.as_view(),name='book-update'),
 	path('book/create_book/', BookCreateView.as_view(),name='book-create'),
 	path('book/<int:pk>/book-content',views.BookContentView.as_view(),name='book-content'),
+	path('book/<book_id>/addFavorite', addFavorite, name="addFavorite"),
+    path('book/<book_id>/removeFavorite', removeFavorite, name="removeFavorite"),
+    
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),

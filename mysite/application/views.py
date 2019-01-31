@@ -175,6 +175,21 @@ def upload_book(request):
         
         return render(request,'upload_book.html', {'book_form': book_form})
 
+def addFavorite(request, book_id):
+
+    user = request.user.profile
+    if not user.favorite.filter(pk=book_id).exists():
+        user.favorite.add(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
+def removeFavorite(request, book_id):
+
+    user = request.user.profile
+    user.favorite.remove(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
 
 class SignUpView(generic.TemplateView):
     template_name='SignUp.html'
@@ -189,6 +204,11 @@ class ProfileView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
         return context
+
+
+
+
+
 
 class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'
@@ -221,6 +241,13 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
+    def get_context_data(self, **kwargs):
+        context = super(BookDetailView, self).get_context_data(**kwargs)
+        if not self.request.user.is_anonymous:
+            context['favoriteBook'] = self.request.user.profile.favorite.filter(pk=context['book'].id).exists
+        
+        return context
+    
 
 class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
