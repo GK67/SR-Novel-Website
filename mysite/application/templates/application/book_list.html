@@ -5,7 +5,9 @@
 		<input type="text" name="q" placeholder="Search" value ="{{ query|escape }}">
 		<input class="searchbutton" type="submit" value="Search">
 	</form>
-
+	{% if not booklist %}
+		<p> There is not Book match the Search </p>
+	{% endif %}
 	{% for book in booklist %}
 		<article class="media content-section" style="width:1500px; margin:0 auto;">
 		 	<img class="rectangle article-img ml-10 mb-3 mr-3 mt-2" src="{{ book.bookImage.url }}" width="130px" height="160px">
