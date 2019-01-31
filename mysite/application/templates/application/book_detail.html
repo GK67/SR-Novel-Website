@@ -1,51 +1,80 @@
 {% extends "home_base.html" %}
 {% block content %}
-
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    
-
- {% block title%}<title>Book Index</title>{% endblock %}
-  </head>
-  <body>
-    <h1>Book Detail</h1>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Favorite</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-  	<img class="card-img-top" src="{{ book.bookImage.url }}" alt="Card image cap" style="width:800px; height:300px;">
-    <h5 class="card-title">Title: {{ object.title }}      Author: {{object.author}}     Genre: {{object.genre}}      Like:{{object.like}}</h5>
-    <h5 class="card-title">ISBN: {{ object.isbn }}     Word Count: {{object.wordCount}}    Chapter Count: {{object.chapterCount}}    Date upload:{{object.date_uploaded}}</h5>
-    <p class="card-text">Summary: {{ object.summary }}</p>
-    {% if user.is_authenticated %}
-    <a href="#" class="btn btn-primary">Add to Favorite</a>
-    {% endif %}
-  </div>
-</div>
-	
-{% endblock %}
-  </body>
+	<!doctype html>
+	<html lang="en">
+		<head>
+			<!-- Required meta tags -->
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<!-- Bootstrap CSS -->
+			
+			{% block title%}<title>Book Index</title>{% endblock %}
+		</head>
+		<body>
+			<h1>Book Detail</h1>
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			
+			<div class="card text-center">
+				<div class="card-header">
+					<ul class="nav nav-pills card-header-pills">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Active</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Favorite</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#">Disabled</a>
+						</li>
+					</ul>
+				</div>
+				<div class="card-body">
+					<img class="card-img-top" src="{{ book.bookImage.url }}" alt="Card image cap" style="width:800px; height:300px;">
+					<h5 class="card-title">Title: {{ object.title }}      Author: {{object.author}}     Genre: {{object.genre}}      Like:{{object.like}}</h5>
+					<h5 class="card-title">ISBN: {{ object.isbn }}     Word Count: {{object.wordCount}}    Chapter Count: {{object.chapterCount}}    Date upload:{{object.date_uploaded}}</h5>
+					<p class="card-text">Summary: {{ object.summary }}</p>
+					{% if user.is_authenticated %}
+					
+						{% if favoriteBook %}
+							<a href="{% url 'removeFavorite' book.id %}?next={{request.path}}" class="text-danger" title="unfavorite book"><i class="fa fa-heart"></i></a>
+						{% else %}
+							<a href="{% url 'addFavorite' book.id %}?next={{request.path}}" class="text-danger" title="favorite book"><i class="far fa-heart"></i></a>
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+			<table class="table">
+				
+				<tbody>
+					<tr>
+						<td><a href='book-content'>1</a></td>
+						<td><a href='#'>2</a></td>
+						<td><a href='#'>3</a></td>
+						<td><a href='#'>4</a></td>
+					</tr>
+					<tr>
+						<td><a href='#'>5</a></td>
+						<td><a href='#'>6</a></td>
+						<td><a href='#'>7</a></td>
+						<td><a href='#'>8</a></td>
+					</tr>
+					<tr>
+						<td><a href='#'>9</a></td>
+						<td><a href='#'>10</a></td>
+						<td><a href='#'>11</a></td>
+						<td><a href='#'>12</a></td>
+					</tr>
+					<tr>
+						<td><a href='#'>13</a></td>
+						<td><a href='#'>14</a></td>
+						<td><a href='#'>15</a></td>
+						<td><a href='#'>16</a></td>
+					</tr>
+					
+				</tbody>
+			</table>
+			
+		{% endblock %}
+	</body>
 </html>
-

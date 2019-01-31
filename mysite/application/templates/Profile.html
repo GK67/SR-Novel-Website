@@ -56,19 +56,9 @@ Licensed under MIT
 				<div class="profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							<a href="#">
+							
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
-						</li>
-						<li>
-							<a href="#">
-							<i class="glyphicon glyphicon-user"></i>
-							Favorite Books </a>
-						</li>
-						<li>
-							<a href="#" target="_blank">
-							<i class="glyphicon glyphicon-ok"></i>
-							Marker Books </a>
 						</li>
 						<li>
 							<a href="{% url 'edit-profile' %}">
@@ -85,7 +75,11 @@ Licensed under MIT
             <div class="profile-content">
 			   <ul>
   				
-  				<li>About me :  {{user.profile.about_me}}</li>
+  				<li>About me :  {{user.profile.about_me}}
+  				<li>Favorite book: </li>
+  				{% for book in user.profile.favorite.all %}
+                <a href="{{book.get_absolute_url}}">{{ book.title }}</a><br>
+                 {% endfor %}
 				</ul>
             </div>
             {% endif %}

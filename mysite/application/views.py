@@ -15,7 +15,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 from django.contrib.auth import logout
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView,TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -149,6 +149,7 @@ def upload_book(request):
                 tempAuthor = Author(authorName=author)
                 tempAuthor.save()
             book.author = tempAuthor
+            # tempGenre = Genre.objects.get(name=genre)
             # book.author = author
             # book.author = Author(authorName=author)
             # book.author.authorName=author
@@ -157,7 +158,7 @@ def upload_book(request):
 
             # print(author,authorname)
             book.genre.set(genre)
-            
+            # book.genre = tempGenre
             book.title=title
             book.summary=summary
             book.isbn=isbn
@@ -175,6 +176,21 @@ def upload_book(request):
         
         return render(request,'upload_book.html', {'book_form': book_form})
 
+def addFavorite(request, book_id):
+
+    user = request.user.profile
+    if not user.favorite.filter(pk=book_id).exists():
+        user.favorite.add(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
+def removeFavorite(request, book_id):
+
+    user = request.user.profile
+    user.favorite.remove(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
 
 class SignUpView(generic.TemplateView):
     template_name='SignUp.html'
@@ -189,6 +205,11 @@ class ProfileView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
         return context
+
+
+
+
+
 
 class editProfileView(generic.TemplateView):
     template_name ='editProfile.html'
@@ -231,6 +252,13 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
+    def get_context_data(self, **kwargs):
+        context = super(BookDetailView, self).get_context_data(**kwargs)
+        if not self.request.user.is_anonymous:
+            context['favoriteBook'] = self.request.user.profile.favorite.filter(pk=context['book'].id).exists
+        
+        return context
+    
 
 class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
@@ -241,3 +269,7 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
+
+class BookContentView(TemplateView):
+    model = Book
+    template_name = "application/book_content.html"
