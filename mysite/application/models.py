@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from PIL import Image
+
 # Create your models here.
 
 class Genre(models.Model):
@@ -13,7 +14,7 @@ class Genre(models.Model):
     
     def __str__(self):
         """String for representing the Model object."""
-        return self.name
+        return '%s' % (self.name)
 
 class Author(models.Model):
     """Model representing an author."""

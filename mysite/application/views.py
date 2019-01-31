@@ -148,6 +148,7 @@ def upload_book(request):
                 tempAuthor = Author(authorName=author)
                 tempAuthor.save()
             book.author = tempAuthor
+            # tempGenre = Genre.objects.get(name=genre)
             # book.author = author
             # book.author = Author(authorName=author)
             # book.author.authorName=author
@@ -156,7 +157,7 @@ def upload_book(request):
 
             # print(author,authorname)
             book.genre.set(genre)
-            
+            # book.genre = tempGenre
             book.title=title
             book.summary=summary
             book.isbn=isbn
