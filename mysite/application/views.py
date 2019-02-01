@@ -224,25 +224,30 @@ class BookListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(BookListView, self).get_context_data(**kwargs)
         q = self.request.GET.get('q')
+        genres = Genre.objects.all()
         context['searchq'] = q
+        context['genre_list']= genres
         return context
 
     def get_queryset(self):
-        query = self.request.GET.get("q", None)
+        query = self.request.GET.getlist("q", None)
         qs = Book.objects.all()
+        print(query)
         
-        
-        if query is not None:
-            qset = (
-                Q(title__icontains = query) |
-                Q(author__authorName__icontains = query) |
-                Q(summary__icontains = query) |
-                Q(genre__name__icontains = query)
+        if query != []:
+            qset = Q()
+    
+            for g in query[1:]:
+                print(g)
+                qset.add(Q(genre__name=g), Q.OR)
 
+            qset.add(
+                (Q(title__icontains = query[0]) |
+                Q(author__authorName__icontains = query[0]) |
+                Q(summary__icontains = query[0]) |
+                Q(genre__name__icontains = query[0])),Q.AND
                 )
-            
-
-            qs = Book.objects.filter(qset).distinct()
+            qs = qs.filter(qset).distinct()
 
         return qs
 
