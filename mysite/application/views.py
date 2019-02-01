@@ -241,3 +241,19 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
     fields = ['title','author', 'book_image', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
+
+def addFavorite(request, book_id):
+
+    user = request.user.profile
+    if not user.favorite.filter(pk=book_id).exists():
+        user.favorite.add(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
+def removeFavorite(request, book_id):
+
+    user = request.user.profile
+    user.favorite.remove(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
