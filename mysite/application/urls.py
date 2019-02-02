@@ -4,7 +4,7 @@ from django.conf.urls import include
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import BookListView, BookDetailView, BookCreateView, BookUpdateView, ChapterCreateView
+from .views import BookListView, BookDetailView, BookCreateView, BookUpdateView, ChapterCreateView, ChapterDetailView
 
 from .views import addFavorite,removeFavorite
 
@@ -44,10 +44,11 @@ urlpatterns = [
 	path('books/book/<int:pk>/', BookDetailView.as_view(),name='book-detail'),
 	path('books/book/<int:pk>/update', BookUpdateView.as_view(),name='book-update'),
 	path('books/book/create_book/', BookCreateView.as_view(),name='book-create'),
-	path('books/book/<int:pk>/book-content',views.BookContentView.as_view(),name='book-content'),
+	
 	path('books/book/<book_id>/addFavorite', addFavorite, name="addFavorite"),
     path('books/book/<book_id>/removeFavorite', removeFavorite, name="removeFavorite"),
     path('books/book/<book_id>/create_chapter/', ChapterCreateView.as_view(), name="chapter-create"),
+    path('books/book/<book_id>/chapters/<int:pk>',ChapterDetailView.as_view(),name='marker-detail'),
     
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 

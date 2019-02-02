@@ -277,9 +277,9 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
     fields = ['title','author', 'bookImage', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
-class BookContentView(TemplateView):
-    model = Book
-    template_name = "application/book_content.html"
+class ChapterDetailView(DetailView):
+    model = Marker
+    
 
 class ChapterCreateView(LoginRequiredMixin, CreateView):
     model = Marker

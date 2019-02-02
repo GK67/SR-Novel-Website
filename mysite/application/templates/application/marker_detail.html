@@ -11,11 +11,12 @@
     <!-- Bootstrap CSS -->
     
 
- {% block title%}<title>Chapter content</title>{% endblock %}
+ {% block title%}<title>Chapter: {{ object.chapterId }}</title>{% endblock %}
   </head>
   <body>
-    <h1 align="center">Chapter : </h1>
-    <p>Chapter content</p>
+    <h1 align="center">Chapter : {{ object.chapterId }}</h1>
+    <p> Content: </p>
+    <div style="text-align: center;">{{object.content}}</div>
 {% endblock %}
   </body>
 </html>

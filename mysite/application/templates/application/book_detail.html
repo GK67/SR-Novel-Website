@@ -54,7 +54,7 @@
 				<div class="text-center" style="display: flex;text-align: center; margin: 0 auto;flex-wrap: wrap;width: 1000px;">
 	  				{% for chapter in markers %}
 						<div  style=" flex: 1 0 21%;border-style: solid;margin: 5px;height: 50px;text-align: center;" >
-							<a href="#">{{ chapter.chapterId }}</a>
+							<a href="{% url 'marker-detail' book.id chapter.id %}">{{ chapter.chapterId }}</a>
 						</div>
 					{% endfor %}
 				</div>
