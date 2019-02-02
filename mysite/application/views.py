@@ -254,10 +254,15 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
+
     def get_context_data(self, **kwargs):
         context = super(BookDetailView, self).get_context_data(**kwargs)
         if not self.request.user.is_anonymous:
             context['favoriteBook'] = self.request.user.profile.favorite.filter(pk=context['book'].id).exists
+        context['markers']=Marker.objects.filter(book= self.get_object()).order_by('id')
+       
+
+
         
         return context
     
@@ -275,3 +280,31 @@ class BookUpdateView(LoginRequiredMixin, UpdateView):
 class BookContentView(TemplateView):
     model = Book
     template_name = "application/book_content.html"
+
+class ChapterCreateView(LoginRequiredMixin, CreateView):
+    model = Marker
+    fields = ['chapterId', 'content']
+    book_object=None
+
+    def get_context_data(self, **kwargs):
+        context = super(ChapterCreateView, self).get_context_data(**kwargs)
+
+        book_id= self.request.POST.get('system',None)
+        book_object= Book.objects.get(id = book_id)
+        ChapterCreateView.book_object= book_object
+        context['book_object']= book_object
+
+
+        return context
+
+    def form_valid(self, form,**kwargs):
+        self.objects = form.save(commit=False)
+
+        self.objects.book= self.book_object
+        self.objects.save()
+
+        return super().form_valid(form)
+
+
+
+    

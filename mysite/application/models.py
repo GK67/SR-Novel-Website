@@ -33,14 +33,14 @@ class Author(models.Model):
         return '%s' % (self.authorName)
 class Marker(models.Model):
     """Model representing an author."""
-    book = models.ForeignKey('Book', on_delete= models.CASCADE, blank=True)
+    book = models.ForeignKey('Book', on_delete= models.CASCADE, blank=True,null=True)
     chapterId = models.CharField(max_length=200,blank=True, null=True)
     content = models.TextField(default = 'Enter content of the chapter')
     
     
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
-        return reverse('Marker-detail', args=[str(self.id)])
+        return reverse('book-detail', args=[str(self.book.id)])
 
     def display_book(self):
 
