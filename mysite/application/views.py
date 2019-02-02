@@ -264,12 +264,12 @@ class BookDetailView(DetailView):
 
 class BookCreateView(LoginRequiredMixin, CreateView):
     model = Book
-    fields = ['title','author', 'book_image', 'summary', 'isbn',
+    fields = ['title','author', 'bookImage', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
 class BookUpdateView(LoginRequiredMixin, UpdateView):
     model = Book
-    fields = ['title','author', 'book_image', 'summary', 'isbn',
+    fields = ['title','author', 'bookImage', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
 class BookContentView(TemplateView):
