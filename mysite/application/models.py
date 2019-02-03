@@ -71,6 +71,8 @@ class Book(models.Model):
     like = models.IntegerField(default=0)
     date_uploaded = models.DateTimeField(default = timezone.now)
     bookImage = models.FileField(default ='default_book.jpg', upload_to='book_images') 
+    created_author= models.ForeignKey(User,on_delete=models.SET_NULL, blank=True, null=True)
+
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -117,6 +119,8 @@ class Profile(models.Model):
     profile_image = models.FileField(default ='default_profile.jpg', upload_to='profile_images')   
 
     about_me = models.TextField(blank=True, null=True)
+
+    num_created_books= models.IntegerField(default=0)
 
     """favorites = models.ManyToManyField('Book', blank=True)
 

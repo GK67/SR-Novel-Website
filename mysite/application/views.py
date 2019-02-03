@@ -15,8 +15,8 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 from django.contrib.auth import logout
-from django.views.generic import ListView, DetailView, CreateView, UpdateView,TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView,TemplateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 
 
@@ -164,10 +164,12 @@ def upload_book(request):
             book.wordCount=wordCount
             book.chapterCount=chapterCount
             book.bookFile=bookFile
+            book.created_author= request.user
             if bookImage:
                 book.bookImage= bookImage            
-       
+
             book.save()
+            request.user.profile.num_created_books+=1
             book_form.save()  
             return redirect('profile')
     else:
@@ -259,10 +261,11 @@ class BookDetailView(DetailView):
         context = super(BookDetailView, self).get_context_data(**kwargs)
         if not self.request.user.is_anonymous:
             context['favoriteBook'] = self.request.user.profile.favorite.filter(pk=context['book'].id).exists
-        context['markers']=Marker.objects.filter(book= self.get_object()).order_by('id')
-       
 
-
+        book_chapters= Marker.objects.filter(book= self.get_object()).order_by('id')
+        self.object.chapterCount = book_chapters.count()
+        self.object.save()
+        context['markers']=book_chapters
         
         return context
     
@@ -272,16 +275,23 @@ class BookCreateView(LoginRequiredMixin, CreateView):
     fields = ['title','author', 'bookImage', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
-class BookUpdateView(LoginRequiredMixin, UpdateView):
+class BookUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
     model = Book
     fields = ['title','author', 'bookImage', 'summary', 'isbn',
             'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
+    def test_func(self):
+        book= self.get_object()
+     
+        if self.request.user == book.created_author:
+            return True
+        return False
+
 
 class ChapterDetailView(DetailView):
     model = Marker
     
 
-class ChapterCreateView(LoginRequiredMixin, CreateView):
+class ChapterCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Marker
     fields = ['chapterId', 'content']
     book_object=None
@@ -305,7 +315,16 @@ class ChapterCreateView(LoginRequiredMixin, CreateView):
 
         return super().form_valid(form)
 
-class ChapterUpdateView(LoginRequiredMixin, UpdateView):
+    def test_func(self):
+        book_id= self.request.POST.get('system',None)
+        book_object= Book.objects.get(id = book_id)
+        ChapterCreateView.book_object= book_object
+
+        if self.request.user == book_object.created_author:
+            return True
+        return False
+
+class ChapterUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView ):
     model = Marker
     fields = ['chapterId', 'content']
 
@@ -315,6 +334,23 @@ class ChapterUpdateView(LoginRequiredMixin, UpdateView):
 
 
         return context
+
+    def test_func(self):
+        chapter= self.get_object()
+     
+        if self.request.user == chapter.book.created_author:
+            return True
+        return False
+
+class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
+    model = Marker
+
+    def test_func(self):
+        chapter= self.get_object()
+     
+        if self.request.user == chapter.book.created_author:
+            return True
+        return False
 
 
 
