@@ -305,6 +305,18 @@ class ChapterCreateView(LoginRequiredMixin, CreateView):
 
         return super().form_valid(form)
 
+class ChapterUpdateView(LoginRequiredMixin, UpdateView):
+    model = Marker
+    fields = ['chapterId', 'content']
+
+    def get_context_data(self, **kwargs):
+        context = super(ChapterUpdateView, self).get_context_data(**kwargs)
+        context['book_object']= self.get_object().book
+
+
+        return context
+
+
 
 
     

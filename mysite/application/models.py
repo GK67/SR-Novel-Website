@@ -40,7 +40,7 @@ class Marker(models.Model):
     
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
-        return reverse('book-detail', args=[str(self.book.id)])
+        return reverse('marker-detail', args=[str(self.book.id),str(self.id)])
 
     def display_book(self):
 
