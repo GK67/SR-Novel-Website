@@ -18,6 +18,8 @@
     <p> Content: </p>
     <div style="text-align: center;">{{object.content}}</div>
     <a href="{% url 'marker-update' object.book.id object.id %}">update</a>
+    <a href="{% url 'book-detail' object.book.id %}">Back To Book Page</a>
+
 {% endblock %}
   </body>
 </html>
