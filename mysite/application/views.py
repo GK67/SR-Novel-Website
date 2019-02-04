@@ -224,26 +224,28 @@ class BookListView(ListView):
     context_object_name='booklist'
     ordering = ['-date_uploaded']
     paginate_by = 5
-
+    searchq=None
     def get_context_data(self, **kwargs):
         context = super(BookListView, self).get_context_data(**kwargs)
-        q = self.request.GET.get('q')
+     
         genres = Genre.objects.all()
-        context['searchq'] = q
+        context['searchq'] = BookListView.searchq
+
         context['genre_list']= genres
         return context
 
     def get_queryset(self):
         query = self.request.GET.getlist("q", None)
+        link=None
+
         qs = Book.objects.all()
-        print(query)
-        
+
         if query != []:
             qset = Q()
-    
+            link='q='+query[0]
             for g in query[1:]:
-                print(g)
                 qset.add(Q(genre__name=g), Q.OR)
+                link+='&q='+g
 
             qset.add(
                 (Q(title__icontains = query[0]) |
@@ -252,7 +254,8 @@ class BookListView(ListView):
                 Q(genre__name__icontains = query[0])),Q.AND
                 )
             qs = qs.filter(qset).distinct()
-
+        BookListView.searchq= link
+ 
         return qs
 
 

@@ -1,5 +1,6 @@
 {% load static %}
 <html>
+
     <head>
         {% block title %}<title>SR-Novel</title>{% endblock %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -11,10 +12,11 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     </head>
 
-    <body>
+    <body style="position: relative;min-width: 1600px;">
         <!-- Navbar -->
         {% block navbar %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient( to right, #ccffcc, #99ccff);">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient( to right, #ccffcc, #99ccff);
+        position: relative;min-width: 1500px; ">
   <a class="navbar-brand" href="{% url 'index' %}">SR-Novel</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
