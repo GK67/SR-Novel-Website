@@ -367,4 +367,18 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
 
 
 
-    
+def addMarker(request, chapter_id):
+
+    user = request.user.profile
+    if not user.favorite.filter(pk=chapter_id).exists():
+        user.favorite.add(chapter_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
+def removeMarker(request, chapter_id):
+
+    user = request.user.profile
+    user.favorite.remove(chapter_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)   

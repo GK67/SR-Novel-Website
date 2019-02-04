@@ -54,7 +54,8 @@ urlpatterns = [
     path('books/book/<book_id>/chapters/<int:pk>/',ChapterDetailView.as_view(),name='marker-detail'),
     path('books/book/<book_id>/chapters/<int:pk>/update/',ChapterUpdateView.as_view(),name='marker-update'),
     path('books/book/<book_id>/chapters/<int:pk>/delete/',ChapterDeleteView.as_view(),name='marker-delete'),
-    
+    path('books/book/<book_id>/chapters/<int:pk>/addMarker', addMarker, name="addMarker"),
+    path('books/book/<book_id>/chapters/<int:pk>/removeMarker', removeMarker, name="removeMarker"),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
     #path('index/', index, name = 'index'),
