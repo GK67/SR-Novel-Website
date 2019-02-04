@@ -257,6 +257,8 @@ class BookDetailView(DetailView):
         self.object.chapterCount = book_chapters.count()
         self.object.save()
         context['markers']=book_chapters
+
+        print(self.get_object().genre.all())
         
         return context
     

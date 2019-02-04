@@ -31,7 +31,12 @@
 				</div>
 				<div class="card-body">
 					<img class="card-img-top" src="{{ book.bookImage.url }}" alt="Card image cap" style="width:800px; height:300px;">
-					<h5 class="card-title">Title: {{ object.title }}      Author: {{object.author}}     Genre: {{object.genre}}      Like:{{object.like}}</h5>
+					<h5 class="card-title">Title: {{ object.title }}      Author: {{object.author}}     <br>Genre:
+						{% for genre in object.genre.all %}
+							{{genre}}
+						{% endfor %} 
+						<br>     
+					Like:{{object.like}}</h5>
 					<h5 class="card-title">ISBN: {{ object.isbn }}     Word Count: {{object.wordCount}}    Chapter Count: {{object.chapterCount}}    Date upload:{{object.date_uploaded}}</h5>
 					<p class="card-text">Summary: {{ object.summary }}</p>
 					{% if user.is_authenticated %}

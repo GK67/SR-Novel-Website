@@ -37,7 +37,9 @@
 				 		<h2><a class = "article-title" href=" {% url 'book-detail' book.id %} "> TITLE: {{ book.title }} </a></h2>
 				 		<div class="article-metadata">
 				 			<a class="mr-2" href="#">AUTHOR: {{ book.author }}</a>
-				 			<small class="test-muted">CREATED AT: {{ book.date_uploaded|date:"F d, Y" }} <i class="far fa-heart text-danger"></i> {{book.like}} </small>
+				 			<small class="test-muted">Genre: {% for genre in book.genre.all %}
+							{{genre}}
+						{% endfor %} <br>  CREATED AT: {{ book.date_uploaded|date:"F d, Y" }} <i class="far fa-heart text-danger"></i> {{book.like}} </small>
 				 		</div>
 				 		<p class="article-content">SUMMARY:<br> {{ book.summary }} in list html</p>
 				 	</div>
@@ -75,7 +77,7 @@
 				{% if page_obj.has_next %}
 					{% if searchq %}
 						<a class="btn btn-outline-info mb-4" href="?{{searchq}}&page= {{ page_obj.next_page_number }}">Next</a>
-						<a class="btn btn-outline-info mb-4" href="?{{searchq}}&page= {{ page_obj.paginator.num_pages }}">Last {{page_obj.paginator.num_pages}}</a>
+						<a class="btn btn-outline-info mb-4" href="?{{searchq}}&page= {{ page_obj.paginator.num_pages }}">Last</a>
 					{% else %}
 						<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
 						<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
