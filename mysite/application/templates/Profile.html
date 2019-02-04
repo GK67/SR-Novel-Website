@@ -79,7 +79,7 @@ Licensed under MIT
   				<li>About me :  {{user.profile.about_me}}
   				<li>Favorite book: </li>
   				{% for book in user.profile.favorite.all %}
-                <a href="{{book.get_absolute_url}}">{{ book.title }}</a><br>
+                <a href="{{book.get_absolute_url}}">{{  book.title }}</a><br>
                  {% endfor %}
 				</ul>
             </div>
