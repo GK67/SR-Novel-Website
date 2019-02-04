@@ -44,6 +44,7 @@ def index(request):
         'top4_books': zip_top4,
     }
 
+
     genre1_top6_books=Book.objects.filter(genre = genres[0]).order_by('-wordCount')[:6]
     genre2_top6_books=Book.objects.filter(genre = genres[1]).order_by('-wordCount')[:6]
     genre3_top6_books=Book.objects.filter(genre = genres[2]).order_by('-wordCount')[:6]
