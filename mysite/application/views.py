@@ -83,6 +83,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
+            messages.success(request,'New Account %s has been created.'% (username))
             return redirect('index')
     else:
         form = SignUpForm() 
