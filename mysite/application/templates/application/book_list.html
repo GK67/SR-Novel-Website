@@ -37,7 +37,7 @@
 				 		<h2><a class = "article-title" href=" {% url 'book-detail' book.id %} "> TITLE: {{ book.title }} </a></h2>
 				 		<div class="article-metadata">
 				 			<a class="mr-2" href="#">AUTHOR: {{ book.author }}</a>
-				 			<small class="test-muted">CREATED AT: {{ book.date_uploaded|date:"F d, Y" }}  </small>
+				 			<small class="test-muted">CREATED AT: {{ book.date_uploaded|date:"F d, Y" }} <i class="far fa-heart text-danger"></i> {{book.like}} </small>
 				 		</div>
 				 		<p class="article-content">SUMMARY:<br> {{ book.summary }} in list html</p>
 				 	</div>
