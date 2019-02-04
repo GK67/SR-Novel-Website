@@ -178,21 +178,7 @@ def upload_book(request):
         
         return render(request,'upload_book.html', {'book_form': book_form})
 
-def addFavorite(request, book_id):
 
-    user = request.user.profile
-    if not user.favorite.filter(pk=book_id).exists():
-        user.favorite.add(book_id)
-    user.save()
-    next = request.GET.get('next', '/')
-    return redirect(next)
-def removeFavorite(request, book_id):
-
-    user = request.user.profile
-    user.favorite.remove(book_id)
-    user.save()
-    next = request.GET.get('next', '/')
-    return redirect(next)
 
 class SignUpView(generic.TemplateView):
     template_name='SignUp.html'
@@ -290,6 +276,12 @@ class BookUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
 
 class ChapterDetailView(DetailView):
     model = Marker
+
+    def get_context_data(self, **kwargs):
+        context = super(ChapterDetailView, self).get_context_data(**kwargs)
+        if not self.request.user.is_anonymous:
+            context['MarkerBook'] = self.request.user.profile.marker.filter(pk=context['marker'].id).exists
+        return context
     
 
 class ChapterCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
@@ -367,18 +359,37 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
 
 
 
-def addMarker(request, chapter_id):
+def addMarker(request,book_id,pk):
 
     user = request.user.profile
-    if not user.favorite.filter(pk=chapter_id).exists():
-        user.favorite.add(chapter_id)
+    MarkerId=pk
+    if not user.marker.filter(pk=MarkerId).exists():
+        user.marker.add(MarkerId)
+    user.save()
+    # print("added")
+    next = request.GET.get('next', '/')
+    return redirect(next)
+def removeMarker(request,book_id,pk):
+
+    user = request.user.profile
+    MarkerId=pk
+    user.marker.remove(MarkerId)
     user.save()
     next = request.GET.get('next', '/')
     return redirect(next)
-def removeMarker(request, chapter_id):
+
+def addFavorite(request, book_id):
 
     user = request.user.profile
-    user.favorite.remove(chapter_id)
+    if not user.favorite.filter(pk=book_id).exists():
+        user.favorite.add(book_id)
     user.save()
     next = request.GET.get('next', '/')
-    return redirect(next)   
+    return redirect(next)
+def removeFavorite(request, book_id):
+
+    user = request.user.profile
+    user.favorite.remove(book_id)
+    user.save()
+    next = request.GET.get('next', '/')
+    return redirect(next)
