@@ -7,14 +7,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap CSS -->
     
 
  {% block title%}<title>Chapter: {{ object.chapterId }}</title>{% endblock %}
   </head>
   <body>
-    <h1 align="center">Chapter : {{ object.chapterId }}</h1>
+    <h1 align="center" >Chapter : {{ object.chapterId }}</h1>
+    {% if user.is_authenticated %}
+    <ul class="fa-ul">
+    {% if MarkerBook %}
+    <li><a href="{% url 'removeMarker' object.book.id object.id %}?next={{request.path}}"><i class="fa-li fa fa-check-square"></i></a>Remove Marker</li>
+    {% else %}
+    
+    <li><a href="{% url 'addMarker' object.book.id object.id %}?next={{request.path}}"><i class="fa-li fa fa-square"></i></a>Add Marker</li>
+    {% endif %}
+    
+    {% endif %}
+</ul>
     <p> Content: </p>
     <div style="text-align: center;">{{object.content}}</div>
     <a href="{% url 'marker-update' object.book.id object.id %}" style="margin-left: 20px;">UPDATE</a>
