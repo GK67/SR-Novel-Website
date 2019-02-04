@@ -8,7 +8,9 @@ from .views import (
 	BookListView, BookDetailView, BookCreateView,
 	BookUpdateView, ChapterCreateView, ChapterDetailView,
 	ChapterUpdateView, addFavorite, removeFavorite,
-	ChapterDeleteView
+	ChapterDeleteView,
+	addMarker,removeMarker
+
 	)
 
 urlpatterns = [
