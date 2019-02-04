@@ -84,7 +84,7 @@ class Book(models.Model):
             img.save(self.bookImage.path)
 
     class Meta:
-        ordering = ['-wordCount']
+        ordering = ['-like', 'chapterCount', 'date_uploaded', '-wordCount']
 
     def __str__(self):
         """String for representing the Model object."""
