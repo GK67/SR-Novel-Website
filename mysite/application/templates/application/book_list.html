@@ -1,28 +1,35 @@
 {% extends "home_base.html" %}
 {% block content %}
 	<div id="container">
-		<div class="sidenav" style="align-items: left;width: 350px;margin-left: 20px;margin-top: 10px;">
+		<div class="sidenav" style="align-items: left;width: 350px;margin-left: 30px;margin-top: 10px;">
+
 			<form method="GET" action="/application/books/" style="width: 1000px;">
-				<input type="text" name="q"  style="margin-left: 0;margin-right: 30" placeholder="Search" value ="{{ query|escape }}">
-				
-				<div>
-					{% for genre in genre_list %}
-						<label class="form-check form-check-inline" style="margin-top:10">
-							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-							<label class="form-check-label" for="inlineCheckbox2">{{genre}}</label>
+
+				<input type="text" name="q" placeholder="Search" value ="{{ query|escape }}" style="margin-bottom: 20px;display: inline;">
+	
+				<b>
+					<div style="display: inline;">
+						{% for genre in genre_list %}
+						<label class="checkbox-inline"> 
+							{{ genre }}
+
+							<input type="checkbox" style="margin-left: 5px;margin-right: 30px;" name="q" 
+							value="{{ genre|escape }}"><span class="checkmark"></span>
 						</label>
-					{% endfor %}
-					
-				</div>
+
+						{% endfor %}
+					</div>
+				</b>
+
 				<p>
-					<button type="button" class="btn btn-sm" style="margin-top:10">
-					<span class="glyphicon glyphicon-search"></span> Search
-					</button>
+					<button class="btn btn-sm" type="submit" value="Search"  style="margin-left: 10px;">
+						<span class="glyphicon glyphicon-search"></span> Search</button>
 				</p>
-				
 			</form>
 		</div>
+
 		<div id="center" style="margin-left: 20px;margin-top: 10px;width: 900px">
+
 			{% if not booklist %}
 				<p> There is not Book match the Search </p>
 			{% endif %}
