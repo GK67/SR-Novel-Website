@@ -81,6 +81,11 @@ Licensed under MIT
   				{% for book in user.profile.favorite.all %}
                 <a href="{{book.get_absolute_url}}">{{  book.title }}</a><br>
                  {% endfor %}
+                 <li>Markered book: </li>
+                 {% for marker in user.profile.marker.all %}
+                <a href="{{marker.get_absolute_url}}">{{ marker }}</a><br>
+                 {% endfor %}
+                 <li>You have created : {{user.profile.num_created_books}} books</li>
 				</ul>
             </div>
             {% endif %}

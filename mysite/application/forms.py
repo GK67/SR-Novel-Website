@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,PasswordChangeForm
 from application.models import Profile, Book, Marker, Author, Genre
 from django.core.exceptions import ValidationError
 
@@ -33,9 +33,16 @@ class EditProfileForm(ModelForm):
         fields = ('about_me','profile_image')
 
 class UserForm(forms.ModelForm):
+    email = forms.EmailField(required=True ,max_length=254, help_text='Required. Inform a valid email address.')
+    username = forms.CharField(help_text='Unique name or Unchanged name')
     class Meta:
         model = User
         fields = ( 'email', 'username')
+
+# class PasswordChangeForm(forms.ModelForm):
+#     class Meta:
+#         model = User
+#         fields = ('password',)
 
 class ForgetForm(forms.Form):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')

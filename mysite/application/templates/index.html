@@ -15,7 +15,7 @@
 
     </head>
     <body>
-      <div class="pageBady custom clearfix container" style=" text-align: center;padding: 10px 10px 20px 10px;position: relative;min-width: 1150px;min-height: 900px;border: 1px solid #BFBFBF;background-color: white;box-shadow: 10px 10px 5px #aaaaaa;
+      <div class="pageBady custom clearfix container" style=" text-align: center;padding: 10px 10px 20px 10px;position: relative;min-width: 1150px;min-height: 1100px;border: 1px solid #BFBFBF;background-color: white;box-shadow: 10px 10px 5px #aaaaaa;
           height: 120%">
         <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
       </head>
@@ -79,7 +79,7 @@
               <ul>
                 {% for num, book in top10_books %}
                   <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">
-                    {{ num }} . {{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                    {{ num }} . {{ book.title }}                {{book.like}}</span></a> </div><br>
                 {% endfor %}
               </ul>
             </div>
@@ -99,7 +99,7 @@
                         <ul><br>
                           {% for book in genre1%}
 
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
 
                           {% endfor %}
                         </ul>
@@ -114,7 +114,7 @@
                         <ul><br>
                           {% for book in genre2%}
 
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}   {{book.like}}</span></a> </div><br>
 
                           {% endfor %}
                         </ul>
@@ -129,7 +129,7 @@
                         <ul><br>
                           {% for book in genre3%}
 
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
 
                           {% endfor %}
                         </ul>
@@ -143,7 +143,7 @@
                         <h2>Genre 4</h2>
                         <ul><br>
                           {% for book in genre4%}
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %} "><span class="text fs16">{{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                            <div class="box">  <a href=" {% url 'book-detail' book.id %} "><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
                           {% endfor %}
                         </ul>
                       </div>
@@ -157,7 +157,7 @@
                         <ul><br>
                           {% for book in genre5%}
 
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
 
                           {% endfor %}
                         </ul>
@@ -172,7 +172,7 @@
                         <ul><br>
                           {% for book in genre6 %}
 
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }} <i class="far fa-heart text-danger"></i> {{book.like}}</span></a> </div><br>
+                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}          {{book.like}}</span></a> </div><br>
 
                           {% endfor %}
                         </ul>
