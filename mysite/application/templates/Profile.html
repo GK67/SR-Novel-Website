@@ -85,6 +85,7 @@ Licensed under MIT
                  {% for marker in user.profile.marker.all %}
                 <a href="{{marker.get_absolute_url}}">{{ marker }}</a><br>
                  {% endfor %}
+                 <li>You have created : {{user.profile.num_created_books}} books</li>
 				</ul>
             </div>
             {% endif %}
