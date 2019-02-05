@@ -89,12 +89,12 @@
           <div class="maincontent">
             <div >
               <ul>
-                {% if genre1 %}
+                {% if Horror %}
                   <div class="siderBox" style="width: 270px">
                     <div class="notice" style="background-color: #f6ffff;">
-                      <h2>Genre 1</h2>
+                      <h2>Horror</h2>
                       <ul><br>
-                        {% for book in genre1%}
+                        {% for book in Horror%}
                           <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
                   <span class="text fs16" style="float:left;">{{ num }}</span>
                   <span class="text fs16" style="float:left">{{ book.title }}</span>
@@ -105,29 +105,12 @@
                     </div>
                   </div>
                 {% endif %}
-                {% if genre2 %}
+                {% if Satire %}
                   <div class="siderBox" style="width: 270px">
                     <div class="notice" style="background-color: #f6ffff">
-                      <h2>Genre 2</h2>
+                      <h2>Satire</h2>
                       <ul><br>
-                        {% for book in genre2%}
-                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
-                  <span class="text fs16" style="float:left;">{{ num }}</span>
-                  <span class="text fs16" style="float:left">{{ book.title }}</span>
-                  <span class="text fs16" style="float:right">{{book.like}}</span>
-                  </li></a> </div><br>
-                        {% endfor %}
-                      </ul>
-                    </div>
-                  </div>
-                {% endif %}
-                
-                {% if genre3 %}
-                  <div class="siderBox" style="width: 270px">
-                    <div class="notice" style="background-color: #f6ffff">
-                      <h2>Genre 3</h2>
-                      <ul><br>
-                        {% for book in genre3%}
+                        {% for book in Satire%}
                           <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
                   <span class="text fs16" style="float:left;">{{ num }}</span>
                   <span class="text fs16" style="float:left">{{ book.title }}</span>
@@ -139,12 +122,29 @@
                   </div>
                 {% endif %}
                 
-                {% if genre4 %}
+                {% if Action %}
                   <div class="siderBox" style="width: 270px">
                     <div class="notice" style="background-color: #f6ffff">
-                      <h2>Genre 4</h2>
+                      <h2>Action/adventure</h2>
                       <ul><br>
-                        {% for book in genre4%}
+                        {% for book in Action%}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                
+                {% if Romance %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff">
+                      <h2>Romance</h2>
+                      <ul><br>
+                        {% for book in Romance%}
                           <div class="box">  <a href=" {% url 'book-detail' book.id %} "><li>
                   <span class="text fs16" style="float:left;">{{ num }}</span>
                   <span class="text fs16" style="float:left">{{ book.title }}</span>
@@ -156,12 +156,12 @@
                   </div>
                 {% endif %}
                 
-                {% if genre5 %}
+                {% if Fantasy %}
                   <div class="siderBox" style="width: 270px">
                     <div class="notice" style="background-color: #f6ffff">
-                      <h2>Genre 5</h2>
+                      <h2>Fantasy</h2>
                       <ul><br>
-                        {% for book in genre5%}
+                        {% for book in Fantasy%}
                           <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
                   <span class="text fs16" style="float:left;">{{ num }}</span>
                   <span class="text fs16" style="float:left">{{ book.title }}</span>
@@ -173,12 +173,12 @@
                   </div>
                 {% endif %}
                 
-                {% if genre6 %}
+                {% if Mythology %}
                   <div class="siderBox" style="width: 270px">
                     <div class="notice" style="background-color: #f6ffff">
-                      <h2>Genre 6</h2>
+                      <h2>Mythology</h2>
                       <ul><br>
-                        {% for book in genre6 %}
+                        {% for book in Mythology %}
                           <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
                   <span class="text fs16" style="float:left;">{{ num }}</span>
                   <span class="text fs16" style="float:left">{{ book.title }}</span>

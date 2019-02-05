@@ -51,12 +51,13 @@ def index(request):
     genre4_top6_books=Book.objects.filter(genre = genres[3]).order_by('-wordCount')[:6]
     genre5_top6_books=Book.objects.filter(genre = genres[4]).order_by('-wordCount')[:6]
     genre6_top6_books=Book.objects.filter(genre = genres[5]).order_by('-wordCount')[:6]
-    context['genre1']=genre1_top6_books
-    context['genre2']=genre2_top6_books
-    context['genre3']=genre3_top6_books
-    context['genre4']=genre4_top6_books
-    context['genre5']=genre5_top6_books
-    context['genre6']=genre6_top6_books
+   
+    context['Horror']=genre1_top6_books
+    context['Satire']=genre2_top6_books
+    context['Action']=genre3_top6_books
+    context['Romance']=genre4_top6_books
+    context['Fantasy']=genre5_top6_books
+    context['Mythology']=genre6_top6_books
 
     return render(request, 'index.html', context=context)
 
