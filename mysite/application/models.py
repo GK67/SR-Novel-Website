@@ -64,11 +64,11 @@ class Book(models.Model):
     
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
-    genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
+    genre = models.ManyToManyField(Genre, help_text='Select multiple genres for this book')
     wordCount = models.IntegerField(default=0)
-    chapterCount = models.IntegerField(default=0)
+    chapterCount = models.IntegerField(default=0,blank=True,null=True)
     bookFile = models.FileField(blank=True, null=True)
-    like = models.IntegerField(default=0)
+    like = models.IntegerField(default=0,blank=True,null=True)
     date_uploaded = models.DateTimeField(default = timezone.now)
     bookImage = models.FileField(default ='default_book.jpg', upload_to='book_images') 
     created_author= models.ForeignKey(User,on_delete=models.SET_NULL, blank=True, null=True)
