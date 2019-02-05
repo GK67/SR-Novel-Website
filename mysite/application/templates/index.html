@@ -12,16 +12,15 @@
       
       <link href="{% static 'index/css/index.css' %}" type="text/css" rel="stylesheet" />
       <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
-
     </head>
     <body>
       <div class="pageBady custom clearfix container" style=" text-align: center;padding: 10px 10px 20px 10px;position: relative;min-width: 1150px;min-height: 1100px;border: 1px solid #BFBFBF;background-color: white;box-shadow: 10px 10px 5px #aaaaaa;
-          height: 120%">
+        height: 120%">
         <script src="{% static 'index/js/seajq.js' %}" type="text/javascript"></script>
       </head>
       <body>
         
-  
+        
         <div id="carouselExampleIndicators" class="carousel slide container" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -29,40 +28,36 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
           </ol>
-
           <div class="carousel-inner" style=" height: 350px;">
-
             <div class="carousel-item active" style="height: 260px;">
-             <p><a href=" {% url 'book-detail' top_book4.0.id %} "><img class="d-block w-100" src="{{ top_book4.0.bookImage.url }}" alt="First slide" ></a></p>
-              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+              <p><a href=" {% url 'book-detail' top_book4.0.id %} "><img class="d-block w-100" src="{{ top_book4.0.bookImage.url }}" alt="First slide" ></a></p>
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">
                 <h2 class = "article-title" > {{ top_book4.0.title }}</h2>
                 <p class="article-content"> Summary: {{ top_book4.0.summary }} </p>
               </div>
             </div>
-
             <div class="carousel-item" style="height: 260px;">
               <p><a href=" {% url 'book-detail' top_book4.1.id %} "><img class="d-block w-100" src="{{ top_book4.1.bookImage.url }}" alt="Second slide" ></a></p>
-              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">
                 <h2 class = "article-title" > {{ top_book4.1.title }}</h2>
                 <p class="article-content"> Summary: {{ top_book4.1.summary }} </p>
               </div>
             </div>
             <div class="carousel-item" style="height: 260px;">
               <p><a href=" {% url 'book-detail' top_book4.2.id %} "><img class="d-block w-100" src="{{ top_book4.2.bookImage.url }}" alt="Second slide" ></a></p>
-              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">
                 <h2 class = "article-title" > {{ top_book4.2.title }}</h2>
                 <p class="article-content"> Summary: {{ top_book4.2.summary }} </p>
               </div>
             </div>
             <div class="carousel-item" style="height: 260px;">
               <p><a href=" {% url 'book-detail' top_book4.3.id %} "><img class="d-block w-100" src="{{ top_book4.3.bookImage.url }}" alt="Second slide" ></a></p>
-              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">              
+              <div class="carousel-caption d-none d-md-block" style = "position:fixed; left:-700px; top:200px;">
                 <h2 class = "article-title" > {{ top_book4.3.title }}</h2>
                 <p class="article-content"> Summary: {{ top_book4.3.summary }} </p>
               </div>
             </div>
           </div>
-
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -73,176 +68,191 @@
           </a>
         </div>
         <div class="siderBox">
-            <div class="notice" style ="background: linear-gradient( to bottom,gold, white);width: 255px;height: 500px">
-              <h3>Top 10 Books</h3><br>
-
+          <div class="notice" style ="background: linear-gradient( to bottom,gold, white);width: 270px;height: 500px">
+            <h3>Top 10 Books</h3><br>
+            <ul>
+              {% for num, book in top10_books %}
+                <div class="box">  <a href=" {% url 'book-detail' book.id %}">
+                  <li>
+                  <span class="text fs16" style="float:left;">{{ num }}.</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li>
+            </a>
+          </div>
+          <br>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="w1200 clearfix">
+          <div class="maincontent">
+            <div >
               <ul>
-                {% for num, book in top10_books %}
-                  <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">
-                    {{ num }} . {{ book.title }}                {{book.like}}</span></a> </div><br>
-                {% endfor %}
+                {% if genre1 %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff;">
+                      <h2>Genre 1</h2>
+                      <ul><br>
+                        {% for book in genre1%}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if genre2 %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff">
+                      <h2>Genre 2</h2>
+                      <ul><br>
+                        {% for book in genre2%}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                
+                {% if genre3 %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff">
+                      <h2>Genre 3</h2>
+                      <ul><br>
+                        {% for book in genre3%}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                
+                {% if genre4 %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff">
+                      <h2>Genre 4</h2>
+                      <ul><br>
+                        {% for book in genre4%}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %} "><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                
+                {% if genre5 %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff">
+                      <h2>Genre 5</h2>
+                      <ul><br>
+                        {% for book in genre5%}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                
+                {% if genre6 %}
+                  <div class="siderBox" style="width: 270px">
+                    <div class="notice" style="background-color: #f6ffff">
+                      <h2>Genre 6</h2>
+                      <ul><br>
+                        {% for book in genre6 %}
+                          <div class="box">  <a href=" {% url 'book-detail' book.id %}"><li>
+                  <span class="text fs16" style="float:left;">{{ num }}</span>
+                  <span class="text fs16" style="float:left">{{ book.title }}</span>
+                  <span class="text fs16" style="float:right">{{book.like}}</span>
+                  </li></a> </div><br>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endif %}
+                
+                
               </ul>
             </div>
+            <div class="clear"></div>
           </div>
-
-
-
-
-            <div class="w1200 clearfix">
-              <div class="maincontent">
-                <div >
-                  <ul>
-                   {% if genre1 %}
-                    <div class="siderBox" style="width: 270px">
-                      <div class="notice" style="background-color: #f6ffff;">
-                        <h2>Genre 1</h2>
-                        <ul><br>
-                          {% for book in genre1%}
-
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
-
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endif %}
-
-                  {% if genre2 %}
-                    <div class="siderBox" style="width: 270px">
-                      <div class="notice" style="background-color: #f6ffff">
-                        <h2>Genre 2</h2>
-                        <ul><br>
-                          {% for book in genre2%}
-
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}   {{book.like}}</span></a> </div><br>
-
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endif %}
-                  
-                  {% if genre3 %}
-                    <div class="siderBox" style="width: 270px">
-                      <div class="notice" style="background-color: #f6ffff">
-                        <h2>Genre 3</h2>
-                        <ul><br>
-                          {% for book in genre3%}
-
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
-
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endif %}
-                  
-                  {% if genre4 %}
-                    <div class="siderBox" style="width: 270px">
-                      <div class="notice" style="background-color: #f6ffff">
-                        <h2>Genre 4</h2>
-                        <ul><br>
-                          {% for book in genre4%}
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %} "><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endif %}
-                  
-                  {% if genre5 %}
-                    <div class="siderBox" style="width: 270px">
-                      <div class="notice" style="background-color: #f6ffff">
-                        <h2>Genre 5</h2>
-                        <ul><br>
-                          {% for book in genre5%}
-
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}  {{book.like}}</span></a> </div><br>
-
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endif %}
-                  
-                  {% if genre6 %}
-                    <div class="siderBox" style="width: 270px">
-                      <div class="notice" style="background-color: #f6ffff">
-                        <h2>Genre 6</h2>
-                        <ul><br>
-                          {% for book in genre6 %}
-
-                            <div class="box">  <a href=" {% url 'book-detail' book.id %}"><span class="text fs16">{{ book.title }}          {{book.like}}</span></a> </div><br>
-
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  {% endif %}
-                  
-                    
-                  </ul>
-                </div>
-                <div class="clear"></div>
-              </div>
-            
-            </div>
-            <div class="side-nav-bar">
-              <div id="sideMenu" class="pr">
-                <ul>
-                  <li class="side-nav-top" style="display: none;"> <a href="javascript:void(0)"></a> </li>
-                </ul>
-              </div>
-            </div>
-            <script type="text/javascript">
-            seajs.use(FCSTATIC.FCJSURL + "user-info/accountInfo", function (acc) {
-            acc.initPage();
-            });
-            </script>
-            <script>
-            (function(window){
-            var $ = window.jQuery,
-            docElem = window.document.documentElement,
-            $win = $(window),
-            tip = $(".side-nav-bar"),
-            visible = isVisible();
-            function isVisible() {
-            return docElem.clientWidth >= 1345;
-            }
-            $win.load(function() {
-            if (visible) {
-            tip.show();
-            }else{
-            tip.hide();
-            }
-            }).scroll(function(){
-            var scrollT = $win.scrollTop();
-            if (scrollT == 0) {
-            $(".side-nav-top").hide(300);
-            }
-            if (scrollT > 300) {
-            $(".side-nav-top").show(300);
-            }
-            }).resize(function(){
-            if (visible ^ isVisible()) {
-            if (visible = ! visible) {
-            tip.show();
-            } else {
-            tip.hide();
-            }
-            }
-            });
-            //返回顶部 我爱模板网
-            $(".side-nav-top").click(function() {
-            $("html,body").animate({ scrollTop: 0 }, 300);
-            return false;
-            });
-            })(window);
-            </script>
-            <script src="{% static 'index/js/jquery.flexslider.min.js' %}" type="text/javascript"></script>
-            <script type="text/javascript">
-            seajs.use(FCSTATIC.FCJSURL + "index/index")
-            </script>
-          </body>
-        </html>
-      {% endblock %}
+          
+        </div>
+        <div class="side-nav-bar">
+          <div id="sideMenu" class="pr">
+            <ul>
+              <li class="side-nav-top" style="display: none;"> <a href="javascript:void(0)"></a> </li>
+            </ul>
+          </div>
+        </div>
+        <script type="text/javascript">
+        seajs.use(FCSTATIC.FCJSURL + "user-info/accountInfo", function (acc) {
+        acc.initPage();
+        });
+        </script>
+        <script>
+        (function(window){
+        var $ = window.jQuery,
+        docElem = window.document.documentElement,
+        $win = $(window),
+        tip = $(".side-nav-bar"),
+        visible = isVisible();
+        function isVisible() {
+        return docElem.clientWidth >= 1345;
+        }
+        $win.load(function() {
+        if (visible) {
+        tip.show();
+        }else{
+        tip.hide();
+        }
+        }).scroll(function(){
+        var scrollT = $win.scrollTop();
+        if (scrollT == 0) {
+        $(".side-nav-top").hide(300);
+        }
+        if (scrollT > 300) {
+        $(".side-nav-top").show(300);
+        }
+        }).resize(function(){
+        if (visible ^ isVisible()) {
+        if (visible = ! visible) {
+        tip.show();
+        } else {
+        tip.hide();
+        }
+        }
+        });
+        //返回顶部 我爱模板网
+        $(".side-nav-top").click(function() {
+        $("html,body").animate({ scrollTop: 0 }, 300);
+        return false;
+        });
+        })(window);
+        </script>
+        <script src="{% static 'index/js/jquery.flexslider.min.js' %}" type="text/javascript"></script>
+        <script type="text/javascript">
+        seajs.use(FCSTATIC.FCJSURL + "index/index")
+        </script>
+      </body>
+    </html>
+  {% endblock %}
