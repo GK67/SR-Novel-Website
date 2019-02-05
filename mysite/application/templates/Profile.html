@@ -49,7 +49,7 @@ Licensed under MIT
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
 					<button type="button" class="btn btn-success btn-sm"><a href="{% url 'index' %}" >Back to Index</a></button>
-					<button type="button" class="btn btn-danger btn-sm"><a href="{% url 'upload-book' %}">Upload Book</button>
+					<button type="button" class="btn btn-danger btn-sm"><a href="{% url 'upload-book' %}">Upload Book</a></button>
 				</div>
 				
 				<!-- END SIDEBAR BUTTONS -->
@@ -57,7 +57,7 @@ Licensed under MIT
 				<div class="profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							
+							<a href="{% url 'profile' %}">
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
 						</li>
