@@ -5,9 +5,9 @@
 
 			<form method="GET" action="/application/books/" style="width: 1000px;">
 				<input type="text" name="q" placeholder="Search" value ="{{ query|escape }}">
-				<input class="searchbutton" type="submit" value="Search">
+				
 
-				<h5><br>Genres</h5>
+				
 				<b>
 				<div>
 				{% for genre in genre_list %}
@@ -15,10 +15,10 @@
 					{{ genre }}
 					<input type="checkbox" style="margin-left: 5;margin-right: 30" name="q" value="{{ genre|escape }}">
 					<span class="checkmark"></span>
-					
+
 				</label>
 				{% endfor %}
-				<input class="searchbutton" type="submit" value="Filter">
+				<input class="searchbutton" type="submit" value="Submit">
 			</div>
 
 
