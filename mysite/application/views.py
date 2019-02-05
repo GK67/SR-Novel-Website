@@ -151,9 +151,9 @@ def upload_book(request):
             author = request.POST.get('author')        
             summary = request.POST.get('summary')
             isbn = request.POST.get('isbn')
-            genre = request.POST.get('genre')       
+            genre = request.POST.getlist('genre')       
             wordCount = request.POST.get('wordCount')
-            chapterCount = request.POST.get('chapterCount')
+            
             bookFile = request.POST.get('bookFile')
             bookImage= request.POST.get('bookImage')
             book = Book.objects.create()
@@ -169,15 +169,16 @@ def upload_book(request):
             # book.author.authorName=author
             # book.author.get(author)
             #book.author.authorName=author
-
+            for i in range(len(genre)):
+                book.genre.add(genre[i])   
             # print(author,authorname)
-            book.genre.set(genre)
+            # book.genre.add(genre)
             # book.genre = tempGenre
             book.title=title
             book.summary=summary
             book.isbn=isbn
             book.wordCount=wordCount
-            book.chapterCount=chapterCount
+            
             book.bookFile=bookFile
             book.created_author= request.user
             if bookImage:
