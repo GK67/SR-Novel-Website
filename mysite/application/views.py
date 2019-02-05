@@ -85,7 +85,7 @@ def login(request):
 def signup(request):
     if request.method =='GET':
         form = SignUpForm(request.GET)
-        if form.is_valid():
+        if form.clean_email() and form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
