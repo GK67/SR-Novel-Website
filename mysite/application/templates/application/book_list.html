@@ -4,11 +4,16 @@
 		<div class="sidenav" style="align-items: left;width: 350px;margin-left: 20px;margin-top: 10px;">
 
 			<form method="GET" action="/application/books/" style="width: 1000px;">
+				<p>
 				<input type="text" name="q" placeholder="Search" value ="{{ query|escape }}">
 				
+    			<button type="button" class="btn btn-sm">
+      			<span class="glyphicon glyphicon-search"></span> Search
+    			</button>
+  				</p>
 
 				
-				<b>
+				
 				<div>
 				{% for genre in genre_list %}
 				<label class="checkbox-inline 2"> 
@@ -18,6 +23,7 @@
 
 				</label>
 				{% endfor %}
+				
 				<input class="searchbutton" type="submit" value="Submit">
 			</div>
 
