@@ -124,17 +124,20 @@ def edit_profile(request):
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
-        image_form = EditProfileImageForm(request.POST, request.FILES)
+        image_form = EditProfileImageForm(request.POST, request.FILES,instance= request.user.profile)
         if profile_form.is_valid():
             print("profile_form valid")
         if user_form.is_valid():
             print("user_form valid")
         if image_form.is_valid():
             print("imaage valid")
-        if profile_form.is_valid() and user_form.is_valid():
+        if profile_form.is_valid() and image_form.is_valid() and user_form.is_valid():
+            email = request.POST.get('email')
+            print(email)
             print("valid")
             profile_form.save()
-            user_form.save() 
+            user_form.save()
+            image_form.save() 
             
             # pk = request.user.pk
             # pk = str(pk)
@@ -144,8 +147,8 @@ def edit_profile(request):
     else:
         profile_form = EditProfileForm(instance = request.user.profile)
         user_form=UserForm(instance = request.user)
-        
-        return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form})
+        image_form = EditProfileImageForm(request.POST, instance = request.user.profile)
+        return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form,'image_form':image_form})
 
 def logout_view(request):
     logout(request)
