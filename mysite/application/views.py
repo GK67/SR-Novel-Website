@@ -1,7 +1,7 @@
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
-
+from django.core.files.storage import FileSystemStorage
 from application.models import Profile, Book, Marker, Author, Genre
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -116,11 +116,16 @@ def forget_v(request):
     return render_to_response('change_password.html',{'form': form})
 
 def edit_profile(request):
+    fs = FileSystemStorage(location='/media/photos')
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
-        
+        if profile_form.is_valid():
+            print("profile_form valid")
+        if user_form.is_valid():
+            print("user_form valid")
         if profile_form.is_valid() and user_form.is_valid():
+            print("valid")
             profile_form.save()
             user_form.save() 
             
