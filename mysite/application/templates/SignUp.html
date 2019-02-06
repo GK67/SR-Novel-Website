@@ -47,6 +47,14 @@
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
+					{% if form.errors %}
+						{% for error in form.username.errors %}
+							<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					{% endif %}
+
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input id="email" class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
@@ -55,6 +63,14 @@
 						</span>
 					</div>
 
+					{% if form.errors %}
+						{% for error in form.email.errors %}
+							<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					{% endif %}
+
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input id="password1" class="input100" type="password" name="password1" placeholder="Password">
 						<span class="focus-input100"></span>
@@ -62,6 +78,14 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					{% if form.errors %}
+						{% for error in form.password1.errors %}
+							<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					{% endif %}
+
 					<div class="wrap-input100 validate-input" data-validate = "Password is same">
 						<input id="password2" class="input100" type="password" name="password2" placeholder="ReEnter-Password">
 						<span class="focus-input100"></span>
@@ -70,19 +94,23 @@
 						</span>
 					</div>
 					{% if form.errors %}
-    {% for field in form %}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-            </div>
-        {% endfor %}
-    {% endfor %}
-    {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-            <strong>{{ error|escape }}</strong>
-        </div>
-    {% endfor %}
-{% endif %}
+						{% for error in form.password2.errors %}
+							<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					{% endif %}
+							
+						
+					{% if form.errors %}
+						{% for error in form.non_field_errors %}
+							<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					{% endif %}
+					
+
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">
 							Sign Up
