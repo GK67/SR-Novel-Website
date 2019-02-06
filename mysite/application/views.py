@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm
+from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm,EditProfileImageForm
 
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
@@ -19,7 +19,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView,Te
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.urls import reverse
-
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def index(request):
     books= Book.objects.all()
@@ -124,10 +124,13 @@ def edit_profile(request):
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
+        image_form = EditProfileImageForm(request.POST, request.FILES)
         if profile_form.is_valid():
             print("profile_form valid")
         if user_form.is_valid():
             print("user_form valid")
+        if image_form.is_valid():
+            print("imaage valid")
         if profile_form.is_valid() and user_form.is_valid():
             print("valid")
             profile_form.save()
@@ -166,6 +169,8 @@ def upload_book(request):
             
             bookFile = request.POST.get('bookFile')
             bookImage= request.POST.get('bookImage')
+            
+
             book = Book.objects.create()
             try:
                 tempAuthor = Author.objects.get(authorName=author)
