@@ -127,7 +127,7 @@ EMAIL_HOST_USER = 'codingrui@gmail.com'
 EMAIL_HOST_PASSWORD = 'coding123'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+AUTH_USER_EMAIL_UNIQUE = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
