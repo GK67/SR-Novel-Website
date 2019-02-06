@@ -38,12 +38,8 @@ class SignUpForm(UserCreationForm):
 class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('about_me',)
+        fields = ('about_me','profile_image')
 
-class EditProfileImageForm(ModelForm):
-    class Meta:
-        model = Profile
-        fields = ('profile_image',) 
 
 class UserForm(forms.ModelForm):
     email = forms.EmailField(required=True ,max_length=254, help_text='Required and Unique. Inform a valid email address.')

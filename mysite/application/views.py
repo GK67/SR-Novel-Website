@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm,EditProfileImageForm
+from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm
 
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
@@ -124,13 +124,11 @@ def edit_profile(request):
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
-        image_form = EditProfileImageForm(request.POST, request.FILES)
         if profile_form.is_valid():
             print("profile_form valid")
         if user_form.is_valid():
             print("user_form valid")
-        if image_form.is_valid():
-            print("imaage valid")
+       
         if profile_form.is_valid() and user_form.is_valid():
             print("valid")
             profile_form.save()
@@ -144,7 +142,7 @@ def edit_profile(request):
     else:
         profile_form = EditProfileForm(instance = request.user.profile)
         user_form=UserForm(instance = request.user)
-        
+
         return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form})
 
 def logout_view(request):

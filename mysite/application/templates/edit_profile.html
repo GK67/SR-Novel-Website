@@ -17,11 +17,11 @@
   </div>
     <div class="row">
       <div class="col-lg-7 col-centered">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ user_form.as_p }}
           {{ profile_form.as_p }}
-          {{image_form.as_p}}
+          
               <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
