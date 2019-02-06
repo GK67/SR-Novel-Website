@@ -72,7 +72,7 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-        print(username,password)
+       
         if user is not None:
             
             auth_login(request, user)
@@ -83,6 +83,10 @@ def login(request):
     return render(request, 'login.html',{'error': error})
 
 def signup(request):
+
+    if request.user is not None and request.user.is_authenticated:
+        return redirect('/application')
+        
     if request.method =='GET':
         form = SignUpForm(request.GET)
    
