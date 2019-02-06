@@ -33,12 +33,17 @@ class EditProfileForm(ModelForm):
         fields = ('about_me','profile_image')
 
 class UserForm(forms.ModelForm):
-    email = forms.EmailField(required=True ,max_length=254, help_text='Required. Inform a valid email address.')
+    email = forms.EmailField(required=True ,max_length=254, help_text='Required and Unique. Inform a valid email address.')
     username = forms.CharField(help_text='Unique name or Unchanged name')
     class Meta:
         model = User
         fields = ( 'email', 'username')
-
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
+        if email and User.objects.filter(email=email).exclude(username=username).exists():
+            raise forms.ValidationError(u'Email addresses must be unique.')
+        return email   
 # class PasswordChangeForm(forms.ModelForm):
 #     class Meta:
 #         model = User
