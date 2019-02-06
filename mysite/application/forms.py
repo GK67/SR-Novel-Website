@@ -13,11 +13,19 @@ class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=30, required=True, help_text='Required field.')
     password1 = forms.CharField(max_length=30, required=True, help_text='Required field.')
     password2 = forms.CharField(max_length=30, required=True, help_text='Required field.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    email = forms.EmailField(required=True,max_length=254, help_text='Required. Inform a valid email address.')
 
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2', )
+
+    def clean_email(self):
+        
+        email_data = self.cleaned_data.get('email')
+        email_data=email_data.lower()
+        if User.objects.filter(email=email_data).exists():
+            raise forms.ValidationError("This email already used")
+        return email_data
 
 # class LoginForm(AuthenticationForm):
 #     username = forms.CharField(max_length=30, required=True, help_text='Required field.')
