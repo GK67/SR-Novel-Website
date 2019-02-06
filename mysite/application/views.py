@@ -126,9 +126,9 @@ def edit_profile(request):
             
             # pk = request.user.pk
             # pk = str(pk)
-            return redirect('index')
-        else:
             return redirect('profile')
+        else:
+            return redirect('edit-profile')
     else:
         profile_form = EditProfileForm(instance = request.user.profile)
         user_form=UserForm(instance = request.user)
