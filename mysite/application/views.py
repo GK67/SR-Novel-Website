@@ -120,7 +120,7 @@ def forget_v(request):
     return render_to_response('change_password.html',{'form': form})
 
 def edit_profile(request):
-    fs = FileSystemStorage(location='/media/photos')
+    
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
