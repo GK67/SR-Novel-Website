@@ -124,26 +124,49 @@ def edit_profile(request):
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
+<<<<<<< HEAD
         if profile_form.is_valid():
             print("profile_form valid")
+=======
+        image_form = EditProfileImageForm(request.POST, request.FILES,instance= request.user.profile)
+        
+>>>>>>> 5ea6707cec028556b774329b1347a4f106905aa6
         if user_form.is_valid():
+            user_form.save()
             print("user_form valid")
+<<<<<<< HEAD
        
         if profile_form.is_valid() and user_form.is_valid():
             print("valid")
+=======
+            return redirect('profile')
+        if image_form.is_valid() and profile_form.is_valid():
+            image_form.save()
+>>>>>>> 5ea6707cec028556b774329b1347a4f106905aa6
             profile_form.save()
-            user_form.save() 
+            print("imaage valid")
+            print("profile_form valid")
+            return redirect('profile')
+        # if profile_form.is_valid():
+        #     profile_form.save()
+        #     print("profile_form valid")
+        #     return redirect('profile') 
             
             # pk = request.user.pk
             # pk = str(pk)
-            return redirect('profile')
+            
         else:
             return redirect('edit-profile')
     else:
         profile_form = EditProfileForm(instance = request.user.profile)
         user_form=UserForm(instance = request.user)
+<<<<<<< HEAD
 
         return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form})
+=======
+        image_form = EditProfileImageForm(request.POST, instance = request.user.profile)
+        return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form,'image_form':image_form})
+>>>>>>> 5ea6707cec028556b774329b1347a4f106905aa6
 
 def logout_view(request):
     logout(request)
