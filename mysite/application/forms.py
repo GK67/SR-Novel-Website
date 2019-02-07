@@ -69,12 +69,11 @@ class UserForm(forms.ModelForm):
         return username
     def save(self, commit=True):
         user = super(UserForm, self).save(commit=False)
-        user.email = self.cleaned_data('email')
-        user.username = self.cleaned_data('username')
+        user.email = self.cleaned_data['email']
+        user.username = self.cleaned_data['username']
 
         
-        user.username.save()
-        user.email.save()
+        user.save()
 
         return user
     def has_changed(self, *args, **kwargs):
