@@ -414,20 +414,33 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
         return False
     def form_valid(self, form,**kwargs):
         current_length= len(self.get_object().content.split())
+        print("form_valid")
         print(current_length)
         self.objects = form.save(commit=False)
         self.objects.save()
         
         self.objects.book.wordCount-= current_length
+        print("form_valid")
         print(self.objects.book.wordCount)
         self.objects.book.save()
         
         return super().form_valid(form)
 
-    def get_success_url(self):
+    def get_success_url(self,):
+        book_id = self.kwargs['book_id']
+        
         current_length= len(self.get_object().content.split())
-        print("get_success_url")
-        print(current_length)
+        
+        
+        wordCount=self.get_object().book.wordCount
+        
+        wordCount = wordCount - current_length
+        
+        book_object= Book.objects.get(id = book_id)
+        book_object.wordCount = wordCount
+        
+        book_object.save()
+        
         return reverse('book-detail', args=[str(ChapterDeleteView.book_object.id)])
 
 
