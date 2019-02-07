@@ -1,7 +1,7 @@
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
-
+from django.core.files.storage import FileSystemStorage
 from application.models import Profile, Book, Marker, Author, Genre
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -121,24 +121,43 @@ def forget_v(request):
     return render_to_response('change_password.html',{'form': form})
 
 def edit_profile(request):
+    
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
+
+        image_form = EditProfileImageForm(request.POST, request.FILES,instance= request.user.profile)
         
-        if profile_form.is_valid() and user_form.is_valid():
+
+        if user_form.is_valid():
+            user_form.save()
+            print("user_form valid")
+
+            return redirect('profile')
+        if image_form.is_valid() and profile_form.is_valid():
+            image_form.save()
+
             profile_form.save()
-            user_form.save() 
+            print("imaage valid")
+            print("profile_form valid")
+            return redirect('profile')
+        # if profile_form.is_valid():
+        #     profile_form.save()
+        #     print("profile_form valid")
+        #     return redirect('profile') 
             
             # pk = request.user.pk
             # pk = str(pk)
-            return redirect('profile')
+            
         else:
             return redirect('edit-profile')
     else:
         profile_form = EditProfileForm(instance = request.user.profile)
         user_form=UserForm(instance = request.user)
-        
-        return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form})
+
+        image_form = EditProfileImageForm(request.POST, instance = request.user.profile)
+        return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form,'image_form':image_form})
+
 
 def logout_view(request):
     logout(request)
@@ -161,7 +180,7 @@ def upload_book(request):
             
             bookFile = request.FILES.get('bookFile')
             bookImage= request.FILES.get('bookImage')
-            print(bookImage)
+            
             book = Book.objects.create()
             try:
                 tempAuthor = Author.objects.get(authorName=author)

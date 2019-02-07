@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from PIL import Image
-
+from django.core.files.storage import FileSystemStorage
 # Create your models here.
 
 class Genre(models.Model):
@@ -110,6 +110,7 @@ class Book(models.Model):
         return reverse('book-detail', args=[str(self.id)])
 
 class Profile(models.Model):
+    
     user = models.OneToOneField(User, on_delete=models.CASCADE) 
 
     favorite = models.ManyToManyField('Book',blank=True)
