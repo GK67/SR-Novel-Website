@@ -347,6 +347,9 @@ class ChapterCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         self.objects.book= self.book_object
         self.objects.save()
 
+        self.objects.book.wordCount+= len(self.objects.content.split())
+        self.objects.book.save()
+    
         return super().form_valid(form)
 
     def test_func(self):
@@ -375,6 +378,20 @@ class ChapterUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView ):
 
         return context
 
+    def form_valid(self, form,**kwargs):
+        current_length= len(self.get_object().content.split())
+
+        self.objects = form.save(commit=False)
+        self.objects.save()
+
+        new_length= len(self.get_object().content.split())
+        total_length= self.objects.book.wordCount
+        
+        self.objects.book.wordCount= total_length- current_length+ new_length
+        self.objects.book.save()
+
+        return super().form_valid(form)
+
     def test_func(self):
         chapter= self.get_object()
      
@@ -393,6 +410,17 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
         if self.request.user == chapter.book.created_author:
             return True
         return False
+    def form_valid(self, form,**kwargs):
+        current_length= len(self.get_object().content.split())
+        print(current_length)
+        self.objects = form.save(commit=False)
+        self.objects.save()
+        
+        self.objects.book.wordCount-= current_length
+        print(self.objects.book.wordCount)
+        self.objects.book.save()
+        
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('book-detail', args=[str(ChapterDeleteView.book_object.id)])

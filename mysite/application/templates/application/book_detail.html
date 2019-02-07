@@ -31,8 +31,13 @@
 						</li>
 					</ul>
 				</div>
+				
 				<div class="card-body">
-					<img class="card-img-top" src="{{ book.bookImage.url }}" alt="Card image cap" style="width:800px; height:300px;">
+
+					<img class="card-img-top" src="{{ book.bookImage.url }}" alt="Card image cap" style="width:300px; height:350px;">
+					{% if object.bookFile %}
+						<iframe class="card-img-top" src="{{object.bookFile.url}}" alt="Card image cap" style="width:600px; height:400px;"></iframe>
+					{% endif %}
 					<h5 class="card-title">Title: {{ object.title }}      Author: {{object.author}}     <br>Genre:
 						{% for genre in object.genre.all %}
 							{{genre}}
@@ -50,6 +55,7 @@
 						{% endif %}
 					{% endif %}
 				</div>
+
 				{% if author %}
 				<div>
 					<form action="{% url 'chapter-create' book.id %}" method="POST" id="systemForm">
