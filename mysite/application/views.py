@@ -21,6 +21,7 @@ from django.db.models import Q
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django import forms
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def index(request):
@@ -330,8 +331,10 @@ class ChapterCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super(ChapterCreateView, self).get_context_data(**kwargs)
 
+
         book_id= self.request.POST.get('system',None)
-        book_object= Book.objects.get(id = book_id)
+      
+        book_object= get_object_or_404(Book, pk = book_id)
         ChapterCreateView.book_object= book_object
         context['book_object']= book_object
 
@@ -352,14 +355,14 @@ class ChapterCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
         if not book_object:
             book_id= self.request.POST.get('system',None)
-            book_object= Book.objects.get(id = book_id)
+            book_object= get_object_or_404(Book, pk=book_id)
             ChapterCreateView.book_object= book_object
         
-        print(book_object.created_author)
 
         if self.request.user == book_object.created_author:
             return True
         return False
+
 
 class ChapterUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView ):
     model = Marker
