@@ -19,6 +19,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView,Te
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -146,21 +147,21 @@ def logout_view(request):
 
 
 
-
+@login_required(login_url='login/')
 def upload_book(request):
     
     if request.method == 'POST':
-        book_form = UploadBookForm(request.POST, instance = request.user)
+        book_form = UploadBookForm(request.POST, request.FILES, instance = request.user)
         if book_form.is_valid():
             title = request.POST.get('title')
             author = request.POST.get('author')        
             summary = request.POST.get('summary')
             isbn = request.POST.get('isbn')
             genre = request.POST.getlist('genre')       
-            wordCount = request.POST.get('wordCount')
             
-            bookFile = request.POST.get('bookFile')
-            bookImage= request.POST.get('bookImage')
+            bookFile = request.FILES.get('bookFile')
+            bookImage= request.FILES.get('bookImage')
+            print(bookImage)
             book = Book.objects.create()
             try:
                 tempAuthor = Author.objects.get(authorName=author)
@@ -168,21 +169,15 @@ def upload_book(request):
                 tempAuthor = Author(authorName=author)
                 tempAuthor.save()
             book.author = tempAuthor
-            # tempGenre = Genre.objects.get(name=genre)
-            # book.author = author
-            # book.author = Author(authorName=author)
-            # book.author.authorName=author
-            # book.author.get(author)
-            #book.author.authorName=author
+    
+
             for i in range(len(genre)):
                 book.genre.add(genre[i])   
-            # print(author,authorname)
-            # book.genre.add(genre)
-            # book.genre = tempGenre
+     
+
             book.title=title
             book.summary=summary
             book.isbn=isbn
-            book.wordCount=wordCount
             
             book.bookFile=bookFile
             book.created_author= request.user
@@ -192,21 +187,15 @@ def upload_book(request):
             book.save()
             request.user.profile.num_created_books+=1
             book_form.save()  
-            return redirect('profile')
+            messages.success(request,
+                'New Book, %s, has been created, You can go ahead to Search Your New Created Book.'% (title))
+            return redirect('booklist')
     else:
         book_form = UploadBookForm(request.POST, instance = request.user)
         
         return render(request,'upload_book.html', {'book_form': book_form})
 
 
-
-class SignUpView(generic.TemplateView):
-    template_name='SignUp.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(SignUpView, self).get_context_data(**kwargs)
-        return context
-    
 class ProfileView(generic.TemplateView):
     model = Profile
     template_name ='Profile.html'
@@ -281,11 +270,6 @@ class BookDetailView(DetailView):
         
         return context
     
-
-class BookCreateView(LoginRequiredMixin, CreateView):
-    model = Book
-    fields = ['title','author', 'bookImage', 'summary', 'isbn',
-            'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
 
 class BookUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
     model = Book
