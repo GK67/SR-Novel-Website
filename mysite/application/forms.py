@@ -38,10 +38,7 @@ class SignUpForm(UserCreationForm):
 class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
-<<<<<<< HEAD
-        fields = ('about_me','profile_image')
 
-=======
         fields = ('about_me',)
     def has_changed(self, *args, **kwargs):
         return True
@@ -52,7 +49,7 @@ class EditProfileImageForm(ModelForm):
         fields = ('profile_image',)
     def has_changed(self, *args, **kwargs):
         return True 
->>>>>>> 5ea6707cec028556b774329b1347a4f106905aa6
+
 
 class UserForm(forms.ModelForm):
     email = forms.EmailField(required=True ,max_length=254, help_text='Required and Unique. Inform a valid email address.')
