@@ -58,19 +58,16 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ( 'email', 'username')
 
-    def clean_special_case(self):      
-        raise forms.ValidationError("This email already used")
     '''def clean_username(self):
         username = self.cleaned_data.get('username')
         return username
     def save(self, commit=True):
         user = super(UserForm, self).save(commit=False)
-        user.email = self.cleaned_data('email')
-        user.username = self.cleaned_data('username')
+        user.email = self.cleaned_data['email']
+        user.username = self.cleaned_data['username']
 
         
-        user.username.save()
-        user.email.save()
+        user.save()
 
         return user
     def has_changed(self, *args, **kwargs):

@@ -34,7 +34,7 @@ class Author(models.Model):
 class Marker(models.Model):
     """Model representing an author."""
     book = models.ForeignKey('Book', on_delete= models.CASCADE, blank=True,null=True)
-    chapterId = models.CharField(max_length=200,blank=True, null=True)
+    chapterId = models.CharField(help_text="Enter chapter ID and Name would be good",max_length=200,blank=True, null=True)
     content = models.TextField(default = 'Enter content of the chapter')
     
     

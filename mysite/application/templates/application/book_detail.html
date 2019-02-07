@@ -21,9 +21,11 @@
 						<li class="nav-item">
 							<a class="nav-link active" href="#">Active</a>
 						</li>
+						{% if author %}
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'book-update' book.id %}">Update book</a>
 						</li>
+						{% endif %}
 						<li class="nav-item">
 							<a class="nav-link disabled" href="#">Disabled</a>
 						</li>
@@ -48,13 +50,16 @@
 						{% endif %}
 					{% endif %}
 				</div>
-
+				{% if author %}
 				<div>
 					<form action="{% url 'chapter-create' book.id %}" method="POST" id="systemForm">
 						{% csrf_token %}
+						
 						<button style="width: 300px;border-style: solid;border-color: green;cursor: pointer;" type="submit" name="system" value="{{ book.id }}" form="systemForm"> Add New Chapter</button>
+
 					</form>
 				</div>
+				{% endif %}
 
 				<div class="text-center" style="display: flex;text-align: center; margin: 0 auto;flex-wrap: wrap;width: 1000px;">
 	  				{% for chapter in markers %}

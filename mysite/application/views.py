@@ -136,9 +136,6 @@ def edit_profile(request):
             user_form.save(commit=False)
             username= user_form.cleaned_data.get('username')
             email = user_form.cleaned_data.get('email').lower();
-            print(current_email)
-            print(request.user.email != email)
-            print(User.objects.filter(email=email).exists())
 
             try:
                 if current_email != email and User.objects.filter(email=email).exists():
@@ -290,7 +287,10 @@ class BookDetailView(DetailView):
         self.object.chapterCount = book_chapters.count()
         self.object.save()
         context['markers']=book_chapters
-
+        book = self.get_object()
+        print(book)
+        if self.request.user == book.created_author:
+            context['author'] = self.request.user
         # print(self.get_object().genre.all())
         # print(context)
         return context
@@ -299,7 +299,7 @@ class BookDetailView(DetailView):
 class BookUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
     model = Book
     fields = ['title','author', 'bookImage', 'summary', 'isbn',
-            'genre', 'wordCount', 'chapterCount', 'like','date_uploaded']
+            'genre','bookFile']
     def test_func(self):
         book= self.get_object()
      
@@ -315,10 +315,14 @@ class ChapterDetailView(DetailView):
         context = super(ChapterDetailView, self).get_context_data(**kwargs)
         if not self.request.user.is_anonymous:
             context['MarkerBook'] = self.request.user.profile.marker.filter(pk=context['marker'].id).exists
+        book= self.get_object().book
+        if self.request.user == book.created_author:
+            context['author'] = self.request.user
         return context
     
 
 class ChapterCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+
     model = Marker
     fields = ['chapterId', 'content']
     book_object=None

@@ -28,9 +28,13 @@
 </ul>
     <p> Content: </p>
     <div style="text-align: center;">{{object.content}}</div>
+    {% if author %}
     <a href="{% url 'marker-update' object.book.id object.id %}" style="margin-left: 20px;">UPDATE</a>
+    {% endif %}
     <a href="{% url 'book-detail' object.book.id %}" style="margin-left: 30px;">Back To Book Page</a>
+    {% if author %}
     <a href="{% url 'marker-delete' object.book.id object.id %}" style="margin-left: 20px;">DELETE</a>
+    {% endif %}
 
 {% endblock %}
   </body>
