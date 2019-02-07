@@ -298,8 +298,8 @@ class BookDetailView(DetailView):
         self.object.save()
         context['markers']=book_chapters
 
-        print(self.get_object().genre.all())
-        
+        # print(self.get_object().genre.all())
+        # print(context)
         return context
     
 
@@ -427,15 +427,23 @@ def removeMarker(request,book_id,pk):
 def addFavorite(request, book_id):
 
     user = request.user.profile
+    book_object= Book.objects.get(id = book_id)
+    print(book_object.like)
     if not user.favorite.filter(pk=book_id).exists():
         user.favorite.add(book_id)
+        book_object.like=book_object.like+1
+        book_object.save()
+        print(book_object.like)
     user.save()
     next = request.GET.get('next', '/')
     return redirect(next)
 def removeFavorite(request, book_id):
 
     user = request.user.profile
+    book_object= Book.objects.get(id = book_id)
     user.favorite.remove(book_id)
+    book_object.like=book_object.like-1
+    book_object.save()
     user.save()
     next = request.GET.get('next', '/')
     return redirect(next)
