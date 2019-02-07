@@ -406,7 +406,9 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
     def test_func(self):
         chapter= self.get_object()
         ChapterDeleteView.book_object= chapter.book
-
+        current_length= len(self.get_object().content.split())
+        print("test_func+")
+        print(current_length)
         if self.request.user == chapter.book.created_author:
             return True
         return False
@@ -423,6 +425,9 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
         return super().form_valid(form)
 
     def get_success_url(self):
+        current_length= len(self.get_object().content.split())
+        print("get_success_url")
+        print(current_length)
         return reverse('book-detail', args=[str(ChapterDeleteView.book_object.id)])
 
 
