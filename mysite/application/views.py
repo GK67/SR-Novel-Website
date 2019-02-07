@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm
+from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm,EditProfileImageForm
 
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
