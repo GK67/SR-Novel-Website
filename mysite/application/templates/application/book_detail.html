@@ -19,17 +19,14 @@
 				<div class="card-header">
 					<ul class="nav nav-pills card-header-pills">
 						<li class="nav-item">
-							<a class="nav-link active" href="#">Active</a>
+							<a class="nav-link active" href="{% url 'book-detail' book.id %}">Main</a>
 						</li>
 						{% if author %}
 						<li class="nav-item">
-							<a class="nav-link" href="{% url 'book-update' book.id %}">Update book</a>
+							<a class="nav-link" href="{% url 'book-update' book.id %}">Update Book</a>
 						</li>
 						{% endif %}
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#">Disabled</a>
-						</li>
-					</ul>
+						</ul>
 				</div>
 				
 				<div class="card-body">
