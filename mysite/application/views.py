@@ -139,7 +139,7 @@ def edit_profile(request):
 
             try:
                 if current_email != email and User.objects.filter(email=email).exists():
-                    raise forms.ValidationError('This Email has been used, Email addresses must be unique.')
+                    raise forms.ValidationError('Email, %s, has been used, Email addresses must be unique.' % (email))
                   
                 else:
                     user_form.save()
