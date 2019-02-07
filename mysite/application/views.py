@@ -2,13 +2,13 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
 from django.core.files.storage import FileSystemStorage
-from application.models import Profile, Book, Marker, Author, Genre
+from application.models import Profile, Book, Marker, Author, Genre,User
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm
+from .forms import SignUpForm, ForgetForm, EditProfileForm,UserForm,UploadBookForm,EditProfileImageForm
 
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
@@ -20,6 +20,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django import forms
 
 # Create your views here.
 def index(request):
@@ -120,8 +121,10 @@ def forget_v(request):
     
     return render_to_response('change_password.html',{'form': form})
 
+
 def edit_profile(request):
     
+    current_email= request.user.email
     if request.method == 'POST':
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
@@ -129,28 +132,31 @@ def edit_profile(request):
         image_form = EditProfileImageForm(request.POST, request.FILES,instance= request.user.profile)
         
 
-        if user_form.is_valid():
-            user_form.save()
-            print("user_form valid")
+        if image_form.is_valid() and profile_form.is_valid() and user_form.is_valid():
+            user_form.save(commit=False)
+            username= user_form.cleaned_data.get('username')
+            email = user_form.cleaned_data.get('email').lower();
+            print(current_email)
+            print(request.user.email != email)
+            print(User.objects.filter(email=email).exists())
 
-            return redirect('profile')
-        if image_form.is_valid() and profile_form.is_valid():
+            try:
+                if current_email != email and User.objects.filter(email=email).exists():
+                    raise forms.ValidationError('This Email has been used, Email addresses must be unique.')
+                  
+                else:
+                    user_form.save()
+            except forms.ValidationError as e:
+                messages.error(request,e)
+                return redirect('application/editprofile')
+
             image_form.save()
-
             profile_form.save()
-            print("imaage valid")
-            print("profile_form valid")
+           
             return redirect('profile')
-        # if profile_form.is_valid():
-        #     profile_form.save()
-        #     print("profile_form valid")
-        #     return redirect('profile') 
-            
-            # pk = request.user.pk
-            # pk = str(pk)
-            
+  
         else:
-            return redirect('edit-profile')
+            return render(request,'edit_profile.html', {'user_form': user_form,'profile_form': profile_form,'image_form':image_form})
     else:
         profile_form = EditProfileForm(instance = request.user.profile)
         user_form=UserForm(instance = request.user)
@@ -215,7 +221,7 @@ def upload_book(request):
         return render(request,'upload_book.html', {'book_form': book_form})
 
 
-class ProfileView(generic.TemplateView):
+class ProfileView(LoginRequiredMixin,generic.TemplateView):
     model = Profile
     template_name ='Profile.html'
     def get_context_data(self, **kwargs):
