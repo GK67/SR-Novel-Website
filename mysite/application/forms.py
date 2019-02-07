@@ -95,8 +95,9 @@ class UploadBookForm(forms.ModelForm):
     author = forms.CharField(max_length=200)
     title = forms.CharField(required=True)
     bookImage =forms.FileField(required = False)
+
     class Meta:
         model = Book
         fields = ('title','author', 'summary', 'isbn',
-            'genre', 'wordCount', 'bookImage','bookFile')
+            'genre', 'bookImage','bookFile')
         # fields = ('title','author','summary','isbn','genre','wordCount','chapterCount','bookFile',)

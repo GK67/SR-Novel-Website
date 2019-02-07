@@ -67,10 +67,10 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre, help_text='Select multiple genres for this book')
     wordCount = models.IntegerField(default=0)
     chapterCount = models.IntegerField(default=0,blank=True,null=True)
-    bookFile = models.FileField(blank=True, null=True)
+    bookFile = models.FileField(blank=True, null=True,upload_to='book_files')
     like = models.IntegerField(default=0,blank=True,null=True)
     date_uploaded = models.DateTimeField(default = timezone.now)
-    bookImage = models.FileField(default ='default_book.jpg', upload_to='book_images') 
+    bookImage = models.ImageField(default ='default_book.jpg', upload_to='book_images') 
     created_author= models.ForeignKey(User,on_delete=models.SET_NULL, blank=True, null=True)
 
 

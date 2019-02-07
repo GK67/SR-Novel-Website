@@ -1,39 +1,39 @@
 {% extends "home_base.html" %}
 
-<!-- title -->
-{% block title%}<title>Edit Profile</title>{% endblock %}
+{% block title %}<title>Edit Profile</title>{% endblock %}
 
-{% load static %}
-
-<!-- css -->
-{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'application/editProfile/edit_profile.css' %}" />{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4 col-centered">
-      <h1 align="center">Upload book</h1>
-    </div>
-  </div>
+  <div class="container-fluid" style="margin-bottom: 60px;">
     <div class="row">
-      <div class="col-lg-7 col-centered">
-        <form method="post">
-          {% csrf_token %}
-          {{ book_form.as_p }}
-          
-              <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="submit" class="btn btn-primary" value="Save Changes">
-              <span></span>
-              
-              <!-- <input type="reset" class="btn btn-default" value="Cancel"> -->
-              <a href="{% url 'profile' %}" class="btn btn-default" value="Cancel">Cancel</a>
-              <!-- <div class="input"><a href="{% url 'profile' %}"></a></div> -->
-            </div>
-          </div>
-        </form>
+      <div class="col-lg-4 col-centered">
+        <h1 align="center">Upload book</h1>
       </div>
     </div>
-</div>
+
+    <div class="row">
+      <div class="col-lg-7 col-centered">
+
+        <form method="POST" enctype="multipart/form-data" >
+          {% csrf_token %}
+          {{ book_form|crispy }}
+          
+          <div class="form-group">     
+            <div class="col-md-8">
+
+              <input type="submit" class="btn btn-primary" value="Save Changes">
+
+              <a href="{% url 'profile' %}" class="btn btn-default" value="Cancel">Cancel</a>
+
+            </div>
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+
+  </div>
 {% endblock %}
