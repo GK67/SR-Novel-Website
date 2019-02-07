@@ -125,23 +125,25 @@ def edit_profile(request):
         profile_form = EditProfileForm(request.POST, instance = request.user.profile)
         user_form = UserForm(request.POST, instance=request.user)
         image_form = EditProfileImageForm(request.POST, request.FILES,instance= request.user.profile)
-        if profile_form.is_valid():
-            print("profile_form valid")
+        
         if user_form.is_valid():
-            print("user_form valid")
-        if image_form.is_valid():
-            print("imaage valid")
-        if profile_form.is_valid() and image_form.is_valid() and user_form.is_valid():
-            email = request.POST.get('email')
-            print(email)
-            print("valid")
-            profile_form.save()
             user_form.save()
-            image_form.save() 
+            print("user_form valid")
+            return redirect('profile')
+        if image_form.is_valid() and profile_form.is_valid():
+            image_form.save()
+            profile_form.save()
+            print("imaage valid")
+            print("profile_form valid")
+            return redirect('profile')
+        # if profile_form.is_valid():
+        #     profile_form.save()
+        #     print("profile_form valid")
+        #     return redirect('profile') 
             
             # pk = request.user.pk
             # pk = str(pk)
-            return redirect('profile')
+            
         else:
             return redirect('edit-profile')
     else:

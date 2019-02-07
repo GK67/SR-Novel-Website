@@ -39,15 +39,19 @@ class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = ('about_me',)
+    def has_changed(self, *args, **kwargs):
+        return True
 
 class EditProfileImageForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('profile_image',) 
+        fields = ('profile_image',)
+    def has_changed(self, *args, **kwargs):
+        return True 
 
 class UserForm(forms.ModelForm):
     email = forms.EmailField(required=True ,max_length=254, help_text='Required and Unique. Inform a valid email address.')
-    username = forms.CharField(help_text='Unique name or Unchanged name')
+    username = forms.CharField(required=True ,help_text='Unique name or Unchanged name')
     class Meta:
         model = User
         fields = ( 'email', 'username')
@@ -57,7 +61,22 @@ class UserForm(forms.ModelForm):
         username = self.cleaned_data.get('username')
         if email and User.objects.filter(email=email).exclude(username=username).exists():
             raise forms.ValidationError(u'Email addresses must be unique.')
-        return email   
+        return email 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        return username
+    def save(self, commit=True):
+        user = super(UserForm, self).save(commit=False)
+        user.email = self.cleaned_data('email')
+        user.username = self.cleaned_data('username')
+
+        
+        user.username.save()
+        user.email.save()
+
+        return user
+    def has_changed(self, *args, **kwargs):
+        return True
 # class PasswordChangeForm(forms.ModelForm):
 #     class Meta:
 #         model = User
