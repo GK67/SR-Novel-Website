@@ -119,40 +119,58 @@ Give examples
 
 
 ### 5. Details and Design Of Website, like memtioned before we are not super focus on front-end (UI Folder)
+Of course, their are more page that we did not show over here.
 
 5.1 Main page
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/index.png?raw=true)
 
-5.2 Account Drop Down (If user logged, then it will show username, otherwise will show "login" allow user to login
+5.2 User Part (The only part that We do not user default form style, instead using free templates to connect our back-end)
+5.2.1 Create Account 
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Create%20Account%20Page.png?raw=true)
+
+5.2.2 Login Page
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Login%20Page.png?raw=true)
+
+5.2.3 Reset Password by receive email from website
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Email%20Send.png?raw=true email send)
+
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Email%20from%20website.png?raw=true)
+
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Password%20Reset%20Page.png?raw=true)
+
+5.3 Account Drop Down (If user logged, then it will show username, otherwise will show "login" allow user to login
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Account%20Drop%20Down.png?raw=true)
 
-5.3 Book Detail Page (If user is author It will show update book and add new chapter button)
+5.4 Book Detail Page (If user is author It will show update book and add new chapter button)
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Book%20Detai%20Page%20with%20Author.png?raw=true)
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Book%20Detail%20Page.png?raw=true)
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Chapter%20List%20Botton%20side%20of%20Book%20Detail%20Page.png?raw=true)
 
-5.4 Book Library Page which contains all the book in the website
+5.5 Book Library Page which contains all the book in the website
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Book%20Library.png?raw=true)
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Book%20Library%20Bottom%20side.png?raw=true)
 
-5.5 Book Upload Page allow user Create book
+5.6 Book Upload Page allow user Create book
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Book%20Update%20Page.png?raw=true)
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Book%20Update%20Page%20bottom%20side.png?raw=true)
 
-5.6 Book content page (different if user is author or not) 
+5.7 Book content page (different if user is author or not) 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Content%20Page%20not%20author.png?raw=true)
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Content%20page%20author.png?raw=true)
 
 
-5.7 Chapter Delete and Upload Page (if User is the author of this book, he will have permission to do this 
+5.8 Chapter Delete and Upload Page (if User is the author of this book, he will have permission to do this 
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Chapter%20Delete%20Page.png?raw=true)
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Chapter%20Update%20Page.png?raw=true)
+
+5.9 Profile Page
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/ProfilePage2.png?raw=false)
 
 
 
