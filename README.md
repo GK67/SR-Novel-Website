@@ -2,5 +2,5 @@
 1.A website design based on Django,bootstrap...etc
 
 
-![alt text](https://github.com/GK67/SR-Novel-Website/UI/index.png)
+![alt text](https://github.com/GK67/SR-Novel-Website/SR-Novel-Website/UI/index.png)
       
