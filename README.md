@@ -17,6 +17,20 @@ As the development of SR-Novel Websit goes, we first have an idea on creating a 
 
 Our project uses Django, bootstrap, and existed website templates to implement a website. With the desire of having a well-formed Front-End, the revised templates of our website are needed. However, the project does not mainly focus on Front-End. As result, we put more effors on securing urls of website and implementing functional services that website provides. More details of the website will appear on the section of UI Design.
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
 
 2. Project Run requirement
 
