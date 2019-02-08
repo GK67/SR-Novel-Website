@@ -72,10 +72,7 @@ The detail figures of the running website will be in the UI secction.
 
 
 ## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Django, Python, HTML, CSS, javascript
 
 ## Contributing
 
@@ -94,23 +91,6 @@ See also the list of [contributors](https://github.com/your/project/contributors
 * etc
 
 
-
-2. Project Run requirement
-
-
-
-
-3. Project Set up steps, assume your Python and Django are installed
-
-3.1 workon my_django_environment
-
-3.2 Pip install Pillow(first time)
-
-3.3 Pip install django-crispy-forms(first time)
-
-3.4 Py manage.py runserver( in the directory that has manage.py file)
-
-3.5 Enter 127.0.0.1:8000 on browser.
 
 
 ### 4. Website Features
