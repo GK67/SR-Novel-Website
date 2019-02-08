@@ -48,12 +48,12 @@ def index(request):
     }
 
 
-    genre1_top6_books=Book.objects.filter(genre = genres[0]).order_by('-wordCount')[:6]
-    genre2_top6_books=Book.objects.filter(genre = genres[1]).order_by('-wordCount')[:6]
-    genre3_top6_books=Book.objects.filter(genre = genres[2]).order_by('-wordCount')[:6]
-    genre4_top6_books=Book.objects.filter(genre = genres[3]).order_by('-wordCount')[:6]
-    genre5_top6_books=Book.objects.filter(genre = genres[4]).order_by('-wordCount')[:6]
-    genre6_top6_books=Book.objects.filter(genre = genres[5]).order_by('-wordCount')[:6]
+    genre1_top6_books=Book.objects.filter(genre = genres[0]).order_by('-like','wordCount')[:6]
+    genre2_top6_books=Book.objects.filter(genre = genres[1]).order_by('-like','wordCount')[:6]
+    genre3_top6_books=Book.objects.filter(genre = genres[2]).order_by('-like','wordCount')[:6]
+    genre4_top6_books=Book.objects.filter(genre = genres[3]).order_by('-like','wordCount')[:6]
+    genre5_top6_books=Book.objects.filter(genre = genres[4]).order_by('-like','wordCount')[:6]
+    genre6_top6_books=Book.objects.filter(genre = genres[5]).order_by('-like','wordCount')[:6]
    
     context['Horror']=genre1_top6_books
     context['Satire']=genre2_top6_books
@@ -106,6 +106,7 @@ def signup(request):
     
     return render_to_response('SignUp.html',{'form': form})
 
+#not implement yet
 def forget_v(request):
     if request.method =='GET':
         form = ForgetForm(request.GET)

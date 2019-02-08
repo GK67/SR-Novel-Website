@@ -52,7 +52,7 @@ class UserForm(forms.ModelForm):
         fields = ( 'email', 'username')
 
 
-
+#not implement yet 
 class ForgetForm(forms.Form):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
