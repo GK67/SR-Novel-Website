@@ -1,14 +1,18 @@
 Read me:
 # SR-Novel-Website
 1. Overview 
+
 1.1 Member:    Shipeng Yu, Ruifeng Zhang
+
 1.2 Goal:     Practicing Python, Django, bootstrap and other HTML, CSS design.
+
 1.3 Website purpose:    	A website that allows people share books by uploading chapters of books, and other people can read each chapter of books, instead open a PDF with full book content. 
 (Of course , in real life, we can not do this, this is just for practice purpose.)
-
 Due to technique issues, We can not automatically convert a PDF file with chapters of book to  HTML formatting files, therefore, user have to manually upload those chapters. We can do it by develop some applications, but the goal is practicing web development.
 
+
 1.4 Website Design:	This website build mainly based on Django,bootstrap. The project is not super focus on Front-end part, all the front-end part are based on free templates from online or bootstrap Component related, Details will explained on UI Design part.
+
 
 2. Project Run requirement
 
