@@ -53,9 +53,9 @@ Give examples
 3.5 Enter 127.0.0.1:8000 on browser.
 
 
-4. Website Features
+### 4. Website Features
 
-4.1 User
+### 4.1 User
 
 4.1.1 Sign up
 
@@ -90,7 +90,7 @@ Give examples
 4.1.9.7 Number of Created book
 
 
-4.2Book
+### 4.2Book
 
 4.2.1 Book Chapters/content
 
@@ -115,7 +115,7 @@ Give examples
 4.2.2.9 Summary
 
 
-5. Details and Design Of Website, like memtioned before we are not super focus on front-end
+### 5. Details and Design Of Website, like memtioned before we are not super focus on front-end
 
 5.1 Main page
 
