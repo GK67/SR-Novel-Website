@@ -59,11 +59,6 @@ urlpatterns = [
     path('books/book/<book_id>/chapters/<int:pk>/removeMarker', removeMarker, name="removeMarker"),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
-    #path('index/', index, name = 'index'),
-    #path('signup/',SignUpView.as_view(),name='signup'),
-
-    #url(r'^$', views.index, name='index'),
-     #url(r'^(?P<playlist-id>\d/+)$', views.index, name='select_playlist'),
      
 ]
 

@@ -228,13 +228,6 @@ class ProfileView(LoginRequiredMixin,generic.TemplateView):
 
 
 
-
-
-
-class editProfileView(generic.TemplateView):
-    template_name ='editProfile.html'
-
-
 class BookListView(ListView):
     model = Book
     template_name= 'application/book_list.html'
@@ -289,7 +282,7 @@ class BookDetailView(DetailView):
         self.object.save()
         context['markers']=book_chapters
         book = self.get_object()
-        print(book)
+        #print(book)
         if self.request.user == book.created_author:
             context['author'] = self.request.user
         # print(self.get_object().genre.all())
@@ -407,8 +400,8 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
         chapter= self.get_object()
         ChapterDeleteView.book_object= chapter.book
         current_length= len(self.get_object().content.split())
-        print("test_func+")
-        print(current_length)
+        #print("test_func+")
+        #print(current_length)
         if self.request.user == chapter.book.created_author:
             return True
         return False
@@ -456,12 +449,12 @@ def addFavorite(request, book_id):
 
     user = request.user.profile
     book_object= Book.objects.get(id = book_id)
-    print(book_object.like)
+    #print(book_object.like)
     if not user.favorite.filter(pk=book_id).exists():
         user.favorite.add(book_id)
         book_object.like=book_object.like+1
         book_object.save()
-        print(book_object.like)
+       # print(book_object.like)
     user.save()
     next = request.GET.get('next', '/')
     return redirect(next)
