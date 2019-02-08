@@ -1,17 +1,21 @@
-Read me:
 # SR-Novel-Website
-1. Overview 
+## 1. Overview 
 
-1.1 Member:    Shipeng Yu, Ruifeng Zhang
+### 1.1 Member:    
+        Shipeng Yu, Ruifeng Zhang
 
-1.2 Goal:     Practicing Python, Django, bootstrap and other HTML, CSS design.
+### 1.2 Goal:  
 
-1.3 Website purpose:    	A website that allows people share books by uploading chapters of books, and other people can read each chapter of books, instead open a PDF with full book content. 
-(Of course , in real life, we can not do this, this is just for practice purpose.)
-Due to technique issues, We can not automatically convert a PDF file with chapters of book to  HTML formatting files, therefore, user have to manually upload those chapters. We can do it by develop some applications, but the goal is practicing web development.
+Using Python, Django, bootstrap and other HTML, and CSS, to build a website that extends our knowledge of developing websites.
+
+### 1.3 Website purpose:    	
+   
+As the development of SR-Novel Websit goes, we first have an idea on creating a website, that allows users to share their books by uploading each chapters of books.  After that, users can just read through each chapters of books which they like. Users can enjoy reading through our website.  However, it is not a good idea to just share book directly due to copyright of books.  As result, we decide to focus on a purpose to let users to write and share their own books on our websites. Each user can be a writer. They just write what ever they like.  If one of writer finds a book is interesting, they can just click a like.  As the process goes, our website will develop a new community of new writers for writing books.  It can also a place to inspire writers with new idea of writing a book.
 
 
-1.4 Website Design:	This website build mainly based on Django,bootstrap. The project is not super focus on Front-end part, all the front-end part are based on free templates from online or bootstrap Component related, Details will explained on UI Design part.
+### 1.4 Website Design:	
+
+This website build mainly based on Django,bootstrap. The project is not super focus on Front-end part, all the front-end part are based on free templates from online or bootstrap Component related, Details will explained on UI Design part.
 
 
 2. Project Run requirement
