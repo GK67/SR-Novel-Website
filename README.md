@@ -42,7 +42,7 @@ Give examples
 
 2.4 Environment Variables are required
 
-
+![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/Environment%20set.png?raw=true)
 3. Project Set up steps, assume your Python and Django are installed
 
 3.1 workon my_django_environment
