@@ -72,28 +72,11 @@ The detail figures of the running website will be in the UI secction.
 
 
 ## Built With
-Django, Python, HTML, CSS, javascript
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Django, Python, HTML, CSS, Javascript
 
 
 
-
-### 4. Website Features
+## UI(User Interface) Section
 
 ### 4.1 User
 
@@ -210,6 +193,8 @@ Of course, their are more page that we did not show over here.
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/ProfilePage2.png?raw=false)
 
 
+## Acknowledgments
+Inspire by the online novel websites
 
 
 
