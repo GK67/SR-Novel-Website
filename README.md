@@ -1,2 +1,6 @@
 # SR-Novel-Website
-a website design based on Django
+1.A website design based on Django,bootstrap...etc
+
+
+![Screenshot](SR-Novel-Website/UI/index.png)
+      

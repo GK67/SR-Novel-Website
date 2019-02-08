@@ -11,7 +11,7 @@ admin.site.register(Profile,ProfileAdmin)
 #admin.site.register(Book)
 class BookAdmin(admin.ModelAdmin):
 
-	list_display = ('title', 'display_author','chapterCount', 'display_genre', 'wordCount', 'isbn','like')
+	list_display = ('title', 'display_author','chapterCount', 'display_genre', 'wordCount', 'isbn','like','bookFile')
 
 admin.site.register(Book,BookAdmin)
 

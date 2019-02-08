@@ -406,12 +406,28 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
     def test_func(self):
         chapter= self.get_object()
         ChapterDeleteView.book_object= chapter.book
-
+        current_length= len(self.get_object().content.split())
+        print("test_func+")
+        print(current_length)
         if self.request.user == chapter.book.created_author:
             return True
         return False
 
-    def get_success_url(self):
+    def get_success_url(self,):
+        book_id = self.kwargs['book_id']
+        
+        current_length= len(self.get_object().content.split())
+        
+        
+        wordCount=self.get_object().book.wordCount
+        
+        wordCount = wordCount - current_length
+        
+        book_object= Book.objects.get(id = book_id)
+        book_object.wordCount = wordCount
+        
+        book_object.save()
+        
         return reverse('book-detail', args=[str(ChapterDeleteView.book_object.id)])
 
 
