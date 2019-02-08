@@ -74,27 +74,27 @@ Due to technique issues, We can not automatically convert a PDF file with chapte
 
 4.2Book
 
-4.2.1Book Chapters/content
+4.2.1 Book Chapters/content
 
-4.2.2Book Detail
+4.2.2 Book Detail
 
-4.2.2.1Title
+4.2.2.1 Title
 
-4.2.2.2Author
+4.2.2.2 Author
 
-4.2.2.3Genre
+4.2.2.3 Genre
 
-4.2.2.4Like Number
+4.2.2.4 Like Number
 
-4.2.2.5ISBN
+4.2.2.5 ISBN
 
-4.2.2.6Word Count
+4.2.2.6 Word Count
 
-4.2.2.7Chapter Count
+4.2.2.7 Chapter Count
 
-4.2.2.8Date upload
+4.2.2.8 Date upload
 
-4.2.2.9Summary
+4.2.2.9 Summary
 
 
 
