@@ -10,7 +10,7 @@ Using Python, Django, bootstrap and other HTML, and CSS, to build a website that
 
 ### 1.3 Website purpose:    	
    
-As the development of SR-Novel Websit goes, we first have an idea on creating a website, that allows users to share their books by uploading each chapters of books.  After that, users can just read through each chapters of books which they like. Users can enjoy reading through our website.  However, it is not a good idea to just share book directly due to copyright of books.  As result, we decide to focus on a purpose to let users to write and share their own books on our websites. Each user can be a writer. They just write what ever they like.  If one of writer finds a book is interesting, they can just click a like.  As the process goes, our website will develop a new community of new writers for writing books.  It can also a place to inspire writers with new idea of writing a book.
+As the development of SR-Novel Websit goes, we first have an idea on creating a website, that allows users to share their books by uploading each chapters of books.  After that, users can just read through each chapters of books which they like. Users can enjoy reading through our website.  However, it is not a good idea to just share book directly due to copyright of books.  As result, we decide to focus on a purpose to let users to write and share their own books on our websites. Each user can be a writer. They just write what ever they like.  If one of writer finds a book is interesting, they can just click a like.  As the process goes, our website will develop a new community of new writers for writing books.  It can also be a place to inspire writers with new idea of writing a book.
 
 
 ### 1.4 Website Design:	
