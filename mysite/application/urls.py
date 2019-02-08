@@ -18,6 +18,9 @@ urlpatterns = [
 	path('', views.index, name='index'),
 	url(r'^login/$', views.login, name = 'login'),
 	url(r'^signup/$', views.signup, name = 'signup'),
+
+	#accessiable, but not partof the real functioning of this project
+	#this is a practice to help to extend the project 
 	url(r'^forget/$', views.forget_v, name = 'forget_u'),
 
 	url(r'^password-reset/$', 
