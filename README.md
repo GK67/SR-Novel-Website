@@ -97,6 +97,8 @@ Due to technique issues, We can not automatically convert a PDF file with chapte
 4.2.2.9 Summary
 
 
+5. Details and Design Of Website, like memtioned before we are not super focus on front-end
 
+5.1 Main page
 
 ![alt text](https://github.com/GK67/SR-Novel-Website/blob/master/UI/index.png?raw=true)
