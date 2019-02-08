@@ -115,7 +115,7 @@ Give examples
 4.2.2.9 Summary
 
 
-### 5. Details and Design Of Website, like memtioned before we are not super focus on front-end
+### 5. Details and Design Of Website, like memtioned before we are not super focus on front-end (UI Folder)
 
 5.1 Main page
 
