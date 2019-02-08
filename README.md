@@ -15,7 +15,7 @@ As the development of SR-Novel Websit goes, we first have an idea on creating a 
 
 ### 1.4 Website Design:	
 
-This website build mainly based on Django,bootstrap. The project is not super focus on Front-end part, all the front-end part are based on free templates from online or bootstrap Component related, Details will explained on UI Design part.
+Our project uses Django, bootstrap, and existed website templates to implement a website. With the desire of having a well-formed Front-End, the revised templates of our website are needed. However, the project does not mainly focus on Front-End. As result, we put more effors on securing urls of website and implementing functional services that website provides. More details of the website will appear on the section of UI Design.
 
 
 2. Project Run requirement
