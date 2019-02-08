@@ -48,12 +48,12 @@ def index(request):
     }
 
 
-    genre1_top6_books=Book.objects.filter(genre = genres[0]).order_by('-wordCount')[:6]
-    genre2_top6_books=Book.objects.filter(genre = genres[1]).order_by('-wordCount')[:6]
-    genre3_top6_books=Book.objects.filter(genre = genres[2]).order_by('-wordCount')[:6]
-    genre4_top6_books=Book.objects.filter(genre = genres[3]).order_by('-wordCount')[:6]
-    genre5_top6_books=Book.objects.filter(genre = genres[4]).order_by('-wordCount')[:6]
-    genre6_top6_books=Book.objects.filter(genre = genres[5]).order_by('-wordCount')[:6]
+    genre1_top6_books=Book.objects.filter(genre = genres[0]).order_by('-like','wordCount')[:6]
+    genre2_top6_books=Book.objects.filter(genre = genres[1]).order_by('-like','wordCount')[:6]
+    genre3_top6_books=Book.objects.filter(genre = genres[2]).order_by('-like','wordCount')[:6]
+    genre4_top6_books=Book.objects.filter(genre = genres[3]).order_by('-like','wordCount')[:6]
+    genre5_top6_books=Book.objects.filter(genre = genres[4]).order_by('-like','wordCount')[:6]
+    genre6_top6_books=Book.objects.filter(genre = genres[5]).order_by('-like','wordCount')[:6]
    
     context['Horror']=genre1_top6_books
     context['Satire']=genre2_top6_books
@@ -106,6 +106,7 @@ def signup(request):
     
     return render_to_response('SignUp.html',{'form': form})
 
+#not implement yet
 def forget_v(request):
     if request.method =='GET':
         form = ForgetForm(request.GET)
@@ -228,13 +229,6 @@ class ProfileView(LoginRequiredMixin,generic.TemplateView):
 
 
 
-
-
-
-class editProfileView(generic.TemplateView):
-    template_name ='editProfile.html'
-
-
 class BookListView(ListView):
     model = Book
     template_name= 'application/book_list.html'
@@ -289,7 +283,7 @@ class BookDetailView(DetailView):
         self.object.save()
         context['markers']=book_chapters
         book = self.get_object()
-        print(book)
+        #print(book)
         if self.request.user == book.created_author:
             context['author'] = self.request.user
         # print(self.get_object().genre.all())
@@ -389,7 +383,7 @@ class ChapterUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView ):
         
         self.objects.book.wordCount= total_length- current_length+ new_length
         self.objects.book.save()
-
+        
         return super().form_valid(form)
 
     def test_func(self):
@@ -407,24 +401,11 @@ class ChapterDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView):
         chapter= self.get_object()
         ChapterDeleteView.book_object= chapter.book
         current_length= len(self.get_object().content.split())
-        print("test_func+")
-        print(current_length)
+        #print("test_func+")
+        #print(current_length)
         if self.request.user == chapter.book.created_author:
             return True
         return False
-    def form_valid(self, form,**kwargs):
-        current_length= len(self.get_object().content.split())
-        print("form_valid")
-        print(current_length)
-        self.objects = form.save(commit=False)
-        self.objects.save()
-        
-        self.objects.book.wordCount-= current_length
-        print("form_valid")
-        print(self.objects.book.wordCount)
-        self.objects.book.save()
-        
-        return super().form_valid(form)
 
     def get_success_url(self,):
         book_id = self.kwargs['book_id']
@@ -469,12 +450,12 @@ def addFavorite(request, book_id):
 
     user = request.user.profile
     book_object= Book.objects.get(id = book_id)
-    print(book_object.like)
+    #print(book_object.like)
     if not user.favorite.filter(pk=book_id).exists():
         user.favorite.add(book_id)
         book_object.like=book_object.like+1
         book_object.save()
-        print(book_object.like)
+       # print(book_object.like)
     user.save()
     next = request.GET.get('next', '/')
     return redirect(next)

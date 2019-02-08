@@ -18,6 +18,9 @@ urlpatterns = [
 	path('', views.index, name='index'),
 	url(r'^login/$', views.login, name = 'login'),
 	url(r'^signup/$', views.signup, name = 'signup'),
+
+	#accessiable, but not partof the real functioning of this project
+	#this is a practice to help to extend the project 
 	url(r'^forget/$', views.forget_v, name = 'forget_u'),
 
 	url(r'^password-reset/$', 
@@ -59,11 +62,6 @@ urlpatterns = [
     path('books/book/<book_id>/chapters/<int:pk>/removeMarker', removeMarker, name="removeMarker"),
 	# url(r'^profile/editProfile/$',views.editProfileView.as_view(),name='editProfile'),
 
-    #path('index/', index, name = 'index'),
-    #path('signup/',SignUpView.as_view(),name='signup'),
-
-    #url(r'^$', views.index, name='index'),
-     #url(r'^(?P<playlist-id>\d/+)$', views.index, name='select_playlist'),
      
 ]
 

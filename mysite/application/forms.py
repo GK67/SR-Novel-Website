@@ -27,13 +27,6 @@ class SignUpForm(UserCreationForm):
             raise forms.ValidationError("This email already used")
         return email_data
 
-# class LoginForm(AuthenticationForm):
-#     username = forms.CharField(max_length=30, required=True, help_text='Required field.')
-#     password = forms.CharField(max_length=30, required=True, help_text='Required field.')
-
-#     class Meta:
-#         model = User
-#         fields = ('username','password')
 
 class EditProfileForm(ModelForm):
     class Meta:
@@ -58,25 +51,8 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ( 'email', 'username')
 
-    '''def clean_username(self):
-        username = self.cleaned_data.get('username')
-        return username
-    def save(self, commit=True):
-        user = super(UserForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
-        user.username = self.cleaned_data['username']
 
-        
-        user.save()
-
-        return user
-    def has_changed(self, *args, **kwargs):
-        return True'''
-# class PasswordChangeForm(forms.ModelForm):
-#     class Meta:
-#         model = User
-#         fields = ('password',)
-
+#not implement yet 
 class ForgetForm(forms.Form):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
 
