@@ -19,33 +19,56 @@ Our project uses Django, bootstrap, and existed website templates to implement a
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions to run the project will be int the follwoing under Windows10 Operating System.
 
-### Project Run requiremen
+### Project Run requirement
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+        The latest version of Python3
+        The latest version of Django
+        Download packages tool pip
+        Django packages with Crispy Forms and Pillow
+        Setting Environment Variables
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+ 1. Installing Python3 and Django.
+        The following website will have the full instruction to download Python3, pip, and Django
+        https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment
 
-Say what the step will be
+ 2.  Make a copy of current project to your local machine
+ 
+ 3. Having a running Command Prompt, and swtich intto the project folder with manage.py file
+ 
+ 4. Before running the program, two packages and two environment variables need to be set up
+ 
+ 5. Run following commands to install two packages, Crispy Forms and Pillow
+ 
+        pip install Pillow
+        pip install django-crispy-forms
+ 6. Setting environment variables for your real email address and password
+ 
+        1) search for environment variables in your windows10 machine
+        2) go to advance setting, and then click on evironment variables
+        3) click on new to create a new environment variable, 
+        set the variable name as [EMAIL_USERNAME] with value, [your email address]. 
+        4) save the previous variable, then create another new variable 
+        with name [EMAIL_PASSWORD], and value [your email password]
+        5) Again save the variable for password, it is better to close the 
+        Command Prompt and reopen it again to let the environment take effect.
+        It may fail the setting without reopen the Command Prompt
+        
+ 7. Now in the Command Prompt, you can run following command to run the project
+ 
+        py -3 manage.py runserver
+        
+ 8. Enter following address on your blowser
+ 
+        127.0.0.1:8000/
+        
+ 9. You are now able to running the website from browser in your local machine
+ 
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+The detail figures of the running website will be in the UI secction.
 
 
 ## Built With
@@ -74,13 +97,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 2. Project Run requirement
 
-2.1 The latest version of Python3 is prefered
 
-2.2 The latest version of Django is prefered.
-
-2.3 Django Crispy Forms and Pillow are required
-
-2.4 Environment Variables are required
 
 
 3. Project Set up steps, assume your Python and Django are installed
